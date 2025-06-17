@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+import Image from 'next/image'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { getAllPosts, getPostBySlug, BlogPost } from '@/lib/blog'
@@ -43,9 +44,21 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
     pre: (props: any) => (
       <pre className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg overflow-x-auto mb-4 border border-neutral-200 dark:border-neutral-700" {...props} />
     ),
-    img: (props: any) => (
-      <img className="rounded-lg mb-4 w-full" {...props} />
-    ),
+    img: (props: any) => {
+      // Use Next.js Image component with proper width/height and alt
+      return (
+        <div className="relative w-full h-[400px] mb-4">
+          <Image 
+            className="rounded-lg object-cover" 
+            src={props.src} 
+            alt={props.alt || 'Blog post image'} 
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={props.priority === 'true'}
+          />
+        </div>
+      )
+    },
   }
 
   return (
