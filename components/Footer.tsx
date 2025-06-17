@@ -1,6 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 import { Mail, MapPin, Phone, Github, Twitter, Linkedin } from 'lucide-react'
+import dynamic from 'next/dynamic'
+
+// Dynamically import Image component with SSR disabled to prevent hydration errors
+const Image = dynamic(() => import('next/image'), { ssr: false })
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear()
@@ -12,13 +16,21 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">SL</span>
+              {/* Replace with your logo - update the path to match your actual logo file */}
+              <div className="relative w-16 h-16">
+                <Image 
+                  src="/images/saturne_lab_logo.png" 
+                  alt="Saturne Lab Logo" 
+                  width={64} 
+                  height={64} 
+                  className="object-contain"
+                  priority
+                />
               </div>
               <span className="text-xl font-bold text-white">SATURNE LAB</span>
             </div>
             <p className="text-sm text-neutral-400">
-              Empowering data-driven growth in the Democratic Republic of Congo through 
+              Empowering data-driven growth in Africa, particularly in the Democratic Republic of the Congo through 
               innovative analytics, strategic insights, and capacity building.
             </p>
             <div className="flex space-x-4">

@@ -3,7 +3,8 @@ import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import { getAllPosts, getAllCategories, BlogPost } from '@/lib/blog'
-import { Search, Calendar, User, Tag, Clock } from 'lucide-react'
+import { Search, Calendar, User, Tag, Clock, Mail } from 'lucide-react'
+import NewsletterForm from '@/components/NewsletterForm'
 
 interface BlogIndexProps {
   posts: BlogPost[]
@@ -175,18 +176,19 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Newsletter Section */}
       <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Mail className="h-10 w-10 text-white mx-auto mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Stay Updated
           </h2>
           <p className="text-xl text-primary-100 mb-8">
             Get the latest insights and updates from our data science experts.
           </p>
-          <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 inline-block">
-            Subscribe to Updates
-          </Link>
+          <div className="mx-auto inline-block">
+            <NewsletterForm className="bg-white p-4 rounded-lg shadow-lg max-w-md" />
+          </div>
         </div>
       </section>
     </Layout>

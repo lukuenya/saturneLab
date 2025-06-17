@@ -1,33 +1,33 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import { ArrowRight, Database, TrendingUp, Users, BookOpen, CheckCircle } from 'lucide-react'
+import { ArrowRight, Database, TrendingUp, Users, BookOpen, CheckCircle, Target } from 'lucide-react'
 
 const HomePage: React.FC = () => {
   const services = [
     {
       icon: <Database className="h-8 w-8 text-primary-600" />,
       title: "Data Collection",
-      description: "Secure workflows to gather high-quality client and public data with robust methodologies.",
-      features: ["Secure data pipelines", "Quality assurance", "Compliance standards"]
+      description: "Secure, end-to-end pipelines to gather the exact data you need.",
+      features: ["Custom surveys & data integration", "Automated quality checks", "Scalable infrastructure"]
     },
     {
       icon: <TrendingUp className="h-8 w-8 text-primary-600" />,
       title: "Strategic Insights",
-      description: "Analytics, predictive modeling & optimization to guide critical business decisions.",
-      features: ["Predictive analytics", "Business intelligence", "Decision optimization"]
+      description: "Actionable analytics and predictive models to stay ahead of the curve.",
+      features: ["Descriptive dashboards", "Machine-learning forecasts", "Optimization algorithms"]
+    },
+    {
+      icon: <Target className="h-8 w-8 text-primary-600" />,
+      title: "Optimization & Recommendations",
+      description: "Data-driven plans that translate insight into real results.",
+      features: ["Scenario analysis", "Priority ranking", "Clear implementation roadmaps"]
     },
     {
       icon: <Users className="h-8 w-8 text-primary-600" />,
       title: "Capacity Building",
-      description: "Academic support & hands-on workshops to empower your team with data skills.",
-      features: ["Training programs", "Academic partnerships", "Skill development"]
-    },
-    {
-      icon: <BookOpen className="h-8 w-8 text-primary-600" />,
-      title: "Knowledge Sharing",
-      description: "MDX-powered blog 'Nous Lire' and community events to foster learning.",
-      features: ["Technical blog", "Community events", "Best practices"]
+      description: "Empower your team with hands-on training and academic support.",
+      features: ["Technical workshops", "Thesis coaching", "Custom in-house programs"]
     }
   ]
 
@@ -51,7 +51,7 @@ const HomePage: React.FC = () => {
               </span>
             </h1>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              From collection to insights – tailored solutions for businesses & academia. 
+              From collection to insights – tailored solutions for government services, businesses & academia. 
               We transform raw data into strategic advantages that drive sustainable growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -133,14 +133,14 @@ const HomePage: React.FC = () => {
       <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Data?
+            Ready to Drive Smarter Decisions?
           </h2>
           <p className="text-xl text-primary-100 mb-8">
             Join leading organizations in DRC who trust Saturne Lab for their data science needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
-              Start Your Project
+              Book a Discovery Call
             </Link>
             <Link href="/blog" className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
               Read Our Blog

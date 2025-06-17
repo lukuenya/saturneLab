@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { Menu, X, Moon, Sun } from 'lucide-react'
+import { Sun, Moon, Menu, X } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 const Header: React.FC = () => {
@@ -25,10 +26,18 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">SL</span>
+              {/* Logo with increased size */}
+              <div className="relative w-16 h-16">
+                <Image 
+                  src="/images/saturne_lab_logo.png" 
+                  alt="Saturne Lab Logo" 
+                  width={64} 
+                  height={64} 
+                  className="object-contain"
+                  priority
+                />
               </div>
-              <span className="text-xl font-bold text-neutral-900 dark:text-white">
+              <span className="text-xl font-bold text-primary-700 dark:text-primary-400">
                 SATURNE LAB
               </span>
             </Link>
