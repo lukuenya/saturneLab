@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '@/components/Layout'
+import Link from 'next/link'
 import { Users, Target, Award, Globe } from 'lucide-react'
 
 const AboutPage: React.FC = () => {
@@ -28,22 +29,22 @@ const AboutPage: React.FC = () => {
 
   const team = [
     {
-      name: "Dr. Marie Kabila",
-      role: "Founder & Chief Data Scientist",
-      bio: "PhD in Statistics with 10+ years experience in data science and machine learning. Former researcher at University of Kinshasa.",
-      image: "/team/marie.jpg"
+      name: "Matthieu Ndumbi",
+      role: "Founder & Data Scientist",
+      bio: "M.Eng in Electrical & Computer Engineering with experience in data science and machine learning. Former Postgraduate Researcher at Centre Borelli ENS Paris-Saclay.",
+      image: "/team/matt.jpg"
     },
     {
-      name: "Jean-Paul Mukendi",
-      role: "Lead Data Engineer",
-      bio: "Expert in data infrastructure and pipeline development. Previously worked with international NGOs on data systems.",
-      image: "/team/jean-paul.jpg"
+      name: "Jacques Bakole",
+      role: "Co-Founder & Chief Analyst",
+      bio: "Master in Quantitative Economics with experience statistical analysis and data visualization. Reseacher and lecturer at UPN Kinshasa.",
+      image: "/team/jacques.jpg"
     },
     {
-      name: "Sarah Mbuyi",
+      name: "Maurice Nkanka",
       role: "Business Intelligence Analyst",
       bio: "Specializes in business analytics and visualization. MBA from UNIKIN with focus on data-driven business strategy.",
-      image: "/team/sarah.jpg"
+      image: "/team/maurice.jpg"
     },
     {
       name: "David Tshiaba",
@@ -175,11 +176,11 @@ const AboutPage: React.FC = () => {
             Ready to Work Together?
           </h2>
           <p className="text-xl text-primary-100 mb-8">
-            Let's discuss how we can help transform your organization through data-driven insights.
+            Let&apos;s discuss how we can help transform your organization through data-driven insights.
           </p>
-          <a href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 inline-block">
+          <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 inline-block">
             Get in Touch
-          </a>
+          </Link>
         </div>
       </section>
     </Layout>

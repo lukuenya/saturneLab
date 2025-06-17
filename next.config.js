@@ -8,15 +8,14 @@ const withMDX = require('@next/mdx')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: false,
-  },
+  // Removed deprecated experimental options
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   images: {
     domains: ['localhost'],
   },
   env: {
-    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+    // Make GA ID optional with a default empty string
+    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID || '',
   },
 }
 
