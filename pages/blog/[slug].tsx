@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -6,6 +6,12 @@ import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { getAllPosts, getPostBySlug, BlogPost } from '@/lib/blog'
 import { Calendar, User, Clock, Tag, ArrowLeft } from 'lucide-react'
+import dynamic from 'next/dynamic'
+
+// Dynamically import icons with SSR disabled to prevent hydration errors
+const Linkedin = dynamic(() => import('lucide-react').then(mod => mod.Linkedin), { ssr: false })
+const Twitter = dynamic(() => import('lucide-react').then(mod => mod.Twitter), { ssr: false })
+const Github = dynamic(() => import('lucide-react').then(mod => mod.Github), { ssr: false })
 
 interface BlogPostPageProps {
   post: BlogPost
@@ -48,7 +54,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
       description={post.description}
     >
       {/* Back Navigation */}
-      <div className="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800">
+      <div className="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link 
             href="/blog"
@@ -127,18 +133,40 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
                 </p>
               </div>
               <div className="flex space-x-4">
-                <Link
-                  href="/contact"
-                  className="btn-primary"
+                <a
+                  href="https://www.linkedin.com/in/saturnelab/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
                 >
-                  Get in Touch
-                </Link>
-                <Link
-                  href="/blog"
-                  className="btn-secondary"
+                  {/* Wrap icon in a client-side only component */}
+                  <span className="inline-flex mr-2">
+                    <Linkedin className="h-4 w-4" />
+                  </span>
+                  LinkedIn
+                </a>
+                <a
+                  href="https://twitter.com/saturnelab"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
                 >
-                  More Articles
-                </Link>
+                  <span className="inline-flex mr-2">
+                    <Twitter className="h-4 w-4" />
+                  </span>
+                  Twitter
+                </a>
+                <a
+                  href="https://github.com/saturnelab"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                >
+                  <span className="inline-flex mr-2">
+                    <Github className="h-4 w-4" />
+                  </span>
+                  GitHub
+                </a>
               </div>
             </div>
           </footer>
