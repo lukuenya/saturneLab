@@ -1,0 +1,183 @@
+import React from 'react'
+import { GetStaticProps, GetStaticPaths } from 'next'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
+import Layout from '@/components/Layout'
+import Link from 'next/link'
+import { getAllPosts, getPostBySlug, BlogPost } from '@/lib/blog'
+import { Calendar, User, Clock, Tag, ArrowLeft } from 'lucide-react'
+
+interface BlogPostPageProps {
+  post: BlogPost
+  mdxSource: MDXRemoteSerializeResult
+}
+
+const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  }
+
+  const components = {
+    h1: (props: any) => <h1 className="text-3xl font-bold mb-6 text-neutral-900 dark:text-white" {...props} />,
+    h2: (props: any) => <h2 className="text-2xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100 mt-8" {...props} />,
+    h3: (props: any) => <h3 className="text-xl font-medium mb-3 text-neutral-700 dark:text-neutral-200 mt-6" {...props} />,
+    p: (props: any) => <p className="mb-4 text-neutral-600 dark:text-neutral-300 leading-relaxed" {...props} />,
+    a: (props: any) => <a className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 underline" {...props} />,
+    ul: (props: any) => <ul className="list-disc list-inside mb-4 text-neutral-600 dark:text-neutral-300 space-y-1" {...props} />,
+    ol: (props: any) => <ol className="list-decimal list-inside mb-4 text-neutral-600 dark:text-neutral-300 space-y-1" {...props} />,
+    li: (props: any) => <li className="mb-1" {...props} />,
+    blockquote: (props: any) => (
+      <blockquote className="border-l-4 border-primary-500 pl-6 py-2 italic text-neutral-600 dark:text-neutral-300 mb-4 bg-primary-50 dark:bg-primary-900/20 rounded-r-lg" {...props} />
+    ),
+    code: (props: any) => <code className="bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm font-mono text-primary-600 dark:text-primary-400" {...props} />,
+    pre: (props: any) => (
+      <pre className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg overflow-x-auto mb-4 border border-neutral-200 dark:border-neutral-700" {...props} />
+    ),
+    img: (props: any) => (
+      <img className="rounded-lg mb-4 w-full" {...props} />
+    ),
+  }
+
+  return (
+    <Layout
+      title={`${post.title} - Saturne Lab Blog`}
+      description={post.description}
+    >
+      {/* Back Navigation */}
+      <div className="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <Link 
+            href="/blog"
+            className="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Blog
+          </Link>
+        </div>
+      </div>
+
+      {/* Article Header */}
+      <article className="py-12 bg-white dark:bg-neutral-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <header className="mb-8">
+            <div className="mb-4">
+              <span className="inline-block px-3 py-1 text-sm font-medium bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full">
+                {post.category}
+              </span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4 leading-tight">
+              {post.title}
+            </h1>
+            
+            <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-6 leading-relaxed">
+              {post.description}
+            </p>
+
+            <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-500 dark:text-neutral-400">
+              <div className="flex items-center">
+                <User className="h-4 w-4 mr-2" />
+                {post.author}
+              </div>
+              <div className="flex items-center">
+                <Calendar className="h-4 w-4 mr-2" />
+                {formatDate(post.date)}
+              </div>
+              <div className="flex items-center">
+                <Clock className="h-4 w-4 mr-2" />
+                {post.readTime}
+              </div>
+            </div>
+
+            {post.tags.length > 0 && (
+              <div className="flex items-center mt-4">
+                <Tag className="h-4 w-4 mr-2 text-neutral-400" />
+                <div className="flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </header>
+
+          {/* Article Content */}
+          <div className="prose prose-lg prose-neutral dark:prose-invert max-w-none">
+            <MDXRemote {...mdxSource} components={components} />
+          </div>
+
+          {/* Article Footer */}
+          <footer className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-700">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+              <div className="mb-4 md:mb-0">
+                <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2">
+                  About the Author
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-300">
+                  {post.author} is part of the Saturne Lab team, dedicated to advancing data science in the Democratic Republic of Congo.
+                </p>
+              </div>
+              <div className="flex space-x-4">
+                <Link
+                  href="/contact"
+                  className="btn-primary"
+                >
+                  Get in Touch
+                </Link>
+                <Link
+                  href="/blog"
+                  className="btn-secondary"
+                >
+                  More Articles
+                </Link>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </article>
+    </Layout>
+  )
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = getAllPosts()
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug },
+  }))
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string
+  const post = getPostBySlug(slug)
+
+  if (!post) {
+    return {
+      notFound: true,
+    }
+  }
+
+  const mdxSource = await serialize(post.content)
+
+  return {
+    props: {
+      post,
+      mdxSource,
+    },
+  }
+}
+
+export default BlogPostPage
