@@ -94,7 +94,7 @@ const AboutPage: React.FC = () => {
                 Why We Started
               </h3>
               <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                Founded in 2019, Saturne Lab emerged from a recognition that the DRC's vast potential 
+                Founded in 2019, Saturne Lab emerged from a recognition that the DRC&apos;s vast potential 
                 could be unlocked through better data utilization. Our founders, experienced data scientists 
                 and researchers, saw an opportunity to bring world-class analytics capabilities to local 
                 organizations while building sustainable data science capacity within the country.
@@ -142,7 +142,7 @@ const AboutPage: React.FC = () => {
               Meet Our Team
             </h2>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
-              Experienced professionals passionate about data science and committed to DRC's development
+              Experienced professionals passionate about data science and committed to DRC&apos;s development
             </p>
           </div>
 

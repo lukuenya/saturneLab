@@ -285,7 +285,7 @@ const ServicesPage: React.FC = () => {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-primary-100 mb-8">
-            Let's discuss your data challenges and how we can help you achieve your goals.
+            Let&apos;s discuss your data challenges and how we can help you achieve your goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
