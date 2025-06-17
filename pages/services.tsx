@@ -1,84 +1,96 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import { Database, TrendingUp, Users, BookOpen, ArrowRight, CheckCircle, BarChart3, Shield, Zap } from 'lucide-react'
+import { Database, TrendingUp, Users, BookOpen, ArrowRight, CheckCircle, BarChart3, Shield, Zap, Target } from 'lucide-react'
 
 const ServicesPage: React.FC = () => {
   const services = [
     {
-      icon: <Database className="h-12 w-12 text-primary-600" />,
+      icon: <Database className="h-8 w-8 text-primary-600" />,
       title: "Data Collection",
-      subtitle: "Secure workflows to gather high-quality data",
+      subtitle: "Secure, end-to-end pipelines to gather the exact data you need.",
       description: "We implement robust data collection methodologies that ensure accuracy, compliance, and security. Our team designs custom workflows tailored to your specific needs, whether collecting customer data, market research, or operational metrics.",
       features: [
-        "Custom data collection frameworks",
-        "API integrations and web scraping",
-        "Survey design and implementation",
-        "Data quality assurance protocols",
-        "GDPR and local compliance standards",
-        "Real-time data monitoring"
+        "We design custom surveys, scrape public sources and integrate client systems",
+        "Automated quality checks and compliance guardrails",
+        "Scalable infrastructure for any project size"
       ],
       benefits: [
-        "Improved data accuracy by 95%",
-        "Reduced collection time by 60%",
-        "Full regulatory compliance"
+        "Reliable data sources",
+        "Automated quality assurance",
+        "Scalable solutions"
+      ],
+      process: [
+        "Requirements analysis",
+        "Data source identification",
+        "Pipeline development",
+        "Quality validation"
       ]
     },
     {
-      icon: <TrendingUp className="h-12 w-12 text-primary-600" />,
+      icon: <TrendingUp className="h-8 w-8 text-primary-600" />,
       title: "Strategic Insights",
-      subtitle: "Analytics and predictive modeling for decision-making",
+      subtitle: "Actionable analytics and predictive models to stay ahead of the curve.",
       description: "Transform your raw data into actionable insights through advanced analytics, machine learning models, and predictive algorithms. We help you understand trends, forecast outcomes, and optimize business processes.",
       features: [
-        "Predictive analytics and forecasting",
-        "Business intelligence dashboards",
-        "Statistical analysis and modeling",
-        "Market trend analysis",
-        "Performance optimization",
-        "Risk assessment and mitigation"
+        "Descriptive dashboards & KPI tracking",
+        "Machine-learning forecasts tailored to your industry",
+        "Optimization algorithms to maximize ROI"
       ],
       benefits: [
-        "25% increase in decision accuracy",
-        "40% improvement in forecasting",
-        "Reduced operational risks"
+        "Data-driven decision making",
+        "Predictive capabilities",
+        "ROI optimization"
+      ],
+      process: [
+        "Data exploration",
+        "Model development",
+        "Validation & testing",
+        "Deployment & monitoring"
       ]
     },
     {
-      icon: <Users className="h-12 w-12 text-primary-600" />,
-      title: "Capacity Building",
-      subtitle: "Academic support and hands-on training",
+      icon: <Target className="h-8 w-8 text-primary-600" />,
+      title: "Optimization & Recommendations",
+      subtitle: "Data-driven plans that translate insight into real results.",
       description: "Empower your team with data science skills through comprehensive training programs, workshops, and academic partnerships. We build internal capabilities to ensure long-term success and independence.",
       features: [
-        "Custom training programs",
-        "Hands-on workshops and bootcamps",
-        "Academic curriculum development",
-        "Mentorship and coaching",
-        "Certification programs",
-        "Ongoing support and consultation"
+        "Scenario analysis and what-if simulations",
+        "Priority ranking for resource allocation",
+        "Clear, jargon-free reports with step-by-step roadmaps"
       ],
       benefits: [
-        "80% skill improvement rate",
-        "Reduced dependency on external consultants",
-        "Enhanced team productivity"
+        "Actionable recommendations",
+        "Resource optimization",
+        "Clear implementation plans"
+      ],
+      process: [
+        "Current state analysis",
+        "Scenario modeling",
+        "Recommendation development",
+        "Implementation roadmap"
       ]
     },
     {
-      icon: <BookOpen className="h-12 w-12 text-primary-600" />,
-      title: "Knowledge Sharing",
-      subtitle: "Blog content and community engagement",
+      icon: <Users className="h-8 w-8 text-primary-600" />,
+      title: "Capacity Building",
+      subtitle: "Empower your team with hands-on training and academic support.",
       description: "Stay informed with our 'Nous Lire' blog featuring the latest insights in data science, case studies, and best practices. We also organize community events and knowledge-sharing sessions.",
       features: [
-        "Technical blog and case studies",
-        "Industry best practices guides",
-        "Community workshops and events",
-        "Research publication support",
-        "Thought leadership content",
-        "Networking opportunities"
+        "Workshops on Python, R, SQL, Power BI, and more",
+        "Thesis coaching, research-method consulting, and peer-review guidance",
+        "Custom in-house programs to embed data-literacy culture"
       ],
       benefits: [
-        "Access to cutting-edge insights",
-        "Professional network expansion",
-        "Continuous learning opportunities"
+        "Enhanced team capabilities",
+        "Academic support",
+        "Data-literate culture"
+      ],
+      process: [
+        "Skills assessment",
+        "Curriculum design",
+        "Training delivery",
+        "Progress evaluation"
       ]
     }
   ]
@@ -161,6 +173,19 @@ const ServicesPage: React.FC = () => {
                       {service.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="text-primary-700 dark:text-primary-300">
                           • {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-lg mb-6">
+                    <h4 className="font-semibold text-neutral-900 dark:text-white mb-2">
+                      Process:
+                    </h4>
+                    <ul className="space-y-1">
+                      {service.process.map((step, stepIndex) => (
+                        <li key={stepIndex} className="text-primary-700 dark:text-primary-300">
+                          • {step}
                         </li>
                       ))}
                     </ul>
