@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
 import { MDXProvider } from '@mdx-js/react'
 import ThemeProvider from '@/components/ThemeProvider'
+import { appWithTranslation } from 'next-i18next'
 import '@/styles/globals.css'
 
 // MDX Components
@@ -18,7 +19,7 @@ const components = {
   pre: (props: any) => <pre className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg overflow-x-auto mb-4" {...props} />,
 }
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
       <MDXProvider components={components}>
@@ -27,3 +28,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </ThemeProvider>
   )
 }
+
+export default appWithTranslation(App)

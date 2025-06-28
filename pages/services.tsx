@@ -2,131 +2,105 @@ import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { Database, TrendingUp, Users, BookOpen, ArrowRight, CheckCircle, BarChart3, Shield, Zap, Target } from 'lucide-react'
+import { GetServerSideProps } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const ServicesPage: React.FC = () => {
+  const { t } = useTranslation('common')
   const services = [
     {
       icon: <Database className="h-8 w-8 text-primary-600" />,
-      title: "Data Collection",
-      subtitle: "Secure, end-to-end pipelines to gather the exact data you need.",
-      description: "We implement robust data collection methodologies that ensure accuracy, compliance, and security. Our team designs custom workflows tailored to your specific needs, whether collecting customer data, market research, or operational metrics.",
-      features: [
-        "We design custom surveys, scrape public sources and integrate client systems",
-        "Automated quality checks and compliance guardrails",
-        "Scalable infrastructure for any project size"
-      ],
-      benefits: [
-        "Reliable data sources",
-        "Automated quality assurance",
-        "Scalable solutions"
-      ],
-      process: [
-        "Requirements analysis",
-        "Data source identification",
-        "Pipeline development",
-        "Quality validation"
-      ]
+      title: t('services.dataCollection.title'),
+      subtitle: t('services.dataCollection.subtitle'),
+      description: t('services.dataCollection.description'),
+      features: (t('services.dataCollection.features', { returnObjects: true }) as string[]) || [],
+      benefits: (t('services.dataCollection.benefits', { returnObjects: true }) as string[]) || [],
+      process: (t('services.dataCollection.process', { returnObjects: true }) as string[]) || []
     },
     {
       icon: <TrendingUp className="h-8 w-8 text-primary-600" />,
-      title: "Strategic Insights",
-      subtitle: "Actionable analytics and predictive models to stay ahead of the curve.",
-      description: "Transform your raw data into actionable insights through advanced analytics, machine learning models, and predictive algorithms. We help you understand trends, forecast outcomes, and optimize business processes.",
-      features: [
-        "Descriptive dashboards & KPI tracking",
-        "Machine-learning forecasts tailored to your industry",
-        "Optimization algorithms to maximize ROI"
-      ],
-      benefits: [
-        "Data-driven decision making",
-        "Predictive capabilities",
-        "ROI optimization"
-      ],
-      process: [
-        "Data exploration",
-        "Model development",
-        "Validation & testing",
-        "Deployment & monitoring"
-      ]
+      title: t('services.strategicInsights.title'),
+      subtitle: t('services.strategicInsights.subtitle'),
+      description: t('services.strategicInsights.description'),
+      features: (t('services.strategicInsights.features', { returnObjects: true }) as string[]) || [],
+      benefits: (t('services.strategicInsights.benefits', { returnObjects: true }) as string[]) || [],
+      process: (t('services.strategicInsights.process', { returnObjects: true }) as string[]) || []
     },
     {
       icon: <Target className="h-8 w-8 text-primary-600" />,
-      title: "Optimization & Recommendations",
-      subtitle: "Data-driven plans that translate insight into real results.",
-      description: "Empower your team with data science skills through comprehensive training programs, workshops, and academic partnerships. We build internal capabilities to ensure long-term success and independence.",
-      features: [
-        "Scenario analysis and what-if simulations",
-        "Priority ranking for resource allocation",
-        "Clear, jargon-free reports with step-by-step roadmaps"
-      ],
-      benefits: [
-        "Actionable recommendations",
-        "Resource optimization",
-        "Clear implementation plans"
-      ],
-      process: [
-        "Current state analysis",
-        "Scenario modeling",
-        "Recommendation development",
-        "Implementation roadmap"
-      ]
+      title: t('services.optimization.title'),
+      subtitle: t('services.optimization.subtitle'),
+      description: t('services.optimization.description'),
+      features: (t('services.optimization.features', { returnObjects: true }) as string[]) || [],
+      benefits: (t('services.optimization.benefits', { returnObjects: true }) as string[]) || [],
+      process: (t('services.optimization.process', { returnObjects: true }) as string[]) || []
     },
     {
       icon: <Users className="h-8 w-8 text-primary-600" />,
-      title: "Capacity Building",
-      subtitle: "Empower your team with hands-on training and academic support.",
-      description: "Stay informed with our 'Nous Lire' blog featuring the latest insights in data science, case studies, and best practices. We also organize community events and knowledge-sharing sessions.",
-      features: [
-        "Workshops on Python, R, SQL, Power BI, and more",
-        "Thesis coaching, research-method consulting, and peer-review guidance",
-        "Custom in-house programs to embed data-literacy culture"
-      ],
-      benefits: [
-        "Enhanced team capabilities",
-        "Academic support",
-        "Data-literate culture"
-      ],
-      process: [
-        "Skills assessment",
-        "Curriculum design",
-        "Training delivery",
-        "Progress evaluation"
-      ]
+      title: t('services.capacityBuilding.title'),
+      subtitle: t('services.capacityBuilding.subtitle'),
+      description: t('services.capacityBuilding.description'),
+      features: (t('services.capacityBuilding.features', { returnObjects: true }) as string[]) || [],
+      benefits: (t('services.capacityBuilding.benefits', { returnObjects: true }) as string[]) || [],
+      process: (t('services.capacityBuilding.process', { returnObjects: true }) as string[]) || []
     }
   ]
 
   const additionalServices = [
     {
-      icon: <BarChart3 className="h-8 w-8 text-secondary-600" />,
-      title: "Data Visualization",
-      description: "Create compelling visual stories from your data with interactive dashboards and reports."
+      icon: <BarChart3 className="h-12 w-12 text-primary-600" />,
+      title: t('services.additional.dataVisualization.title'),
+      description: t('services.additional.dataVisualization.description')
     },
     {
-      icon: <Shield className="h-8 w-8 text-secondary-600" />,
-      title: "Data Security",
-      description: "Implement robust security measures to protect sensitive data and ensure compliance."
+      icon: <Shield className="h-12 w-12 text-primary-600" />,
+      title: t('services.additional.dataGovernance.title'),
+      description: t('services.additional.dataGovernance.description')
     },
     {
-      icon: <Zap className="h-8 w-8 text-secondary-600" />,
-      title: "Process Automation",
-      description: "Automate repetitive data tasks to improve efficiency and reduce human error."
+      icon: <Zap className="h-12 w-12 text-primary-600" />,
+      title: t('services.additional.processAutomation.title'),
+      description: t('services.additional.processAutomation.description')
+    }
+  ]
+
+  const processSteps = [
+    {
+      step: "01",
+      title: t('services.process.discovery.title'),
+      description: t('services.process.discovery.description')
+    },
+    {
+      step: "02",
+      title: t('services.process.strategy.title'),
+      description: t('services.process.strategy.description')
+    },
+    {
+      step: "03",
+      title: t('services.process.implementation.title'),
+      description: t('services.process.implementation.description')
+    },
+    {
+      step: "04",
+      title: t('services.process.optimization.title'),
+      description: t('services.process.optimization.description')
     }
   ]
 
   return (
     <Layout
-      title="Our Services - Saturne Lab"
-      description="Comprehensive data science services including data collection, strategic insights, capacity building, and knowledge sharing for businesses and academia in DRC."
+      title={t('services.title')}
+      description={t('services.description')}
     >
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-900 dark:to-neutral-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
-            Our Services
+            {t('services.hero.title')}
           </h1>
           <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            Comprehensive data solutions designed to meet the unique challenges of businesses 
-            and academic institutions in the Democratic Republic of Congo.
+            {t('services.hero.subtitle')}
           </p>
         </div>
       </section>
@@ -167,7 +141,7 @@ const ServicesPage: React.FC = () => {
 
                   <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-lg mb-6">
                     <h4 className="font-semibold text-neutral-900 dark:text-white mb-2">
-                      Key Benefits:
+                      {t('services.keyBenefits')}
                     </h4>
                     <ul className="space-y-1">
                       {service.benefits.map((benefit, benefitIndex) => (
@@ -180,7 +154,7 @@ const ServicesPage: React.FC = () => {
 
                   <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-lg mb-6">
                     <h4 className="font-semibold text-neutral-900 dark:text-white mb-2">
-                      Process:
+                      {t('services.process')}
                     </h4>
                     <ul className="space-y-1">
                       {service.process.map((step, stepIndex) => (
@@ -192,7 +166,7 @@ const ServicesPage: React.FC = () => {
                   </div>
 
                   <Link href="/contact" className="btn-primary inline-flex items-center">
-                    Get Started
+                    {t('services.getStarted')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </div>
@@ -218,10 +192,10 @@ const ServicesPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-              Additional Capabilities
+              {t('services.additional.title')}
             </h2>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
-              Specialized services to complement our core offerings
+              {t('services.additional.subtitle')}
             </p>
           </div>
 
@@ -248,20 +222,15 @@ const ServicesPage: React.FC = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-              Our Process
+              {t('services.process.title')}
             </h2>
             <p className="text-xl text-neutral-600 dark:text-neutral-300">
-              How we deliver exceptional results for our clients
+              {t('services.process.subtitle')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Discovery", description: "We understand your challenges, goals, and data landscape" },
-              { step: "02", title: "Strategy", description: "We develop a tailored approach and implementation roadmap" },
-              { step: "03", title: "Implementation", description: "We execute the solution with regular progress updates" },
-              { step: "04", title: "Optimization", description: "We refine and optimize for maximum impact and ROI" }
-            ].map((phase, index) => (
+            {processSteps.map((phase, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-lg">{phase.step}</span>
@@ -282,23 +251,37 @@ const ServicesPage: React.FC = () => {
       <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Get Started?
+            {t('services.cta.title')}
           </h2>
           <p className="text-xl text-primary-100 mb-8">
-            Let&apos;s discuss your data challenges and how we can help you achieve your goals.
+            {t('services.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
-              Contact Us Today
+              {t('services.cta.contact')}
             </Link>
             <Link href="/about" className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
-              Learn About Us
+              {t('services.cta.about')}
             </Link>
           </div>
         </div>
       </section>
     </Layout>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  // Get locale from middleware headers or URL path
+  const headerLocale = req.headers['x-locale']
+  const locale = (Array.isArray(headerLocale) ? headerLocale[0] : headerLocale) || 
+                 (req.url?.startsWith('/fr') ? 'fr' : 
+                  req.url?.startsWith('/en') ? 'en' : 'fr')
+  
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  }
 }
 
 export default ServicesPage

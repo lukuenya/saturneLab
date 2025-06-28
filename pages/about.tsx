@@ -2,8 +2,12 @@ import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { Users, Target, Award, Globe } from 'lucide-react'
+import { GetStaticProps } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const AboutPage: React.FC = () => {
+  const { t } = useTranslation('common')
   const values = [
     {
       icon: <Target className="h-8 w-8 text-primary-600" />,
@@ -63,11 +67,10 @@ const AboutPage: React.FC = () => {
       <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-900 dark:to-neutral-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
-            About Saturne Lab
+            {t('about.hero.title')}
           </h1>
           <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            We are a pioneering data science consultancy based in the Democratic Republic of Congo, 
-            dedicated to transforming how businesses and academic institutions leverage data for growth and innovation.
+            {t('about.hero.subtitle')}
           </p>
         </div>
       </section>
@@ -78,11 +81,10 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-6">
-                Our Mission
+                {t('about.story.mission')}
               </h2>
               <p className="text-lg text-neutral-600 dark:text-neutral-300 mb-6 leading-relaxed">
-                To democratize access to advanced data science capabilities across the Democratic Republic of Congo, 
-                empowering organizations to make informed decisions that drive sustainable development and economic growth.
+                {t('about.mission.description')}
               </p>
               <p className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
                 We bridge the gap between complex data challenges and practical solutions, making cutting-edge 
@@ -109,10 +111,10 @@ const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-              Our Values
+              {t('about.values.title')}
             </h2>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
-              The principles that guide our work and relationships with clients and community
+              {t('about.values.subtitle')}
             </p>
           </div>
 
@@ -139,10 +141,10 @@ const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-              Meet Our Team
+              {t('about.team.title')}
             </h2>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
-              Experienced professionals passionate about data science and committed to DRC&apos;s development
+              {t('about.team.subtitle')}
             </p>
           </div>
 
@@ -173,18 +175,26 @@ const AboutPage: React.FC = () => {
       <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Work Together?
+            {t('about.cta.title')}
           </h2>
           <p className="text-xl text-primary-100 mb-8">
-            Let&apos;s discuss how we can help transform your organization through data-driven insights.
+            {t('about.cta.subtitle')}
           </p>
           <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 inline-block">
-            Get in Touch
+            {t('about.cta.button')}
           </Link>
         </div>
       </section>
     </Layout>
   )
+}
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'fr', ['common'])),
+    },
+  }
 }
 
 export default AboutPage

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'next-i18next';
 
 interface NewsletterFormProps {
   className?: string;
 }
 
 const NewsletterForm: React.FC<NewsletterFormProps> = ({ className = '' }) => {
+  const { t } = useTranslation('common');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
@@ -14,7 +16,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ className = '' }) => {
     
     if (!email) {
       setStatus('error');
-      setMessage('Please enter your email address');
+      setMessage(t('newsletter.errors.emailRequired'));
       return;
     }
 
@@ -34,11 +36,11 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ className = '' }) => {
       }
       
       setStatus('success');
-      setMessage(data.message || 'Thank you for subscribing!');
+      setMessage(data.message || t('newsletter.success'));
       setEmail('');
     } catch (error) {
       setStatus('error');
-      setMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again.');
+      setMessage(error instanceof Error ? error.message : t('newsletter.errors.generic'));
       console.error('Newsletter subscription error:', error);
     }
   };
@@ -51,7 +53,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ className = '' }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Your email address"
+            placeholder={t('newsletter.emailPlaceholder')}
             className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             disabled={status === 'loading'}
           />
@@ -61,7 +63,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ className = '' }) => {
           disabled={status === 'loading'}
           className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-70"
         >
-          {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+          {status === 'loading' ? t('newsletter.subscribing') : t('newsletter.subscribe')}
         </button>
       </form>
       
@@ -74,7 +76,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ className = '' }) => {
       )}
       
       <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
-        Subscribe to receive updates about new blog posts and events. We respect your privacy.
+        {t('newsletter.privacyNote')}
       </p>
     </div>
   );

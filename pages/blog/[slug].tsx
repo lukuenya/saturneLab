@@ -8,6 +8,8 @@ import Link from 'next/link'
 import { getAllPosts, getPostBySlug, BlogPost } from '@/lib/blog'
 import { Calendar, User, Clock, Tag, ArrowLeft } from 'lucide-react'
 import dynamic from 'next/dynamic'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 // Dynamically import icons with SSR disabled to prevent hydration errors
 const Linkedin = dynamic(() => import('lucide-react').then(mod => mod.Linkedin), { ssr: false })
@@ -20,8 +22,10 @@ interface BlogPostPageProps {
 }
 
 const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
+  const { t } = useTranslation('common')
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    // Use the current locale for date formatting
+    return new Date(dateString).toLocaleDateString(undefined, {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -74,7 +78,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
             className="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Blog
+            {t('blog.post.backToBlog')}
           </Link>
         </div>
       </div>
@@ -139,10 +143,10 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
               <div className="mb-4 md:mb-0">
                 <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2">
-                  About the Author
+                  {t('blog.post.aboutAuthor')}
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-300">
-                  {post.author} is part of the Saturne Lab team, dedicated to advancing data science in the Democratic Republic of Congo.
+                  {t('blog.post.authorBio', { author: post.author })}
                 </p>
               </div>
               <div className="flex space-x-4">
@@ -201,7 +205,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const slug = params?.slug as string
   const post = getPostBySlug(slug)
 
@@ -217,6 +221,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       post,
       mdxSource,
+      ...(await serverSideTranslations(locale || 'fr', ['common'])),
     },
   }
 }

@@ -5,6 +5,8 @@ import { GetStaticProps } from 'next'
 import { getAllPosts, getAllCategories, BlogPost } from '@/lib/blog'
 import { Search, Calendar, User, Tag, Clock, Mail } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface BlogIndexProps {
   posts: BlogPost[]
@@ -12,6 +14,7 @@ interface BlogIndexProps {
 }
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
+  const { t } = useTranslation('common')
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
 
@@ -31,7 +34,8 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
   }, [posts, searchTerm, selectedCategory])
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    // Use the current locale for date formatting
+    return new Date(dateString).toLocaleDateString(undefined, {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -40,18 +44,17 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
 
   return (
     <Layout
-      title="Nous Lire Blog - Saturne Lab"
-      description="Explore insights, case studies, and best practices in data science from the Saturne Lab team. Stay updated with the latest trends in analytics and machine learning."
+      title={t('blog.title')}
+      description={t('blog.description')}
     >
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-900 dark:to-neutral-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
-            Nous Lire
+            {t('blog.hero.title')}
           </h1>
           <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            Insights, case studies, and best practices in data science. 
-            Explore the latest trends and learn from our experience in the field.
+            {t('blog.hero.subtitle')}
           </p>
         </div>
       </section>
@@ -65,7 +68,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 h-5 w-5" />
               <input
                 type="text"
-                placeholder="Search articles..."
+                placeholder={t('blog.search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white"
@@ -79,7 +82,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white"
               >
-                <option value="all">All Categories</option>
+                <option value="all">{t('blog.categories.all')}</option>
                 {categories.map((category) => (
                   <option key={category} value={category}>
                     {category}
@@ -92,7 +95,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
           {/* Results Count */}
           <div className="mb-8">
             <p className="text-neutral-600 dark:text-neutral-400">
-              {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''} found
+              {t('blog.results.showing', { count: filteredPosts.length })}
             </p>
           </div>
 
@@ -152,7 +155,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
                       href={`/blog/${post.slug}`}
                       className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium text-sm transition-colors duration-200"
                     >
-                      Read More →
+                      {t('blog.readMore')} →
                     </Link>
                   </div>
                 </article>
@@ -165,10 +168,10 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
                   <Search className="h-12 w-12 text-neutral-400" />
                 </div>
                 <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-2">
-                  No articles found
+                  {t('blog.noResults.title')}
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Try adjusting your search terms or category filter.
+                  {t('blog.noResults.message')}
                 </p>
               </div>
             </div>
@@ -181,10 +184,10 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Mail className="h-10 w-10 text-white mx-auto mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Stay Updated
+            {t('blog.newsletter.title')}
           </h2>
           <p className="text-xl text-primary-100 mb-8">
-            Get the latest insights and updates from our data science experts.
+            {t('blog.newsletter.subtitle')}
           </p>
           <div className="mx-auto inline-block">
             <NewsletterForm className="bg-white p-4 rounded-lg shadow-lg max-w-md" />
@@ -195,7 +198,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const posts = getAllPosts()
   const categories = getAllCategories()
 
@@ -203,6 +206,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       posts,
       categories,
+      ...(await serverSideTranslations(locale || 'fr', ['common'])),
     },
   }
 }

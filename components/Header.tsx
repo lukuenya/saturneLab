@@ -2,22 +2,45 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { Sun, Moon, Menu, X } from 'lucide-react'
+import { Sun, Moon, Menu, X, Globe } from 'lucide-react'
 import { useTheme } from 'next-themes'
+import { useTranslation } from 'next-i18next'
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
   const router = useRouter()
+  const { t } = useTranslation('common')
+
+  // Detect current locale from URL path
+  const getCurrentLocale = () => {
+    const path = router.asPath
+    if (path.startsWith('/fr')) return 'fr'
+    if (path.startsWith('/en')) return 'en'
+    return 'fr' // default locale
+  }
+
+  const currentLocale = getCurrentLocale()
 
   const navigation = [
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
+    { name: t('header.about'), href: `/${currentLocale}/about` },
+    { name: t('header.services'), href: `/${currentLocale}/services` },
+    { name: t('header.blog'), href: `/${currentLocale}/blog` },
+    { name: t('header.contact'), href: `/${currentLocale}/contact` },
   ]
 
-  const isActive = (path: string) => router.pathname === path
+  const isActive = (path: string) => {
+    const currentPath = router.asPath.replace(/^\/(fr|en)/, '') || '/'
+    return currentPath === path
+  }
+
+  // Handle language switch
+  const handleLanguageSwitch = () => {
+    const newLocale = currentLocale === 'fr' ? 'en' : 'fr'
+    const currentPath = router.asPath.replace(/^\/(fr|en)/, '') || '/'
+    const newPath = `/${newLocale}${currentPath}`
+    router.push(newPath)
+  }
 
   return (
     <header className="bg-white dark:bg-neutral-900 shadow-sm border-b border-neutral-200 dark:border-neutral-800 sticky top-0 z-50">
@@ -25,7 +48,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href={`/${currentLocale}`} className="flex items-center space-x-2">
               {/* Logo with increased size */}
               <div className="relative w-16 h-16">
                 <Image 
@@ -62,8 +85,20 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
+          {/* Language Switcher, Theme Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-2">
+            {/* Language Switcher */}
+            <div className="relative">
+              <button
+                className="p-2 rounded-md text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200 flex items-center"
+                aria-label="Change language"
+                onClick={handleLanguageSwitch}
+              >
+                <Globe className="h-5 w-5 mr-1" />
+                <span className="text-sm font-medium">{currentLocale === 'fr' ? 'FR' : 'EN'}</span>
+              </button>
+            </div>
+            
             {/* Theme Toggle */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}

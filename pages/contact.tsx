@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import Layout from '@/components/Layout'
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { GetServerSideProps } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface FormData {
   name: string
@@ -18,6 +21,7 @@ interface FormErrors {
 }
 
 const ContactPage: React.FC = () => {
+  const { t } = useTranslation('common')
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -34,23 +38,23 @@ const ContactPage: React.FC = () => {
     const newErrors: FormErrors = {}
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required'
+      newErrors.name = t('contact.form.errors.nameRequired')
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
+      newErrors.email = t('contact.form.errors.emailRequired')
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
+      newErrors.email = t('contact.form.errors.emailInvalid')
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required'
+      newErrors.subject = t('contact.form.errors.subjectRequired')
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required'
+      newErrors.message = t('contact.form.errors.messageRequired')
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters long'
+      newErrors.message = t('contact.form.errors.messageLength')
     }
 
     setErrors(newErrors)
@@ -108,48 +112,39 @@ const ContactPage: React.FC = () => {
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6 text-primary-600" />,
-      title: "Email Us",
+      title: t('contact.info.email.title'),
       content: "contact@saturnelab.cd",
-      description: "Send us an email and we'll respond within 24 hours"
+      description: t('contact.info.email.description')
     },
     {
       icon: <Phone className="h-6 w-6 text-primary-600" />,
-      title: "Call Us",
+      title: t('contact.info.phone.title'),
       content: "+243 XXX XXX XXX",
-      description: "Monday to Friday, 9AM to 6PM (CAT)"
+      description: t('contact.info.phone.description')
     },
     {
       icon: <MapPin className="h-6 w-6 text-primary-600" />,
-      title: "Visit Us",
-      content: "Kinshasa, DRC",
-      description: "Schedule a meeting at our office"
+      title: t('contact.info.visit.title'),
+      content: t('contact.info.visit.location'),
+      description: t('contact.info.visit.description')
     }
   ]
 
-  const services = [
-    "Data Collection & Analysis",
-    "Predictive Modeling",
-    "Business Intelligence",
-    "Machine Learning Implementation",
-    "Data Visualization",
-    "Training & Workshops",
-    "Academic Partnerships",
-    "Custom Analytics Solutions"
-  ]
+  const services = t('contact.services', { returnObjects: true }) as string[]
 
   return (
     <Layout
-      title="Contact Us - Saturne Lab"
-      description="Get in touch with Saturne Lab for data science consulting, training, and partnership opportunities. We're here to help transform your organization through data."
+      title={t('contact.title')}
+      description={t('contact.description')}
     >
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-900 dark:to-neutral-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
-            Get in Touch
+            {t('contact.hero.title')}
           </h1>
           <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            Ready to transform your organization through data? Let&apos;s discuss how we can help you achieve your goals.
+            {t('contact.hero.subtitle')}
           </p>
         </div>
       </section>
@@ -185,14 +180,14 @@ const ContactPage: React.FC = () => {
             {/* Form */}
             <div>
               <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-6">
-                Send us a Message
+                {t('contact.form.title')}
               </h2>
               
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400 mr-3" />
                   <span className="text-green-700 dark:text-green-300">
-                    Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.
+                    {t('contact.form.successMessage')}
                   </span>
                 </div>
               )}
@@ -201,7 +196,7 @@ const ContactPage: React.FC = () => {
                 <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center">
                   <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 mr-3" />
                   <span className="text-red-700 dark:text-red-300">
-                    Sorry, there was an error sending your message. Please try again.
+                    {t('contact.form.errorMessage')}
                   </span>
                 </div>
               )}
@@ -210,7 +205,7 @@ const ContactPage: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                      Full Name *
+                      {t('contact.form.name')} *
                     </label>
                     <input
                       type="text"
@@ -221,7 +216,7 @@ const ContactPage: React.FC = () => {
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white ${
                         errors.name ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
                       }`}
-                      placeholder="Your full name"
+                      placeholder={t('contact.form.namePlaceholder')}
                     />
                     {errors.name && (
                       <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>
@@ -230,7 +225,7 @@ const ContactPage: React.FC = () => {
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                      Email Address *
+                      {t('contact.form.email')} *
                     </label>
                     <input
                       type="email"
@@ -241,7 +236,7 @@ const ContactPage: React.FC = () => {
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white ${
                         errors.email ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
                       }`}
-                      placeholder="your.email@example.com"
+                      placeholder={t('contact.form.emailPlaceholder')}
                     />
                     {errors.email && (
                       <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
@@ -251,7 +246,7 @@ const ContactPage: React.FC = () => {
 
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                    Company/Organization
+                    {t('contact.form.company')}
                   </label>
                   <input
                     type="text"
@@ -260,13 +255,13 @@ const ContactPage: React.FC = () => {
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white"
-                    placeholder="Your company or organization"
+                    placeholder={t('contact.form.companyPlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                    Subject *
+                    {t('contact.form.subject')} *
                   </label>
                   <select
                     id="subject"
@@ -291,7 +286,7 @@ const ContactPage: React.FC = () => {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                    Message *
+                    {t('contact.form.message')} *
                   </label>
                   <textarea
                     id="message"
@@ -302,7 +297,7 @@ const ContactPage: React.FC = () => {
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white ${
                       errors.message ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
                     }`}
-                    placeholder="Tell us about your project or how we can help you..."
+                    placeholder={t('contact.form.messagePlaceholder')}
                   />
                   {errors.message && (
                     <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>
@@ -317,11 +312,11 @@ const ContactPage: React.FC = () => {
                   {isSubmitting ? (
                     <>
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Sending...
+                      {t('contact.form.sending')}
                     </>
                   ) : (
                     <>
-                      Send Message
+                      {t('contact.form.submit')}
                       <Send className="ml-2 h-5 w-5" />
                     </>
                   )}
@@ -332,13 +327,13 @@ const ContactPage: React.FC = () => {
             {/* Services & Info */}
             <div>
               <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-6">
-                How We Can Help
+                {t('contact.help.title')}
               </h2>
               
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-4">
-                    Our Services
+                    {t('contact.help.servicesTitle')}
                   </h3>
                   <div className="grid grid-cols-1 gap-3">
                     {services.map((service, index) => (
@@ -352,24 +347,21 @@ const ContactPage: React.FC = () => {
 
                 <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-lg">
                   <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">
-                    Why Choose Saturne Lab?
+                    {t('contact.help.whyChooseTitle')}
                   </h3>
                   <ul className="space-y-2 text-neutral-600 dark:text-neutral-300">
-                    <li>• Local expertise with global standards</li>
-                    <li>• Proven track record in DRC market</li>
-                    <li>• End-to-end data science solutions</li>
-                    <li>• Capacity building and knowledge transfer</li>
-                    <li>• Ongoing support and consultation</li>
+                    {(t('contact.help.whyChooseReasons', { returnObjects: true }) as string[]).map((reason: string, index: number) => (
+                      <li key={index}>• {reason}</li>
+                    ))}
                   </ul>
                 </div>
 
                 <div className="bg-secondary-50 dark:bg-secondary-900/20 p-6 rounded-lg">
                   <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">
-                    Response Time
+                    {t('contact.help.responseTimeTitle')}
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-300">
-                    We typically respond to all inquiries within 24 hours. For urgent matters, 
-                    please call us directly at +243 XXX XXX XXX.
+                    {t('contact.help.responseTimeText')}
                   </p>
                 </div>
               </div>
@@ -379,6 +371,20 @@ const ContactPage: React.FC = () => {
       </section>
     </Layout>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  // Get locale from middleware headers or URL path
+  const headerLocale = req.headers['x-locale']
+  const locale = (Array.isArray(headerLocale) ? headerLocale[0] : headerLocale) || 
+                 (req.url?.startsWith('/fr') ? 'fr' : 
+                  req.url?.startsWith('/en') ? 'en' : 'fr')
+  
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  }
 }
 
 export default ContactPage
