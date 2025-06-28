@@ -73,26 +73,31 @@
     "story": {
       "title": "Our Story",
       "whyWeStarted": "Why We Started",
+      "whyWeStartedDescription": "Founded in 2019, Saturne Lab emerged from a recognition that the DRC's vast potential could be unlocked through better data utilization. Our founders, experienced data scientists and researchers, saw an opportunity to bring world-class analytics capabilities to local organizations while building sustainable data science capacity within the country.",
       "mission": "Our Mission",
       "vision": "Our Vision"
     },
+    "mission": {
+      "description": "We bridge the gap between complex data challenges and practical solutions, making cutting-edge analytics accessible to businesses of all sizes and academic institutions throughout the region."
+    },
     "values": {
       "title": "Our Values",
-      "integrity": {
-        "title": "Integrity",
-        "description": "We adhere to the highest ethical standards in all our activities"
-      },
+      "subtitle": "The principles that guide our work and define our commitment to excellence",
       "excellence": {
-        "title": "Excellence",
-        "description": "We strive to achieve the best possible outcomes in everything we do"
+        "title": "Data-Driven Excellence",
+        "description": "We believe in the power of data to transform decision-making and drive sustainable growth across all sectors."
       },
-      "innovation": {
-        "title": "Innovation",
-        "description": "We constantly seek new approaches to solve complex problems"
+      "collaboration": {
+        "title": "Collaborative Partnership",
+        "description": "We work closely with our clients as partners, ensuring solutions are tailored to their unique challenges and goals."
+      },
+      "integrity": {
+        "title": "Quality & Integrity",
+        "description": "We maintain the highest standards in data collection, analysis, and reporting while ensuring ethical practices."
       },
       "impact": {
-        "title": "Impact",
-        "description": "We measure our success by the positive impact we create"
+        "title": "Local Impact",
+        "description": "We're committed to building data science capacity within DRC and contributing to the country's digital transformation."
       }
     },
     "team": {
@@ -233,6 +238,7 @@
       }
     },
     "keyBenefits": "Key Benefits:",
+    "processSteps": "Process Steps:",
     "getStarted": "Get Started",
     "cta": {
       "title": "Ready to transform your data into insights?",

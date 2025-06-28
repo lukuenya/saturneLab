@@ -70,28 +70,33 @@
       "subtitle": "Experts en science des données dédiés au développement de la RDC"
     },
     "story": {
-      "title": "Notre histoire",
-      "whyWeStarted": "Pourquoi nous avons commencé",
-      "mission": "Notre mission",
-      "vision": "Notre vision"
+      "title": "Notre Histoire",
+      "whyWeStarted": "Pourquoi Nous Avons Commencé",
+      "whyWeStartedDescription": "Fondé en 2019, Saturne Lab est né de la reconnaissance que le vaste potentiel de la RDC pourrait être libéré grâce à une meilleure utilisation des données. Nos fondateurs, des scientifiques de données et chercheurs expérimentés, ont vu une opportunité d'apporter des capacités d'analyse de classe mondiale aux organisations locales tout en développant des capacités durables en science des données dans le pays.",
+      "mission": "Notre Mission",
+      "vision": "Notre Vision"
+    },
+    "mission": {
+      "description": "Nous comblons le fossé entre les défis complexes des données et les solutions pratiques, rendant l'analyse de pointe accessible aux entreprises de toutes tailles et aux institutions académiques de la région."
     },
     "values": {
-      "title": "Nos valeurs",
-      "integrity": {
-        "title": "Intégrité",
-        "description": "Nous adhérons aux normes éthiques les plus élevées dans toutes nos activités"
-      },
+      "title": "Nos Valeurs",
+      "subtitle": "Les principes qui guident notre travail et définissent notre engagement envers l'excellence",
       "excellence": {
-        "title": "Excellence",
-        "description": "Nous nous efforçons d'atteindre les meilleurs résultats possibles dans tout ce que nous faisons"
+        "title": "Excellence Axée sur les Données",
+        "description": "Nous croyons au pouvoir des données pour transformer la prise de décision et stimuler une croissance durable dans tous les secteurs."
       },
-      "innovation": {
-        "title": "Innovation",
-        "description": "Nous recherchons constamment de nouvelles approches pour résoudre des problèmes complexes"
+      "collaboration": {
+        "title": "Partenariat Collaboratif",
+        "description": "Nous travaillons étroitement avec nos clients en tant que partenaires, en veillant à ce que les solutions soient adaptées à leurs défis et objectifs uniques."
+      },
+      "integrity": {
+        "title": "Qualité et Intégrité",
+        "description": "Nous maintenons les normes les plus élevées en matière de collecte, d'analyse et de rapport de données tout en garantissant des pratiques éthiques."
       },
       "impact": {
-        "title": "Impact",
-        "description": "Nous mesurons notre succès par l'impact positif que nous créons"
+        "title": "Impact Local",
+        "description": "Nous nous engageons à développer les capacités en science des données en RDC et à contribuer à la transformation numérique du pays."
       }
     },
     "team": {
@@ -232,6 +237,7 @@
       }
     },
     "keyBenefits": "Avantages clés :",
+    "processSteps": "Étapes du processus :",
     "getStarted": "Commencer",
     "cta": {
       "title": "Prêt à transformer vos données en insights?",

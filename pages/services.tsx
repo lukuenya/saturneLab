@@ -154,7 +154,7 @@ const ServicesPage: React.FC = () => {
 
                   <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-lg mb-6">
                     <h4 className="font-semibold text-neutral-900 dark:text-white mb-2">
-                      {t('services.process')}
+                      {t('services.processSteps')}
                     </h4>
                     <ul className="space-y-1">
                       {service.process.map((step, stepIndex) => (

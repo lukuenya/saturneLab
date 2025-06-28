@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { Users, Target, Award, Globe } from 'lucide-react'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
@@ -11,23 +11,23 @@ const AboutPage: React.FC = () => {
   const values = [
     {
       icon: <Target className="h-8 w-8 text-primary-600" />,
-      title: "Data-Driven Excellence",
-      description: "We believe in the power of data to transform decision-making and drive sustainable growth across all sectors."
+      title: t('about.values.excellence.title'),
+      description: t('about.values.excellence.description')
     },
     {
       icon: <Users className="h-8 w-8 text-primary-600" />,
-      title: "Collaborative Partnership",
-      description: "We work closely with our clients as partners, ensuring solutions are tailored to their unique challenges and goals."
+      title: t('about.values.collaboration.title'),
+      description: t('about.values.collaboration.description')
     },
     {
       icon: <Award className="h-8 w-8 text-primary-600" />,
-      title: "Quality & Integrity",
-      description: "We maintain the highest standards in data collection, analysis, and reporting while ensuring ethical practices."
+      title: t('about.values.integrity.title'),
+      description: t('about.values.integrity.description')
     },
     {
       icon: <Globe className="h-8 w-8 text-primary-600" />,
-      title: "Local Impact",
-      description: "We're committed to building data science capacity within DRC and contributing to the country's digital transformation."
+      title: t('about.values.impact.title'),
+      description: t('about.values.impact.description')
     }
   ]
 
@@ -86,20 +86,13 @@ const AboutPage: React.FC = () => {
               <p className="text-lg text-neutral-600 dark:text-neutral-300 mb-6 leading-relaxed">
                 {t('about.mission.description')}
               </p>
-              <p className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                We bridge the gap between complex data challenges and practical solutions, making cutting-edge 
-                analytics accessible to businesses of all sizes and academic institutions throughout the region.
-              </p>
             </div>
             <div className="bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900 dark:to-secondary-900 p-8 rounded-2xl">
               <h3 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-4">
-                Why We Started
+                {t('about.story.whyWeStarted')}
               </h3>
               <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                Founded in 2019, Saturne Lab emerged from a recognition that the DRC&apos;s vast potential 
-                could be unlocked through better data utilization. Our founders, experienced data scientists 
-                and researchers, saw an opportunity to bring world-class analytics capabilities to local 
-                organizations while building sustainable data science capacity within the country.
+                {t('about.story.whyWeStartedDescription')}
               </p>
             </div>
           </div>
@@ -189,10 +182,15 @@ const AboutPage: React.FC = () => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl }) => {
+  // Get locale from middleware headers or URL path
+  const localeFromHeader = req.headers['x-locale'] as string
+  const localeFromPath = resolvedUrl.startsWith('/en') ? 'en' : 'fr'
+  const locale = localeFromHeader || localeFromPath
+
   return {
     props: {
-      ...(await serverSideTranslations(locale || 'fr', ['common'])),
+      ...(await serverSideTranslations(locale, ['common'])),
     },
   }
 }
