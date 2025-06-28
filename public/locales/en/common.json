@@ -1,0 +1,350 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "Saturne Lab. All rights reserved.",
+    "address": "Kinshasa, Democratic Republic of Congo",
+    "followUs": "Follow us",
+    "companyName": "SATURNE LAB",
+    "companyDescription": "Empowering data-driven growth in Africa, particularly in the Democratic Republic of the Congo through innovative analytics, strategic insights, and capacity building.",
+    "twitterLabel": "Twitter",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "quickLinks": "Quick Links",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "home": {
+    "hero": {
+      "title": "Empowering Data-Driven",
+      "subtitle": "Growth in DRC",
+      "description": "From collection to insights – tailored solutions for government services, businesses & academia. We transform raw data into strategic advantages that drive sustainable growth.",
+      "getStarted": "Get Started",
+      "learnMore": "Learn More"
+    },
+    "stats": {
+      "title": "Our Impact",
+      "projects": "Projects Completed",
+      "clients": "Satisfied Clients",
+      "dataPoints": "Data Points Analyzed",
+      "insights": "Insights Generated"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Data solutions tailored to local challenges",
+      "exploreAll": "Explore All Services",
+      "dataCollection": {
+        "title": "Data Collection",
+        "description": "Robust methodologies to collect reliable data in challenging environments"
+      },
+      "dataAnalysis": {
+        "title": "Strategic Insights",
+        "description": "Transform raw data into actionable insights for informed decision-making"
+      },
+      "capacityBuilding": {
+        "title": "Capacity Building",
+        "description": "Training and mentorship to develop local data science expertise"
+      },
+      "knowledgeSharing": {
+        "title": "Knowledge Sharing",
+        "description": "Disseminating best practices and lessons learned for collective impact"
+      }
+    },
+    "cta": {
+      "title": "Ready to harness the power of your data?",
+      "subtitle": "Let's discuss how we can help you achieve your goals",
+      "button": "Contact Us",
+      "contact": "Contact Us",
+      "blog": "Blog"
+    }
+  },
+  "about": {
+    "title": "About - Saturne Lab",
+    "description": "Discover Saturne Lab, data science experts dedicated to the development of the Democratic Republic of Congo. Our mission, vision and team.",
+    "hero": {
+      "title": "About Saturne Lab",
+      "subtitle": "Data science experts dedicated to DRC's development"
+    },
+    "story": {
+      "title": "Our Story",
+      "whyWeStarted": "Why We Started",
+      "mission": "Our Mission",
+      "vision": "Our Vision"
+    },
+    "values": {
+      "title": "Our Values",
+      "integrity": {
+        "title": "Integrity",
+        "description": "We adhere to the highest ethical standards in all our activities"
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "We strive to achieve the best possible outcomes in everything we do"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We constantly seek new approaches to solve complex problems"
+      },
+      "impact": {
+        "title": "Impact",
+        "description": "We measure our success by the positive impact we create"
+      }
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "Experienced professionals passionate about data science and committed to DRC's development"
+    },
+    "cta": {
+      "title": "Ready to Work Together?",
+      "subtitle": "Let's discuss how we can help transform your organization through data-driven insights",
+      "button": "Get in Touch"
+    }
+  },
+  "services": {
+    "title": "Our Services - Saturne Lab",
+    "description": "Comprehensive data solutions tailored to local challenges in the Democratic Republic of Congo. From collection to strategic insights.",
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive data solutions tailored to local challenges"
+    },
+    "dataCollection": {
+      "title": "Data Collection",
+      "subtitle": "Secure, end-to-end pipelines to gather the exact data you need.",
+      "description": "We implement robust data collection methodologies that ensure accuracy, compliance, and security. Our team designs custom workflows tailored to your specific needs, whether collecting customer data, market research, or operational metrics.",
+      "features": [
+        "We design custom surveys, scrape public sources and integrate client systems",
+        "Automated quality checks and compliance guardrails",
+        "Scalable infrastructure for any project size"
+      ],
+      "benefits": [
+        "Reliable data sources",
+        "Automated quality assurance",
+        "Scalable solutions"
+      ],
+      "process": [
+        "Requirements analysis",
+        "Data source identification",
+        "Pipeline development",
+        "Quality validation"
+      ]
+    },
+    "strategicInsights": {
+      "title": "Strategic Insights",
+      "subtitle": "Actionable analytics and predictive models to stay ahead of the curve.",
+      "description": "Transform your raw data into actionable insights through advanced analytics, machine learning models, and predictive algorithms. We help you understand trends, forecast outcomes, and optimize business processes.",
+      "features": [
+        "Descriptive dashboards & KPI tracking",
+        "Machine-learning forecasts tailored to your industry",
+        "Optimization algorithms to maximize ROI"
+      ],
+      "benefits": [
+        "Data-driven decision making",
+        "Predictive capabilities",
+        "ROI optimization"
+      ],
+      "process": [
+        "Data exploration",
+        "Model development",
+        "Validation & testing",
+        "Deployment & monitoring"
+      ]
+    },
+    "optimization": {
+      "title": "Optimization & Recommendations",
+      "subtitle": "Data-driven plans that translate insight into real results.",
+      "description": "Empower your team with data science skills through comprehensive training programs, workshops, and academic partnerships. We build internal capabilities to ensure long-term success and independence.",
+      "features": [
+        "Scenario analysis and what-if simulations",
+        "Priority ranking for resource allocation",
+        "Clear, jargon-free reports with step-by-step roadmaps"
+      ],
+      "benefits": [
+        "Actionable recommendations",
+        "Resource optimization",
+        "Clear implementation plans"
+      ],
+      "process": [
+        "Current state analysis",
+        "Scenario modeling",
+        "Recommendation development",
+        "Implementation roadmap"
+      ]
+    },
+    "capacityBuilding": {
+      "title": "Capacity Building",
+      "subtitle": "Empower your team with hands-on training and academic support.",
+      "description": "Stay informed with our 'Nous Lire' blog featuring the latest insights in data science, case studies, and best practices. We also organize community events and knowledge-sharing sessions.",
+      "features": [
+        "Workshops on Python, R, SQL, Power BI, and more",
+        "Thesis coaching, research-method consulting, and peer-review guidance",
+        "Custom in-house programs to embed data-literacy culture"
+      ],
+      "benefits": [
+        "Enhanced team capabilities",
+        "Academic support",
+        "Data-literate culture"
+      ],
+      "process": [
+        "Skills assessment",
+        "Curriculum design",
+        "Training delivery",
+        "Progress evaluation"
+      ]
+    },
+    "additional": {
+      "title": "Additional Services",
+      "subtitle": "Specialized solutions for specific needs",
+      "dataVisualization": {
+        "title": "Data Visualization",
+        "description": "Create compelling visual stories from your data with interactive dashboards and reports."
+      },
+      "dataGovernance": {
+        "title": "Data Governance",
+        "description": "Implement robust security measures to protect sensitive data and ensure compliance."
+      },
+      "processAutomation": {
+        "title": "Process Automation",
+        "description": "Automate repetitive data tasks to improve efficiency and reduce human error."
+      }
+    },
+    "process": {
+      "title": "Our Process",
+      "subtitle": "A structured approach for optimal results",
+      "discovery": {
+        "title": "Discovery",
+        "description": "We understand your challenges, goals, and data landscape"
+      },
+      "strategy": {
+        "title": "Strategy",
+        "description": "We develop a tailored approach and implementation roadmap"
+      },
+      "implementation": {
+        "title": "Implementation",
+        "description": "We execute the solution with regular progress updates"
+      },
+      "optimization": {
+        "title": "Optimization",
+        "description": "We refine and optimize for maximum impact and ROI"
+      }
+    },
+    "keyBenefits": "Key Benefits:",
+    "getStarted": "Get Started",
+    "cta": {
+      "title": "Ready to transform your data into insights?",
+      "subtitle": "Let's discuss how we can help you achieve your goals",
+      "contact": "Contact Us",
+      "about": "About Us"
+    }
+  },
+  "blog": {
+    "title": "Blog - Saturne Lab",
+    "subtitle": "Insights, trends, and best practices in data science",
+    "readMore": "Read More",
+    "search": "Search articles",
+    "categories": "Categories",
+    "allCategories": "All Categories",
+    "recentPosts": "Recent Posts",
+    "post": {
+      "backToBlog": "Back to Blog",
+      "aboutAuthor": "About the Author",
+      "authorBio": "{{author}} is part of the Saturne Lab team, dedicated to advancing data science in the Democratic Republic of Congo."
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "subtitle": "Get the latest insights and updates from our data science experts",
+      "placeholder": "Your email address",
+      "button": "Subscribe",
+      "privacy": "We respect your privacy. Unsubscribe at any time.",
+      "success": "Thank you for subscribing!",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "contact": {
+    "title": "Contact Us - Saturne Lab",
+    "description": "Get in touch with Saturne Lab for data science consulting, training, and partnership opportunities. We're here to help transform your organization through data.",
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "Have a question or want to work with us? Reach out and we'll get back to you as soon as possible."
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Full Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "Your email address",
+      "company": "Company/Organization",
+      "companyPlaceholder": "Your company or organization (optional)",
+      "subject": "Subject",
+      "subjectPlaceholder": "What is your message about?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project or how we can help you...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "successMessage": "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+      "errorMessage": "Sorry, an error occurred. Please try again.",
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "subjectRequired": "Subject is required",
+        "messageRequired": "Message is required",
+        "messageLength": "Message must be at least 10 characters long"
+      }
+    },
+    "info": {
+      "email": {
+        "title": "Email Us",
+        "description": "Send us an email and we'll respond within 24 hours"
+      },
+      "phone": {
+        "title": "Call Us",
+        "description": "Monday to Friday, 9AM to 6PM (CAT)"
+      },
+      "visit": {
+        "title": "Visit Us",
+        "location": "Kinshasa, DRC",
+        "description": "Schedule a meeting at our office"
+      }
+    },
+    "help": {
+      "title": "How We Can Help",
+      "servicesTitle": "Our Services",
+      "whyChooseTitle": "Why Choose Saturne Lab?",
+      "whyChooseReasons": [
+        "Local expertise with global standards",
+        "Proven track record in DRC market",
+        "End-to-end data science solutions",
+        "Capacity building and knowledge transfer",
+        "Ongoing support and consultation"
+      ],
+      "responseTimeTitle": "Response Time",
+      "responseTimeText": "We typically respond to all inquiries within 24 hours. For urgent matters, please call us directly at +243 XXX XXX XXX."
+    },
+    "services": [
+      "Data Collection & Analysis",
+      "Predictive Modeling",
+      "Business Intelligence",
+      "Machine Learning Implementation",
+      "Data Visualization",
+      "Training & Workshops",
+      "Academic Partnerships",
+      "Custom Analytics Solutions"
+    ]
+  },
+  "newsletter": {
+    "emailPlaceholder": "Your email address",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing...",
+    "success": "Thank you for subscribing!",
+    "privacyNote": "Subscribe to receive updates about new blog posts and events. We respect your privacy.",
+    "errors": {
+      "emailRequired": "Please enter your email address",
+      "generic": "Something went wrong. Please try again."
+    }
+  }
+}
