@@ -95,7 +95,7 @@ const Header: React.FC = () => {
                 onClick={handleLanguageSwitch}
               >
                 <Globe className="h-5 w-5 mr-1" />
-                <span className="text-sm font-medium">{currentLocale === 'fr' ? 'FR' : 'EN'}</span>
+                <span className="text-sm font-medium">{currentLocale === 'fr' ? 'EN' : 'FR'}</span>
               </button>
             </div>
             

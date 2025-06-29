@@ -105,13 +105,13 @@ const Footer: React.FC = () => {
                 <span className="text-sm text-neutral-400">{t('services.dataCollection.title')}</span>
               </li>
               <li>
-                <span className="text-sm text-neutral-400">{t('services.dataAnalysis.title')}</span>
+                <span className="text-sm text-neutral-400">{t('services.strategicInsights.title')}</span>
               </li>
               <li>
                 <span className="text-sm text-neutral-400">{t('services.capacityBuilding.title')}</span>
               </li>
               <li>
-                <span className="text-sm text-neutral-400">{t('services.knowledgeSharing.title')}</span>
+                <span className="text-sm text-neutral-400">{t('services.optimization.title')}</span>
               </li>
             </ul>
           </div>
