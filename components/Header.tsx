@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { Sun, Moon, Menu, X, Globe } from 'lucide-react'
@@ -49,7 +48,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href={`/${currentLocale}`} className="flex items-center space-x-2">
+            <a href={`/${currentLocale}`} className="flex items-center space-x-2">
               {/* Logo with increased size */}
               <div className="relative w-16 h-16">
                 <Image 
@@ -64,14 +63,14 @@ const Header: React.FC = () => {
               <span className="text-xl font-bold text-primary-700 dark:text-primary-400">
                 SATURNE LAB
               </span>
-            </Link>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navigation.map((item) => (
-                <Link
+                <a
                   key={item.name}
                   href={item.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
@@ -81,7 +80,7 @@ const Header: React.FC = () => {
                   }`}
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -135,7 +134,7 @@ const Header: React.FC = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-neutral-200 dark:border-neutral-700">
               {navigation.map((item) => (
-                <Link
+                <a
                   key={item.name}
                   href={item.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
@@ -146,7 +145,7 @@ const Header: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
             </div>
           </div>

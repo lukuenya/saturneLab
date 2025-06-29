@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import { Mail, MapPin, Phone, Github, Twitter, Linkedin } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
@@ -76,24 +75,24 @@ const Footer: React.FC = () => {
             <h3 className="text-white font-semibold mb-4">{t('header.home')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href={`/${currentLocale}/about`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
+                <a href={`/${currentLocale}/about`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
                   {t('header.about')}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href={`/${currentLocale}/services`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
+                <a href={`/${currentLocale}/services`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
                   {t('header.services')}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href={`/${currentLocale}/blog`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
+                <a href={`/${currentLocale}/blog`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
                   {t('header.blog')}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href={`/${currentLocale}/contact`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
+                <a href={`/${currentLocale}/contact`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
                   {t('header.contact')}
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -153,12 +152,12 @@ const Footer: React.FC = () => {
               &copy; {currentYear} {t('footer.rights')}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href={`/${currentLocale}/privacy`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
+              <a href={`/${currentLocale}/privacy`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
                 Privacy Policy
-              </Link>
-              <Link href={`/${currentLocale}/terms`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
+              </a>
+              <a href={`/${currentLocale}/terms`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
                 Terms of Service
-              </Link>
+              </a>
             </div>
           </div>
         </div>
