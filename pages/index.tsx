@@ -152,13 +152,14 @@ const HomePage: React.FC = () => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  // Get locale from middleware headers or URL path
-  const headerLocale = req.headers['x-locale']
-  const locale = (Array.isArray(headerLocale) ? headerLocale[0] : headerLocale) || 
-                 (req.url?.startsWith('/fr') ? 'fr' : 
-                  req.url?.startsWith('/en') ? 'en' : 'fr')
-  
+export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl }) => {
+  // Get locale from middleware headers, URL path, or default to French
+  const localeFromHeader = req.headers['x-locale'] as string
+  const localeFromPath = resolvedUrl.startsWith('/en') ? 'en' : 'fr'
+  const locale = localeFromHeader || localeFromPath || 'fr'
+
+  console.log('Locale detection:', { localeFromHeader, localeFromPath, resolvedUrl, locale })
+
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
