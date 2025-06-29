@@ -249,11 +249,25 @@
   },
   "blog": {
     "title": "Blog - Saturne Lab",
-    "subtitle": "Insights, trends, and best practices in data science",
+    "description": "Insights, trends, and best practices in data science from Saturne Lab experts in the Democratic Republic of Congo.",
+    "hero": {
+      "title": "Data Science Insights",
+      "subtitle": "Insights, trends, and best practices in data science"
+    },
+    "search": {
+      "placeholder": "Search articles..."
+    },
+    "categories": {
+      "all": "All Categories"
+    },
+    "results": {
+      "showing": "Showing {{count}} articles"
+    },
+    "noResults": {
+      "title": "No articles found",
+      "message": "Try adjusting your search terms or browse all categories."
+    },
     "readMore": "Read More",
-    "search": "Search articles",
-    "categories": "Categories",
-    "allCategories": "All Categories",
     "recentPosts": "Recent Posts",
     "post": {
       "backToBlog": "Back to Blog",

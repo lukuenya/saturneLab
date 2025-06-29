@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetServerSideProps } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import Image from 'next/image'
@@ -193,19 +193,12 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts()
-  const paths = posts.map((post) => ({
-    params: { slug: post.slug },
-  }))
+export const getServerSideProps: GetServerSideProps = async ({ params, req, resolvedUrl }) => {
+  // Get locale from middleware headers or URL path
+  const localeFromHeader = req.headers['x-locale'] as string
+  const localeFromPath = resolvedUrl.startsWith('/en') ? 'en' : 'fr'
+  const locale = localeFromHeader || localeFromPath
 
-  return {
-    paths,
-    fallback: false,
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const slug = params?.slug as string
   const post = getPostBySlug(slug)
 
@@ -221,7 +214,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     props: {
       post,
       mdxSource,
-      ...(await serverSideTranslations(locale || 'fr', ['common'])),
+      ...(await serverSideTranslations(locale, ['common'])),
     },
   }
 }

@@ -248,11 +248,25 @@
   },
   "blog": {
     "title": "Blog - Saturne Lab",
-    "subtitle": "Insights, tendances et meilleures pratiques en science des données",
+    "description": "Insights, tendances et meilleures pratiques en science des données par les experts de Saturne Lab en République Démocratique du Congo.",
+    "hero": {
+      "title": "Insights en Science des Données",
+      "subtitle": "Insights, tendances et meilleures pratiques en science des données"
+    },
+    "search": {
+      "placeholder": "Rechercher des articles..."
+    },
+    "categories": {
+      "all": "Toutes les catégories"
+    },
+    "results": {
+      "showing": "Affichage de {{count}} articles"
+    },
+    "noResults": {
+      "title": "Aucun article trouvé",
+      "message": "Essayez d'ajuster vos termes de recherche ou parcourez toutes les catégories."
+    },
     "readMore": "Lire plus",
-    "search": "Rechercher des articles",
-    "categories": "Catégories",
-    "allCategories": "Toutes les catégories",
     "recentPosts": "Articles récents",
     "post": {
       "backToBlog": "Retour au Blog",

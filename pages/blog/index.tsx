@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { getAllPosts, getAllCategories, BlogPost } from '@/lib/blog'
 import { Search, Calendar, User, Tag, Clock, Mail } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
@@ -198,7 +198,12 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl }) => {
+  // Get locale from middleware headers or URL path
+  const localeFromHeader = req.headers['x-locale'] as string
+  const localeFromPath = resolvedUrl.startsWith('/en') ? 'en' : 'fr'
+  const locale = localeFromHeader || localeFromPath
+
   const posts = getAllPosts()
   const categories = getAllCategories()
 
@@ -206,7 +211,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     props: {
       posts,
       categories,
-      ...(await serverSideTranslations(locale || 'fr', ['common'])),
+      ...(await serverSideTranslations(locale, ['common'])),
     },
   }
 }
