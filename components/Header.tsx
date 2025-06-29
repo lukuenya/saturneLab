@@ -39,7 +39,8 @@ const Header: React.FC = () => {
     const newLocale = currentLocale === 'fr' ? 'en' : 'fr'
     const currentPath = router.asPath.replace(/^\/(fr|en)/, '') || '/'
     const newPath = `/${newLocale}${currentPath}`
-    router.push(newPath)
+    // Use window.location.href to force full page reload and trigger getServerSideProps
+    window.location.href = newPath
   }
 
   return (
