@@ -160,10 +160,25 @@ export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl 
 
   console.log('Locale detection:', { localeFromHeader, localeFromPath, resolvedUrl, locale })
 
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
+  try {
+    const translations = await serverSideTranslations(locale, ['common'])
+    console.log('Translations loaded successfully for locale:', locale)
+    console.log('Translation keys available:', Object.keys(translations._nextI18Next?.initialI18nStore?.[locale]?.common || {}))
+    
+    return {
+      props: {
+        ...translations,
+      },
+    }
+  } catch (error) {
+    console.error('Error loading translations:', error)
+    // Fallback to French if there's an error
+    const fallbackTranslations = await serverSideTranslations('fr', ['common'])
+    return {
+      props: {
+        ...fallbackTranslations,
+      },
+    }
   }
 }
 
