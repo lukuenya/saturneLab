@@ -111,10 +111,25 @@ const ServicesPage: React.FC = () => {
           <div className="space-y-20">
             {services.map((service, index) => (
               <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="flex items-center mb-4">
-                    {service.icon}
-                    <div className="ml-4">
+                {/* Icon card - appears first on mobile, positioned by grid order on desktop */}
+                <div className={`order-1 lg:order-none ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <div className="bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 p-8 rounded-2xl h-96 flex items-center justify-center">
+                    <div className="text-center">
+                      {React.cloneElement(service.icon, { className: "h-24 w-24 text-primary-600 mx-auto mb-4" })}
+                      <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Text content - appears second on mobile, positioned by grid order on desktop */}
+                <div className={`order-2 lg:order-none ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                  <div className="flex flex-col sm:flex-row sm:items-center mb-4">
+                    <div className="mb-3 sm:mb-0">
+                      {service.icon}
+                    </div>
+                    <div className="sm:ml-4">
                       <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">
                         {service.title}
                       </h2>
@@ -169,17 +184,6 @@ const ServicesPage: React.FC = () => {
                     {t('services.getStarted')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
-                </div>
-
-                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                  <div className="bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 p-8 rounded-2xl h-96 flex items-center justify-center">
-                    <div className="text-center">
-                      {React.cloneElement(service.icon, { className: "h-24 w-24 text-primary-600 mx-auto mb-4" })}
-                      <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
-                        {service.title}
-                      </h3>
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
