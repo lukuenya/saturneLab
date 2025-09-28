@@ -1,16 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { Database, TrendingUp, Users, BookOpen, ArrowRight, CheckCircle, BarChart3, Shield, Zap, Target } from 'lucide-react'
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useRouter } from 'next/router'
 import { DataAnalyticsIcon, NetworkIcon, AIIcon, DatabaseIcon } from '@/components/animations/DataIcons'
 import { FloatingDataElements } from '@/components/animations/FloatingElements'
 import ImagePlaceholder from '@/components/ImagePlaceholders'
 
 const ServicesPage: React.FC = () => {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
+  const router = useRouter()
+
+  // Handle client-side locale changes when navigating with browser back/forward
+  useEffect(() => {
+    const detectAndSetLocale = () => {
+      const pathname = router.asPath
+      const localeFromPath = pathname.startsWith('/en') ? 'en' : 'fr'
+      
+      // Only change locale if it's different from current
+      if (i18n.language !== localeFromPath) {
+        console.log('Client-side locale change detected on services:', { from: i18n.language, to: localeFromPath, pathname })
+        i18n.changeLanguage(localeFromPath)
+      }
+    }
+
+    // Detect locale on component mount
+    detectAndSetLocale()
+
+    // Listen for route changes
+    router.events.on('routeChangeComplete', detectAndSetLocale)
+    
+    return () => {
+      router.events.off('routeChangeComplete', detectAndSetLocale)
+    }
+  }, [router.asPath, router.events, i18n])
   const services = [
     {
       icon: <DatabaseIcon size={32} />,
@@ -134,11 +160,11 @@ const ServicesPage: React.FC = () => {
                         alt={service.title}
                       />
                     </div>
-                    <div className="relative z-10 text-center">
-                      <div className="mb-4 transform hover:scale-110 transition-transform duration-300">
+                    <div className="relative z-10 text-center w-full flex flex-col items-center">
+                      <div className="mb-4 transform hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                         {service.animatedIcon}
                       </div>
-                      <h3 className="text-2xl font-bold text-neutral-900">
+                      <h3 className="text-2xl font-bold text-neutral-900 px-4">
                         {service.title}
                       </h3>
                     </div>

@@ -366,5 +366,11 @@
       "emailRequired": "Veuillez entrer votre adresse email",
       "generic": "Une erreur s'est produite. Veuillez réessayer."
     }
+  },
+  "placeholders": {
+    "team": "Équipe Saturne Lab",
+    "office": "Bureau Saturne Lab",
+    "analytics": "Analyse de Données",
+    "dataCenter": "Centre de Données"
   }
 }

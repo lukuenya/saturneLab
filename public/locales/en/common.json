@@ -366,5 +366,11 @@
       "emailRequired": "Please enter your email address",
       "generic": "Something went wrong. Please try again."
     }
+  },
+  "placeholders": {
+    "team": "Saturne Lab Team",
+    "office": "Saturne Lab Office",
+    "analytics": "Data Analytics",
+    "dataCenter": "Data Center"
   }
 }
