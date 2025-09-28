@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app'
 import { MDXProvider } from '@mdx-js/react'
 import { appWithTranslation } from 'next-i18next'
-import Head from 'next/head'
 import '@/styles/globals.css'
 
 // MDX Components
@@ -21,14 +20,9 @@ const components = {
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <MDXProvider components={components}>
-        <Component {...pageProps} />
-      </MDXProvider>
-    </>
+    <MDXProvider components={components}>
+      <Component {...pageProps} />
+    </MDXProvider>
   )
 }
 

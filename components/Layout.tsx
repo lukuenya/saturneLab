@@ -19,6 +19,7 @@ const Layout: React.FC<LayoutProps> = ({
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
