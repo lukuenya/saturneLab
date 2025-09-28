@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'next-i18next';
 
 interface ImagePlaceholderProps {
   width?: number;
@@ -15,6 +16,8 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   type = 'team',
   alt = "Placeholder image"
 }) => {
+  const { t } = useTranslation('common');
+  
   const renderPlaceholder = () => {
     switch (type) {
       case 'team':
@@ -52,7 +55,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
             <rect x="30" y="40" width="20" height="20" fill="#10B981" opacity="0.6" />
             
             <text x="200" y="280" textAnchor="middle" fill="#6B7280" fontSize="16" fontFamily="Inter">
-              Équipe Saturne Lab
+              {t('placeholders.team')}
             </text>
           </svg>
         );
@@ -87,7 +90,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
             <ellipse cx="370" cy="180" rx="12" ry="25" fill="#10B981" />
             
             <text x="200" y="280" textAnchor="middle" fill="#6B7280" fontSize="16" fontFamily="Inter">
-              Bureau Saturne Lab
+              {t('placeholders.office')}
             </text>
           </svg>
         );
@@ -133,7 +136,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
             </g>
             
             <text x="200" y="280" textAnchor="middle" fill="#6B7280" fontSize="16" fontFamily="Inter">
-              Analyse de Données
+              {t('placeholders.analytics')}
             </text>
           </svg>
         );
@@ -179,7 +182,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
             </g>
             
             <text x="200" y="280" textAnchor="middle" fill="#6B7280" fontSize="16" fontFamily="Inter">
-              Centre de Données
+              {t('placeholders.dataCenter')}
             </text>
           </svg>
         );

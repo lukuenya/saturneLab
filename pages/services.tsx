@@ -134,11 +134,11 @@ const ServicesPage: React.FC = () => {
                         alt={service.title}
                       />
                     </div>
-                    <div className="relative z-10 text-center">
-                      <div className="mb-4 transform hover:scale-110 transition-transform duration-300">
+                    <div className="relative z-10 text-center w-full flex flex-col items-center">
+                      <div className="mb-4 transform hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                         {service.animatedIcon}
                       </div>
-                      <h3 className="text-2xl font-bold text-neutral-900">
+                      <h3 className="text-2xl font-bold text-neutral-900 px-4">
                         {service.title}
                       </h3>
                     </div>
