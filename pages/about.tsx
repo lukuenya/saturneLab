@@ -51,10 +51,10 @@ const AboutPage: React.FC = () => {
       image: "/team/maurice.jpg"
     },
     {
-      name: "David Tshiaba",
-      role: "Research Associate",
-      bio: "PhD candidate in Applied Mathematics. Focuses on predictive modeling and statistical analysis for academic partnerships.",
-      image: "/team/david.jpg"
+      name: "Johan Mufuta",
+      role: "Software and Cloud Engineer",
+      bio: "BSc in Computer Science with experience in software development and cloud computing. He also a senior associate at J.P MORGAN",
+      image: "/team/johan.jpg"
     }
   ]
 
@@ -64,34 +64,34 @@ const AboutPage: React.FC = () => {
       description="Learn about Saturne Lab's mission, values, and team. We're dedicated to empowering data-driven growth in the Democratic Republic of Congo."
     >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-900 dark:to-neutral-800">
+      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
             {t('about.hero.title')}
           </h1>
-          <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          <p className="text-xl text-neutral-600 leading-relaxed">
             {t('about.hero.subtitle')}
           </p>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-white dark:bg-neutral-900">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-6">
+              <h2 className="text-3xl font-bold text-neutral-900 mb-6">
                 {t('about.story.mission')}
               </h2>
-              <p className="text-lg text-neutral-600 dark:text-neutral-300 mb-6 leading-relaxed">
+              <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
                 {t('about.mission.description')}
               </p>
             </div>
-            <div className="bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900 dark:to-secondary-900 p-8 rounded-2xl">
-              <h3 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-4">
+            <div className="bg-gradient-to-br from-primary-100 to-secondary-100 p-8 rounded-2xl">
+              <h3 className="text-2xl font-semibold text-neutral-900 mb-4">
                 {t('about.story.whyWeStarted')}
               </h3>
-              <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              <p className="text-sm text-neutral-600 leading-relaxed">
                 {t('about.story.whyWeStartedDescription')}
               </p>
             </div>
@@ -100,13 +100,13 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-neutral-50 dark:bg-neutral-800">
+      <section className="py-20 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
               {t('about.values.title')}
             </h2>
-            <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
               {t('about.values.subtitle')}
             </p>
           </div>
@@ -117,10 +117,10 @@ const AboutPage: React.FC = () => {
                 <div className="flex justify-center mb-4">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">
+                <h3 className="text-xl font-semibold text-neutral-900 mb-3">
                   {value.title}
                 </h3>
-                <p className="text-neutral-600 dark:text-neutral-300">
+                <p className="text-neutral-600">
                   {value.description}
                 </p>
               </div>
@@ -130,13 +130,13 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white dark:bg-neutral-900">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
               {t('about.team.title')}
             </h2>
-            <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+            <p className="text-xl text-neutral-600 max-w-2xl mx-auto mb-16">
               {t('about.team.subtitle')}
             </p>
           </div>
@@ -149,13 +149,13 @@ const AboutPage: React.FC = () => {
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-1">
+                <h3 className="text-xl font-semibold text-neutral-900 mb-2">
                   {member.name}
                 </h3>
-                <p className="text-primary-600 dark:text-primary-400 font-medium mb-3">
+                <p className="text-primary-600 mb-3">
                   {member.role}
                 </p>
-                <p className="text-sm text-neutral-600 dark:text-neutral-300">
+                <p className="text-neutral-600 text-sm leading-relaxed">
                   {member.bio}
                 </p>
               </div>

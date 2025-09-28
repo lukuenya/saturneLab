@@ -5,12 +5,17 @@ import { Database, TrendingUp, Users, BookOpen, ArrowRight, CheckCircle, BarChar
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { DataAnalyticsIcon, NetworkIcon, AIIcon, DatabaseIcon } from '@/components/animations/DataIcons'
+import { FloatingDataElements } from '@/components/animations/FloatingElements'
+import ImagePlaceholder from '@/components/ImagePlaceholders'
 
 const ServicesPage: React.FC = () => {
   const { t } = useTranslation('common')
   const services = [
     {
-      icon: <Database className="h-8 w-8 text-primary-600" />,
+      icon: <DatabaseIcon size={32} />,
+      animatedIcon: <DatabaseIcon size={96} />,
+      visualType: 'data-center' as const,
       title: t('services.dataCollection.title'),
       subtitle: t('services.dataCollection.subtitle'),
       description: t('services.dataCollection.description'),
@@ -19,7 +24,9 @@ const ServicesPage: React.FC = () => {
       process: (t('services.dataCollection.process', { returnObjects: true }) as string[]) || []
     },
     {
-      icon: <TrendingUp className="h-8 w-8 text-primary-600" />,
+      icon: <DataAnalyticsIcon size={32} />,
+      animatedIcon: <DataAnalyticsIcon size={96} />,
+      visualType: 'analytics' as const,
       title: t('services.strategicInsights.title'),
       subtitle: t('services.strategicInsights.subtitle'),
       description: t('services.strategicInsights.description'),
@@ -28,7 +35,9 @@ const ServicesPage: React.FC = () => {
       process: (t('services.strategicInsights.process', { returnObjects: true }) as string[]) || []
     },
     {
-      icon: <Target className="h-8 w-8 text-primary-600" />,
+      icon: <AIIcon size={32} />,
+      animatedIcon: <AIIcon size={96} />,
+      visualType: 'analytics' as const,
       title: t('services.optimization.title'),
       subtitle: t('services.optimization.subtitle'),
       description: t('services.optimization.description'),
@@ -37,7 +46,9 @@ const ServicesPage: React.FC = () => {
       process: (t('services.optimization.process', { returnObjects: true }) as string[]) || []
     },
     {
-      icon: <Users className="h-8 w-8 text-primary-600" />,
+      icon: <NetworkIcon size={32} />,
+      animatedIcon: <NetworkIcon size={96} />,
+      visualType: 'team' as const,
       title: t('services.capacityBuilding.title'),
       subtitle: t('services.capacityBuilding.subtitle'),
       description: t('services.capacityBuilding.description'),
@@ -94,29 +105,40 @@ const ServicesPage: React.FC = () => {
       description={t('services.description')}
     >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-900 dark:to-neutral-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+      <section className="relative py-20 bg-gradient-to-br from-primary-50 to-secondary-50 overflow-hidden">
+        <FloatingDataElements />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6 animate-fade-in">
             {t('services.hero.title')}
           </h1>
-          <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          <p className="text-xl text-neutral-600 leading-relaxed animate-slide-up">
             {t('services.hero.subtitle')}
           </p>
         </div>
       </section>
 
       {/* Main Services */}
-      <section className="py-20 bg-white dark:bg-neutral-900">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-20">
             {services.map((service, index) => (
               <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                {/* Icon card - appears first on mobile, positioned by grid order on desktop */}
+                {/* Visual card - appears first on mobile, positioned by grid order on desktop */}
                 <div className={`order-1 lg:order-none ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                  <div className="bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 p-8 rounded-2xl h-96 flex items-center justify-center">
-                    <div className="text-center">
-                      {React.cloneElement(service.icon, { className: "h-24 w-24 text-primary-600 mx-auto mb-4" })}
-                      <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
+                  <div className="bg-gradient-to-br from-primary-100 to-secondary-100 p-8 rounded-2xl h-96 flex flex-col items-center justify-center relative overflow-hidden">
+                    {/* Background pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <ImagePlaceholder 
+                        type={service.visualType}
+                        className="w-full h-full"
+                        alt={service.title}
+                      />
+                    </div>
+                    <div className="relative z-10 text-center">
+                      <div className="mb-4 transform hover:scale-110 transition-transform duration-300">
+                        {service.animatedIcon}
+                      </div>
+                      <h3 className="text-2xl font-bold text-neutral-900">
                         {service.title}
                       </h3>
                     </div>
@@ -130,16 +152,16 @@ const ServicesPage: React.FC = () => {
                       {service.icon}
                     </div>
                     <div className="sm:ml-4">
-                      <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">
+                      <h2 className="text-3xl font-bold text-neutral-900">
                         {service.title}
                       </h2>
-                      <p className="text-lg text-primary-600 dark:text-primary-400">
+                      <p className="text-lg text-primary-600">
                         {service.subtitle}
                       </p>
                     </div>
                   </div>
                   
-                  <p className="text-lg text-neutral-600 dark:text-neutral-300 mb-6 leading-relaxed">
+                  <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -147,33 +169,33 @@ const ServicesPage: React.FC = () => {
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center">
                         <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                        <span className="text-neutral-600 dark:text-neutral-300">
+                        <span className="text-neutral-600">
                           {feature}
                         </span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-lg mb-6">
-                    <h4 className="font-semibold text-neutral-900 dark:text-white mb-2">
+                  <div className="bg-primary-50 p-4 rounded-lg mb-6">
+                    <h4 className="font-semibold text-neutral-900 mb-2">
                       {t('services.keyBenefits')}
                     </h4>
                     <ul className="space-y-1">
                       {service.benefits.map((benefit, benefitIndex) => (
-                        <li key={benefitIndex} className="text-primary-700 dark:text-primary-300">
+                        <li key={benefitIndex} className="text-primary-700">
                           • {benefit}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-lg mb-6">
-                    <h4 className="font-semibold text-neutral-900 dark:text-white mb-2">
+                  <div className="bg-primary-50 p-4 rounded-lg mb-6">
+                    <h4 className="font-semibold text-neutral-900 mb-2">
                       {t('services.processSteps')}
                     </h4>
                     <ul className="space-y-1">
                       {service.process.map((step, stepIndex) => (
-                        <li key={stepIndex} className="text-primary-700 dark:text-primary-300">
+                        <li key={stepIndex} className="text-primary-700">
                           • {step}
                         </li>
                       ))}
@@ -192,27 +214,27 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Additional Services */}
-      <section className="py-20 bg-neutral-50 dark:bg-neutral-800">
+      <section className="py-20 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
               {t('services.additional.title')}
             </h2>
-            <p className="text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
               {t('services.additional.subtitle')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {additionalServices.map((service, index) => (
-              <div key={index} className="card text-center">
-                <div className="flex justify-center mb-4">
+              <div key={index} className="card text-center group hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                <div className="flex justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">
+                <h3 className="text-xl font-semibold text-neutral-900 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-neutral-600 dark:text-neutral-300">
+                <p className="text-neutral-600">
                   {service.description}
                 </p>
               </div>
@@ -222,27 +244,30 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-white dark:bg-neutral-900">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
               {t('services.process.title')}
             </h2>
-            <p className="text-xl text-neutral-600 dark:text-neutral-300">
+            <p className="text-xl text-neutral-600">
               {t('services.process.subtitle')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {processSteps.map((phase, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4 transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
                   <span className="text-white font-bold text-lg">{phase.step}</span>
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-2">
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-primary-300 to-secondary-300 opacity-30" />
+                )}
+                <h3 className="text-xl font-semibold text-neutral-900 mb-2">
                   {phase.title}
                 </h3>
-                <p className="text-neutral-600 dark:text-neutral-300">
+                <p className="text-neutral-600">
                   {phase.description}
                 </p>
               </div>
@@ -252,8 +277,19 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-20 h-20 animate-float">
+            <DataAnalyticsIcon size={80} className="text-white" />
+          </div>
+          <div className="absolute bottom-10 right-10 w-16 h-16 animate-float-delayed">
+            <NetworkIcon size={64} className="text-white" />
+          </div>
+          <div className="absolute top-1/2 left-1/4 w-12 h-12 animate-float-slow">
+            <AIIcon size={48} className="text-white" />
+          </div>
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             {t('services.cta.title')}
           </h2>
@@ -261,10 +297,10 @@ const ServicesPage: React.FC = () => {
             {t('services.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
+            <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
               {t('services.cta.contact')}
             </Link>
-            <Link href="/about" className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
+            <Link href="/about" className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105">
               {t('services.cta.about')}
             </Link>
           </div>

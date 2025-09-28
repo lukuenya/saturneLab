@@ -138,19 +138,19 @@ const ContactPage: React.FC = () => {
       description={t('contact.description')}
     >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-900 dark:to-neutral-800">
+      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
             {t('contact.hero.title')}
           </h1>
-          <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          <p className="text-xl text-neutral-600 leading-relaxed">
             {t('contact.hero.subtitle')}
           </p>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-white dark:bg-neutral-900">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {contactInfo.map((info, index) => (
@@ -158,13 +158,13 @@ const ContactPage: React.FC = () => {
                 <div className="flex justify-center mb-4">
                   {info.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-2">
+                <h3 className="text-xl font-semibold text-neutral-900 mb-2">
                   {info.title}
                 </h3>
-                <p className="text-lg font-medium text-primary-600 dark:text-primary-400 mb-2">
+                <p className="text-lg font-medium text-primary-600 mb-2">
                   {info.content}
                 </p>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                <p className="text-sm text-neutral-600">
                   {info.description}
                 </p>
               </div>
@@ -174,28 +174,28 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-neutral-50 dark:bg-neutral-800">
+      <section className="py-20 bg-neutral-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}
             <div>
-              <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-6">
+              <h2 className="text-3xl font-bold text-neutral-900  mb-6">
                 {t('contact.form.title')}
               </h2>
               
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400 mr-3" />
-                  <span className="text-green-700 dark:text-green-300">
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                  <span className="text-green-700">
                     {t('contact.form.successMessage')}
                   </span>
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center">
-                  <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 mr-3" />
-                  <span className="text-red-700 dark:text-red-300">
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center">
+                  <AlertCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <span className="text-red-700">
                     {t('contact.form.errorMessage')}
                   </span>
                 </div>
@@ -204,7 +204,7 @@ const ContactPage: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">
                       {t('contact.form.name')} *
                     </label>
                     <input
@@ -213,18 +213,18 @@ const ContactPage: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white ${
-                        errors.name ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white  text-neutral-900  ${
+                        errors.name ? 'border-red-500' : 'border-neutral-300'
                       }`}
                       placeholder={t('contact.form.namePlaceholder')}
                     />
                     {errors.name && (
-                      <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>
+                      <p className="mt-1 text-sm text-red-600">{errors.name}</p>
                     )}
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
                       {t('contact.form.email')} *
                     </label>
                     <input
@@ -233,19 +233,19 @@ const ContactPage: React.FC = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white ${
-                        errors.email ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white  text-neutral-900  ${
+                        errors.email ? 'border-red-500' : 'border-neutral-300'
                       }`}
                       placeholder={t('contact.form.emailPlaceholder')}
                     />
                     {errors.email && (
-                      <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
+                      <p className="mt-1 text-sm text-red-600">{errors.email}</p>
                     )}
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                  <label htmlFor="company" className="block text-sm font-medium text-neutral-700 mb-2">
                     {t('contact.form.company')}
                   </label>
                   <input
@@ -254,13 +254,13 @@ const ContactPage: React.FC = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white"
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-neutral-900"
                     placeholder={t('contact.form.companyPlaceholder')}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 mb-2">
                     {t('contact.form.subject')} *
                   </label>
                   <select
@@ -268,8 +268,8 @@ const ContactPage: React.FC = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white ${
-                      errors.subject ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white  text-neutral-900  ${
+                      errors.subject ? 'border-red-500' : 'border-neutral-300'
                     }`}
                   >
                     <option value="">Select a subject</option>
@@ -280,12 +280,12 @@ const ContactPage: React.FC = () => {
                     <option value="other">Other</option>
                   </select>
                   {errors.subject && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.subject}</p>
+                    <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-2">
                     {t('contact.form.message')} *
                   </label>
                   <textarea
@@ -294,13 +294,13 @@ const ContactPage: React.FC = () => {
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white ${
-                      errors.message ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-600'
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white  text-neutral-900  ${
+                      errors.message ? 'border-red-500' : 'border-neutral-300'
                     }`}
                     placeholder={t('contact.form.messagePlaceholder')}
                   />
                   {errors.message && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>
+                    <p className="mt-1 text-sm text-red-600">{errors.message}</p>
                   )}
                 </div>
 
@@ -326,41 +326,41 @@ const ContactPage: React.FC = () => {
 
             {/* Services & Info */}
             <div>
-              <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-6">
+              <h2 className="text-3xl font-bold text-neutral-900  mb-6">
                 {t('contact.help.title')}
               </h2>
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-4">
+                  <h3 className="text-xl font-semibold text-neutral-900  mb-4">
                     {t('contact.help.servicesTitle')}
                   </h3>
                   <div className="grid grid-cols-1 gap-3">
                     {services.map((service, index) => (
                       <div key={index} className="flex items-center">
                         <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                        <span className="text-neutral-600 dark:text-neutral-300">{service}</span>
+                        <span className="text-neutral-600">{service}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">
+                <div className="bg-primary-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-neutral-900  mb-3">
                     {t('contact.help.whyChooseTitle')}
                   </h3>
-                  <ul className="space-y-2 text-neutral-600 dark:text-neutral-300">
+                  <ul className="space-y-2 text-neutral-600">
                     {(t('contact.help.whyChooseReasons', { returnObjects: true }) as string[]).map((reason: string, index: number) => (
                       <li key={index}>• {reason}</li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="bg-secondary-50 dark:bg-secondary-900/20 p-6 rounded-lg">
-                  <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3">
+                <div className="bg-secondary-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-neutral-900  mb-3">
                     {t('contact.help.responseTimeTitle')}
                   </h3>
-                  <p className="text-neutral-600 dark:text-neutral-300">
+                  <p className="text-neutral-600">
                     {t('contact.help.responseTimeText')}
                   </p>
                 </div>

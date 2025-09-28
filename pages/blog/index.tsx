@@ -48,30 +48,28 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
       description={t('blog.description')}
     >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-900 dark:to-neutral-800">
+      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
             {t('blog.hero.title')}
           </h1>
-          <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            {t('blog.hero.subtitle')}
+          <p className="text-xl text-neutral-600 leading-relaxed">
           </p>
         </div>
       </section>
 
       {/* Search and Filter Section */}
-      <section className="py-12 bg-white dark:bg-neutral-900">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             {/* Search Bar */}
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 h-5 w-5" />
               <input
                 type="text"
                 placeholder={t('blog.search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white"
+                className="w-full pl-12 pr-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-neutral-900 placeholder-neutral-500"
               />
             </div>
 
@@ -80,7 +78,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg bg-white text-neutral-900 placeholder-neutral-500 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="all">{t('blog.categories.all')}</option>
                 {categories.map((category) => (
@@ -92,86 +90,93 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
             </div>
           </div>
 
-          {/* Results Count */}
-          <div className="mb-8">
-            <p className="text-neutral-600 dark:text-neutral-400">
-              {t('blog.results.showing', { count: filteredPosts.length })}
-            </p>
-          </div>
-
           {/* Blog Posts Grid */}
-          {filteredPosts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
-                <article key={post.slug} className="card group hover:scale-105 transition-transform duration-200">
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full">
-                      {post.category}
-                    </span>
-                  </div>
-                  
-                  <h2 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">
-                    <Link href={`/blog/${post.slug}`}>
-                      {post.title}
-                    </Link>
-                  </h2>
-                  
-                  <p className="text-neutral-600 dark:text-neutral-300 mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-
-                  <div className="flex items-center text-sm text-neutral-500 dark:text-neutral-400 mb-4 space-x-4">
-                    <div className="flex items-center">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      {formatDate(post.date)}
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="h-4 w-4 mr-1" />
-                      {post.readTime}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <User className="h-4 w-4 mr-2 text-neutral-400" />
-                      <span className="text-sm text-neutral-600 dark:text-neutral-300">
-                        {post.author}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredPosts.length > 0 ? (
+              filteredPosts.map((post) => (
+                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                  <div className="card group cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                    <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg mb-4 flex items-center justify-center">
+                      <span className="text-primary-600 text-6xl font-bold opacity-20">
+                        {post.title.charAt(0)}
                       </span>
                     </div>
                     
-                    {post.tags.length > 0 && (
-                      <div className="flex items-center">
-                        <Tag className="h-4 w-4 mr-1 text-neutral-400" />
-                        <span className="text-xs text-neutral-500 dark:text-neutral-400">
-                          {post.tags.slice(0, 2).join(', ')}
-                          {post.tags.length > 2 && '...'}
-                        </span>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center text-sm text-neutral-500 space-x-2">
+                        <Calendar className="h-4 w-4" />
+                        <span>{formatDate(post.date)}</span>
                       </div>
-                    )}
-                  </div>
+                      <span className="inline-block px-3 py-1 text-xs font-medium bg-primary-100 text-primary-700 rounded-full">
+                        {post.category}
+                      </span>
+                    </div>
+                    
+                    <h2 className="text-xl font-semibold text-neutral-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">{post.title}</h2>
+                    <p className="text-neutral-600 mb-4 leading-relaxed">{post.description}</p>
+                    
+                    <div className="flex items-center text-sm text-neutral-500 mb-4 space-x-4">
+                      <div className="flex items-center">
+                        <User className="h-4 w-4 mr-1" />
+                        {post.author}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-1" />
+                        {post.readTime}
+                      </div>
+                    </div>
 
-                  <div className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
-                    <Link 
-                      href={`/blog/${post.slug}`}
-                      className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium text-sm transition-colors duration-200"
-                    >
-                      {t('blog.readMore')} →
-                    </Link>
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.map((tag, index) => (
+                        <span key={index} className="inline-block px-2 py-1 text-xs font-medium bg-neutral-100 text-neutral-600 rounded">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </article>
-              ))}
-            </div>
-          ) : (
+                </Link>
+              ))
+            ) : (
+              <div className="col-span-full">
+                <div className="text-center py-12">
+                  <div className="max-w-md mx-auto">
+                    <div className="w-24 h-24 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Search className="h-12 w-12 text-neutral-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-neutral-900 mb-4">
+                      {t('blog.search.noResults')}
+                    </h3>
+                    <p className="text-neutral-600 mb-6">
+                      {t('blog.search.tryDifferent')}
+                    </p>
+                    <button 
+                      className="btn-primary"
+                      onClick={() => {
+                        setSearchTerm('')
+                        setSelectedCategory('all')
+                      }}
+                    >
+                      {t('blog.search.clearFilters')}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Newsletter CTA */}
+          {filteredPosts.length === 0 && (
             <div className="text-center py-12">
               <div className="max-w-md mx-auto">
-                <div className="w-24 h-24 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-24 h-24 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Search className="h-12 w-12 text-neutral-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-2">
-                  {t('blog.noResults.title')}
+                <h3 className="text-2xl font-bold text-neutral-900 mb-4 flex items-center">
+                  <Mail className="w-6 h-6 mr-2 text-primary-600" />
+                  Newsletter
                 </h3>
-                <p className="text-neutral-600 dark:text-neutral-400">
-                  {t('blog.noResults.message')}
+                <p className="text-neutral-600 mb-6">
+                  Subscribe to our newsletter for the latest insights in data science and analytics.
                 </p>
               </div>
             </div>

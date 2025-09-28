@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { Sun, Moon, Menu, X, Globe } from 'lucide-react'
-import { useTheme } from 'next-themes'
+import { Menu, X, Globe } from 'lucide-react'
 import { useTranslation } from 'next-i18next'
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
   const router = useRouter()
   const { t } = useTranslation('common')
 
@@ -43,7 +41,7 @@ const Header: React.FC = () => {
   }
 
   return (
-    <header className="bg-white dark:bg-neutral-900 shadow-sm border-b border-neutral-200 dark:border-neutral-800 sticky top-0 z-50">
+    <header className="bg-white shadow-sm border-b border-neutral-200 sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -60,7 +58,7 @@ const Header: React.FC = () => {
                   priority
                 />
               </div>
-              <span className="text-xl font-bold text-primary-700 dark:text-primary-400">
+              <span className="text-xl font-bold text-primary-700">
                 SATURNE LAB
               </span>
             </a>
@@ -75,8 +73,8 @@ const Header: React.FC = () => {
                   href={item.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     isActive(item.href)
-                      ? 'bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300'
-                      : 'text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                      ? 'bg-primary-100 text-primary-700'
+                      : 'text-neutral-600 hover:text-primary-600 hover:bg-neutral-100'
                   }`}
                 >
                   {item.name}
@@ -85,12 +83,12 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Language Switcher, Theme Toggle & Mobile Menu Button */}
+          {/* Language Switcher & Mobile Menu Button */}
           <div className="flex items-center space-x-2">
             {/* Language Switcher */}
             <div className="relative">
               <button
-                className="p-2 rounded-md text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200 flex items-center"
+                className="p-2 rounded-md text-neutral-600 hover:text-primary-600 hover:bg-neutral-100 transition-colors duration-200 flex items-center"
                 aria-label="Change language"
                 onClick={handleLanguageSwitch}
               >
@@ -98,25 +96,12 @@ const Header: React.FC = () => {
                 <span className="text-sm font-medium">{currentLocale === 'fr' ? 'EN' : 'FR'}</span>
               </button>
             </div>
-            
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-md text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </button>
 
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200"
+                className="p-2 rounded-md text-neutral-600 hover:text-primary-600 hover:bg-neutral-100 transition-colors duration-200"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
@@ -132,15 +117,15 @@ const Header: React.FC = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-neutral-200 dark:border-neutral-700">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-neutral-200">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     isActive(item.href)
-                      ? 'bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300'
-                      : 'text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                      ? 'bg-primary-100 text-primary-700'
+                      : 'text-neutral-600 hover:text-primary-600 hover:bg-neutral-100'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
