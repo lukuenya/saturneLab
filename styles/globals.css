@@ -7,10 +7,18 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-size: 16px; /* Ensure base font size */
+    -webkit-text-size-adjust: 100%; /* Prevent iOS text size adjustment */
+    -webkit-tap-highlight-color: transparent;
   }
   
   body {
     @apply bg-white text-neutral-900 transition-colors duration-300;
+    min-width: 320px; /* Minimum width for mobile */
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
 }
 
