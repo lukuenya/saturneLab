@@ -5,14 +5,20 @@ import Image from 'next/image'
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useRouter } from 'next/router'
 import { ExcellenceIcon, CollaborationIcon, IntegrityIcon, ImpactIcon } from '@/components/animations/ValueIcons'
 import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
 const AboutPage: React.FC = () => {
   const { t } = useTranslation('common')
+  const router = useRouter()
   
   // Handle client-side locale changes when navigating with browser back/forward
   const { ready } = useClientSideLocale()
+  
+  // Get current locale from URL
+  const currentLocale = router.asPath.startsWith('/en') ? 'en' : 'fr'
+  const localePrefix = currentLocale === 'en' ? '/en' : '/fr'
   
   // Show loading state while translations are loading
   if (!ready) {
@@ -202,7 +208,7 @@ const AboutPage: React.FC = () => {
           <p className="text-xl text-primary-100 mb-8">
             {t('about.cta.subtitle')}
           </p>
-          <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 inline-block">
+          <Link href={`${localePrefix}/contact`} className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 inline-block">
             {t('about.cta.button')}
           </Link>
         </div>

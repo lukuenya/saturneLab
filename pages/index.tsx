@@ -5,6 +5,7 @@ import { ArrowRight, Database, TrendingUp, Users, BookOpen, CheckCircle, Target 
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useRouter } from 'next/router'
 import HeroBackground from '@/components/animations/HeroBackground'
 import { FloatingDataElements } from '@/components/animations/FloatingElements'
 import { DataAnalyticsIcon, NetworkIcon, AIIcon, DatabaseIcon } from '@/components/animations/DataIcons'
@@ -13,9 +14,14 @@ import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation('common')
+  const router = useRouter()
   
   // Handle client-side locale changes when navigating with browser back/forward
   const { ready } = useClientSideLocale()
+  
+  // Get current locale from URL
+  const currentLocale = router.asPath.startsWith('/en') ? 'en' : 'fr'
+  const localePrefix = currentLocale === 'en' ? '/en' : '/fr'
   
   // Show loading state while translations are loading
   if (!ready) {
@@ -79,7 +85,7 @@ const HomePage: React.FC = () => {
               {t('home.hero.description')}
             </p>
             <div className="flex justify-center">
-              <Link href="/services" className="btn-primary">
+              <Link href={`${localePrefix}/services`} className="btn-primary">
                 {t('home.hero.learnMore')}
               </Link>
             </div>
@@ -151,7 +157,7 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link href="/services" className="btn-primary">
+            <Link href={`${localePrefix}/services`} className="btn-primary">
               {t('home.services.exploreAll')}
             </Link>
           </div>
@@ -177,10 +183,10 @@ const HomePage: React.FC = () => {
             {t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">
+            <Link href={`${localePrefix}/contact`} className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">
               {t('home.cta.contact')}
             </Link>
-            <Link href="/blog" className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">
+            <Link href={`${localePrefix}/blog`} className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">
               {t('home.cta.blog')}
             </Link>
           </div>

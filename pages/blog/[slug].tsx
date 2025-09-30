@@ -10,6 +10,7 @@ import { Calendar, User, Clock, Tag, ArrowLeft } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useRouter } from 'next/router'
 import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
 // Dynamically import icons with SSR disabled to prevent hydration errors
@@ -24,9 +25,14 @@ interface BlogPostPageProps {
 
 const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
   const { t } = useTranslation('common')
+  const router = useRouter()
 
   // Handle client-side locale changes when navigating with browser back/forward
   const { ready } = useClientSideLocale()
+  
+  // Get current locale from URL
+  const currentLocale = router.asPath.startsWith('/en') ? 'en' : 'fr'
+  const localePrefix = currentLocale === 'en' ? '/en' : '/fr'
   
   // Show loading state while translations are loading
   if (!ready) {
@@ -89,7 +95,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
       <div className="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link 
-            href="/blog"
+            href={`${localePrefix}/blog`}
             className="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />

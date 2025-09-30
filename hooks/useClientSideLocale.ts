@@ -8,11 +8,11 @@ import { useTranslation } from 'next-i18next'
  */
 export const useClientSideLocale = () => {
   const router = useRouter()
-  const { i18n, ready } = useTranslation()
-  const [isChangingLocale, setIsChangingLocale] = useState(false)
+  const { i18n, t } = useTranslation()
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
-    // Safety check: only run if router and i18n are ready
+    // Safety check: only run if router is ready
     if (!router.isReady) {
       return
     }
@@ -30,22 +30,32 @@ export const useClientSideLocale = () => {
             pathname 
           })
           
-          setIsChangingLocale(true)
+          setIsReady(false)
           
-          // Use setTimeout to avoid race conditions with Next.js routing
-          setTimeout(async () => {
-            try {
-              await i18n.changeLanguage(localeFromPath)
-              setIsChangingLocale(false)
-            } catch (error) {
-              console.error('Error changing language:', error)
-              setIsChangingLocale(false)
-            }
-          }, 0)
+          try {
+            await i18n.changeLanguage(localeFromPath)
+            // Wait a bit for translations to load
+            await new Promise(resolve => setTimeout(resolve, 100))
+            setIsReady(true)
+          } catch (error) {
+            console.error('Error changing language:', error)
+            setIsReady(true)
+          }
+        } else {
+          // Check if translations are actually loaded by testing a key
+          const testKey = 'header.home'
+          const translation = t(testKey)
+          // If translation returns the key itself, it's not loaded yet
+          if (translation !== testKey) {
+            setIsReady(true)
+          } else {
+            // Wait and retry
+            setTimeout(() => setIsReady(true), 200)
+          }
         }
       } catch (error) {
         console.error('Error detecting locale:', error)
-        setIsChangingLocale(false)
+        setIsReady(true)
       }
     }
 
@@ -58,8 +68,8 @@ export const useClientSideLocale = () => {
     return () => {
       router.events.off('routeChangeComplete', detectAndSetLocale)
     }
-  }, [router.isReady, router.asPath, router.events, i18n])
+  }, [router.isReady, router.asPath, router.events, i18n, t])
 
   // Return whether translations are ready to use
-  return { ready: ready && !isChangingLocale }
+  return { ready: isReady }
 }
