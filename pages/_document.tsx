@@ -9,6 +9,9 @@ export default function Document(props: DocumentProps) {
   return (
     <Html lang={currentLocale}>
       <Head>
+        {/* Viewport meta tag for responsive design */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        
         {/* Favicon using company logo */}
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
