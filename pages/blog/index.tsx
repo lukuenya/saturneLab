@@ -21,17 +21,6 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
 
   // Handle client-side locale changes when navigating with browser back/forward
   const { ready } = useClientSideLocale()
-  
-  // Show loading state while translations are loading
-  if (!ready) {
-    return (
-      <Layout title="Blog - Saturne Lab" description="Blog">
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
-        </div>
-      </Layout>
-    )
-  }
 
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
@@ -55,6 +44,17 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
       month: 'long',
       day: 'numeric'
     })
+  }
+
+  // Show loading state while translations are loading
+  if (!ready) {
+    return (
+      <Layout title="Blog - Saturne Lab" description="Blog">
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        </div>
+      </Layout>
+    )
   }
 
   return (
