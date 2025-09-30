@@ -14,22 +14,11 @@ const AboutPage: React.FC = () => {
   const router = useRouter()
   
   // Handle client-side locale changes when navigating with browser back/forward
-  const { ready } = useClientSideLocale()
+  useClientSideLocale()
   
   // Get current locale from URL
   const currentLocale = router.asPath.startsWith('/en') ? 'en' : 'fr'
   const localePrefix = currentLocale === 'en' ? '/en' : '/fr'
-  
-  // Show loading state while translations are loading
-  if (!ready) {
-    return (
-      <Layout title="About - Saturne Lab" description="About Us">
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
-        </div>
-      </Layout>
-    )
-  }
   const values = [
     {
       icon: <ExcellenceIcon size={60} />,

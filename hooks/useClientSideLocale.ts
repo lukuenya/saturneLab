@@ -8,8 +8,8 @@ import { useTranslation } from 'next-i18next'
  */
 export const useClientSideLocale = () => {
   const router = useRouter()
-  const { i18n, t } = useTranslation()
-  const [isReady, setIsReady] = useState(false)
+  const { i18n } = useTranslation()
+  const [isChangingLocale, setIsChangingLocale] = useState(false)
 
   useEffect(() => {
     // Safety check: only run if router is ready
@@ -30,32 +30,21 @@ export const useClientSideLocale = () => {
             pathname 
           })
           
-          setIsReady(false)
+          setIsChangingLocale(true)
           
           try {
             await i18n.changeLanguage(localeFromPath)
             // Wait a bit for translations to load
-            await new Promise(resolve => setTimeout(resolve, 100))
-            setIsReady(true)
+            await new Promise(resolve => setTimeout(resolve, 150))
           } catch (error) {
             console.error('Error changing language:', error)
-            setIsReady(true)
-          }
-        } else {
-          // Check if translations are actually loaded by testing a key
-          const testKey = 'header.home'
-          const translation = t(testKey)
-          // If translation returns the key itself, it's not loaded yet
-          if (translation !== testKey) {
-            setIsReady(true)
-          } else {
-            // Wait and retry
-            setTimeout(() => setIsReady(true), 200)
+          } finally {
+            setIsChangingLocale(false)
           }
         }
       } catch (error) {
         console.error('Error detecting locale:', error)
-        setIsReady(true)
+        setIsChangingLocale(false)
       }
     }
 
@@ -68,8 +57,9 @@ export const useClientSideLocale = () => {
     return () => {
       router.events.off('routeChangeComplete', detectAndSetLocale)
     }
-  }, [router.isReady, router.asPath, router.events, i18n, t])
+  }, [router.isReady, router.asPath, router.events, i18n])
 
   // Return whether translations are ready to use
-  return { ready: isReady }
+  // Start with true (assume SSR loaded translations), only false when actively changing
+  return { ready: !isChangingLocale }
 }

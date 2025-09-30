@@ -25,7 +25,7 @@ const ContactPage: React.FC = () => {
   const { t } = useTranslation('common')
   
   // Handle client-side locale changes when navigating with browser back/forward
-  const { ready } = useClientSideLocale()
+  useClientSideLocale()
   
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -136,17 +136,6 @@ const ContactPage: React.FC = () => {
   ]
 
   const services = t('contact.services', { returnObjects: true }) as string[]
-
-  // Show loading state while translations are loading
-  if (!ready) {
-    return (
-      <Layout title="Contact - Saturne Lab" description="Contact Us">
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
-        </div>
-      </Layout>
-    )
-  }
 
   return (
     <Layout
