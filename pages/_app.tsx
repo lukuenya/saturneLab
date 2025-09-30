@@ -1,7 +1,20 @@
 import type { AppProps } from 'next/app'
 import { MDXProvider } from '@mdx-js/react'
 import { appWithTranslation } from 'next-i18next'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import '@/styles/globals.css'
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({ 
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+})
 
 // MDX Components
 const components = {
@@ -20,9 +33,11 @@ const components = {
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <MDXProvider components={components}>
-      <Component {...pageProps} />
-    </MDXProvider>
+    <div className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <MDXProvider components={components}>
+        <Component {...pageProps} />
+      </MDXProvider>
+    </div>
   )
 }
 
