@@ -72,9 +72,9 @@ const HomePage: React.FC = () => {
               {t('home.hero.description')}
             </p>
             <div className="flex justify-center">
-              <Link href={`${localePrefix}/services`} className="btn-primary">
+              <a href={`${localePrefix}/services`} className="btn-primary">
                 {t('home.hero.learnMore')}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -144,9 +144,9 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link href={`${localePrefix}/services`} className="btn-primary">
+            <a href={`${localePrefix}/services`} className="btn-primary">
               {t('home.services.exploreAll')}
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -170,12 +170,12 @@ const HomePage: React.FC = () => {
             {t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={`${localePrefix}/contact`} className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">
+            <a href={`${localePrefix}/contact`} className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">
               {t('home.cta.contact')}
-            </Link>
-            <Link href={`${localePrefix}/blog`} className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">
+            </a>
+            <a href={`${localePrefix}/blog`} className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">
               {t('home.cta.blog')}
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -183,18 +183,22 @@ const HomePage: React.FC = () => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, res, resolvedUrl }) => {
+  // Prevent caching to ensure fresh translations on every request
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
+  res.setHeader('Pragma', 'no-cache')
+  res.setHeader('Expires', '0')
+  
   // Get locale from middleware headers, URL path, or default to French
   const localeFromHeader = req.headers['x-locale'] as string
   const localeFromPath = resolvedUrl.startsWith('/en') ? 'en' : 'fr'
   const locale = localeFromHeader || localeFromPath || 'fr'
 
-  console.log('Locale detection:', { localeFromHeader, localeFromPath, resolvedUrl, locale })
+  console.log('Home page - Locale detection:', { localeFromHeader, localeFromPath, resolvedUrl, locale })
 
   try {
     const translations = await serverSideTranslations(locale, ['common'])
-    console.log('Translations loaded successfully for locale:', locale)
-    console.log('Translation keys available:', Object.keys(translations._nextI18Next?.initialI18nStore?.[locale]?.common || {}))
+    console.log('Home page - Translations loaded successfully for locale:', locale)
     
     return {
       props: {
@@ -202,7 +206,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl 
       },
     }
   } catch (error) {
-    console.error('Error loading translations:', error)
+    console.error('Home page - Error loading translations:', error)
     // Fallback to French if there's an error
     const fallbackTranslations = await serverSideTranslations('fr', ['common'])
     return {

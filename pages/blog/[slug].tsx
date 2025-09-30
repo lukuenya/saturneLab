@@ -83,13 +83,13 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
       {/* Back Navigation */}
       <div className="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Link 
+          <a 
             href={`${localePrefix}/blog`}
             className="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             {t('blog.post.backToBlog')}
-          </Link>
+          </a>
         </div>
       </div>
 

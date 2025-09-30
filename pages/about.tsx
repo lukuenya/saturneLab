@@ -197,9 +197,9 @@ const AboutPage: React.FC = () => {
           <p className="text-xl text-primary-100 mb-8">
             {t('about.cta.subtitle')}
           </p>
-          <Link href={`${localePrefix}/contact`} className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 inline-block">
+          <a href={`${localePrefix}/contact`} className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-colors duration-200 inline-block">
             {t('about.cta.button')}
-          </Link>
+          </a>
         </div>
       </section>
     </Layout>

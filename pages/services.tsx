@@ -289,12 +289,12 @@ const ServicesPage: React.FC = () => {
             {t('services.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={`${localePrefix}/contact`} className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <a href={`${localePrefix}/contact`} className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
               {t('services.cta.contact')}
-            </Link>
-            <Link href={`${localePrefix}/about`} className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105">
+            </a>
+            <a href={`${localePrefix}/about`} className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105">
               {t('services.cta.about')}
-            </Link>
+            </a>
           </div>
         </div>
       </section>
