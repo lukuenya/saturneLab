@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo } from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { GetServerSideProps } from 'next'
@@ -7,7 +7,7 @@ import { Search, Calendar, User, Tag, Clock, Mail } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useRouter } from 'next/router'
+import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
 interface BlogIndexProps {
   posts: BlogPost[]
@@ -15,34 +15,12 @@ interface BlogIndexProps {
 }
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
-  const { t, i18n } = useTranslation('common')
-  const router = useRouter()
+  const { t } = useTranslation('common')
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
 
   // Handle client-side locale changes when navigating with browser back/forward
-  useEffect(() => {
-    const detectAndSetLocale = () => {
-      const pathname = router.asPath
-      const localeFromPath = pathname.startsWith('/en') ? 'en' : 'fr'
-      
-      // Only change locale if it's different from current
-      if (i18n.language !== localeFromPath) {
-        console.log('Client-side locale change detected on blog:', { from: i18n.language, to: localeFromPath, pathname })
-        i18n.changeLanguage(localeFromPath)
-      }
-    }
-
-    // Detect locale on component mount
-    detectAndSetLocale()
-
-    // Listen for route changes
-    router.events.on('routeChangeComplete', detectAndSetLocale)
-    
-    return () => {
-      router.events.off('routeChangeComplete', detectAndSetLocale)
-    }
-  }, [router.asPath, router.events, i18n])
+  useClientSideLocale()
 
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {

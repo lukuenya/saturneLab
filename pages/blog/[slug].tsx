@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { GetServerSideProps } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -10,7 +10,7 @@ import { Calendar, User, Clock, Tag, ArrowLeft } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useRouter } from 'next/router'
+import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
 // Dynamically import icons with SSR disabled to prevent hydration errors
 const Linkedin = dynamic(() => import('lucide-react').then(mod => mod.Linkedin), { ssr: false })
@@ -23,32 +23,10 @@ interface BlogPostPageProps {
 }
 
 const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
-  const { t, i18n } = useTranslation('common')
-  const router = useRouter()
+  const { t } = useTranslation('common')
 
   // Handle client-side locale changes when navigating with browser back/forward
-  useEffect(() => {
-    const detectAndSetLocale = () => {
-      const pathname = router.asPath
-      const localeFromPath = pathname.startsWith('/en') ? 'en' : 'fr'
-      
-      // Only change locale if it's different from current
-      if (i18n.language !== localeFromPath) {
-        console.log('Client-side locale change detected on blog post:', { from: i18n.language, to: localeFromPath, pathname })
-        i18n.changeLanguage(localeFromPath)
-      }
-    }
-
-    // Detect locale on component mount
-    detectAndSetLocale()
-
-    // Listen for route changes
-    router.events.on('routeChangeComplete', detectAndSetLocale)
-    
-    return () => {
-      router.events.off('routeChangeComplete', detectAndSetLocale)
-    }
-  }, [router.asPath, router.events, i18n])
+  useClientSideLocale()
   const formatDate = (dateString: string) => {
     // Use the current locale for date formatting
     return new Date(dateString).toLocaleDateString(undefined, {

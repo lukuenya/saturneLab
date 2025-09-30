@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Layout from '@/components/Layout'
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useRouter } from 'next/router'
+import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
 interface FormData {
   name: string
@@ -22,32 +22,10 @@ interface FormErrors {
 }
 
 const ContactPage: React.FC = () => {
-  const { t, i18n } = useTranslation('common')
-  const router = useRouter()
-
+  const { t } = useTranslation('common')
+  
   // Handle client-side locale changes when navigating with browser back/forward
-  useEffect(() => {
-    const detectAndSetLocale = () => {
-      const pathname = router.asPath
-      const localeFromPath = pathname.startsWith('/en') ? 'en' : 'fr'
-      
-      // Only change locale if it's different from current
-      if (i18n.language !== localeFromPath) {
-        console.log('Client-side locale change detected on contact:', { from: i18n.language, to: localeFromPath, pathname })
-        i18n.changeLanguage(localeFromPath)
-      }
-    }
-
-    // Detect locale on component mount
-    detectAndSetLocale()
-
-    // Listen for route changes
-    router.events.on('routeChangeComplete', detectAndSetLocale)
-    
-    return () => {
-      router.events.off('routeChangeComplete', detectAndSetLocale)
-    }
-  }, [router.asPath, router.events, i18n])
+  useClientSideLocale()
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',

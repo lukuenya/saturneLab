@@ -1,43 +1,21 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { ArrowRight, Database, TrendingUp, Users, BookOpen, CheckCircle, Target } from 'lucide-react'
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useRouter } from 'next/router'
 import HeroBackground from '@/components/animations/HeroBackground'
 import { FloatingDataElements } from '@/components/animations/FloatingElements'
 import { DataAnalyticsIcon, NetworkIcon, AIIcon, DatabaseIcon } from '@/components/animations/DataIcons'
 import ImagePlaceholder from '@/components/ImagePlaceholders'
+import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
 const HomePage: React.FC = () => {
-  const { t, i18n } = useTranslation('common')
-  const router = useRouter()
-
+  const { t } = useTranslation('common')
+  
   // Handle client-side locale changes when navigating with browser back/forward
-  useEffect(() => {
-    const detectAndSetLocale = () => {
-      const pathname = router.asPath
-      const localeFromPath = pathname.startsWith('/en') ? 'en' : 'fr'
-      
-      // Only change locale if it's different from current
-      if (i18n.language !== localeFromPath) {
-        console.log('Client-side locale change detected:', { from: i18n.language, to: localeFromPath, pathname })
-        i18n.changeLanguage(localeFromPath)
-      }
-    }
-
-    // Detect locale on component mount
-    detectAndSetLocale()
-
-    // Listen for route changes
-    router.events.on('routeChangeComplete', detectAndSetLocale)
-    
-    return () => {
-      router.events.off('routeChangeComplete', detectAndSetLocale)
-    }
-  }, [router.asPath, router.events, i18n])
+  useClientSideLocale()
   const services = [
     {
       icon: <DatabaseIcon className="mx-auto" size={48} />,
