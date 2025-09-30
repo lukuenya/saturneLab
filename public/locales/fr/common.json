@@ -101,7 +101,29 @@
     },
     "team": {
       "title": "Notre équipe",
-      "subtitle": "Professionnels expérimentés passionnés par la science des données et engagés pour le développement de la RDC"
+      "subtitle": "Professionnels expérimentés passionnés par la science des données et engagés pour le développement de la RDC",
+      "members": {
+        "matthieu": {
+          "name": "Matthieu Ndumbi",
+          "role": "Fondateur & Data Scientist",
+          "bio": "Master d'Ingénierie en Génie Électrique et Informatique avec expérience en science des données, IA, SIG et Bio-Informatique. Ancien chercheur postdoctoral au Centre Borelli ENS Paris-Saclay."
+        },
+        "jacques": {
+          "name": "Jacques Bakole",
+          "role": "Co-Fondateur & Analyste en Chef",
+          "bio": "Master en Économie Quantitative avec expérience en analyse statistique et visualisation de données. Chercheur et enseignant à l'UPN Kinshasa."
+        },
+        "maurice": {
+          "name": "Maurice Nkanka",
+          "role": "Co-Fondateur & Analyste Business Intelligence",
+          "bio": "Spécialisé en analyse d'affaires et visualisation. MBA de l'UNIKIN avec focus sur la stratégie d'affaires basée sur les données."
+        },
+        "johan": {
+          "name": "Johan Mufuta",
+          "role": "Co-Fondateur & Ingénieur Logiciel et Cloud",
+          "bio": "BSc en Informatique avec expérience en développement logiciel et cloud computing. Il est également associé senior chez J.P. MORGAN."
+        }
+      }
     },
     "cta": {
       "title": "Prêt à travailler ensemble?",

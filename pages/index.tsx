@@ -87,11 +87,8 @@ const HomePage: React.FC = () => {
             <p className="text-xl text-neutral-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               {t('home.hero.description')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-primary inline-flex items-center">
-                {t('home.hero.getStarted')} <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link href="/services" className="btn-secondary">
+            <div className="flex justify-center">
+              <Link href="/services" className="btn-primary">
                 {t('home.hero.learnMore')}
               </Link>
             </div>

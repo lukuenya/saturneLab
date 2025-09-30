@@ -102,7 +102,29 @@
     },
     "team": {
       "title": "Meet Our Team",
-      "subtitle": "Experienced professionals passionate about data science and committed to DRC's development"
+      "subtitle": "Experienced professionals passionate about data science and committed to DRC's development",
+      "members": {
+        "matthieu": {
+          "name": "Matthieu Ndumbi",
+          "role": "Founder & Data Scientist",
+          "bio": "Master of Engineering in Electrical & Computer Engineering with experience in Data Science, AI, GIS and Bioinformatics. Former Postgraduate Researcher at Centre Borelli ENS Paris-Saclay."
+        },
+        "jacques": {
+          "name": "Jacques Bakole",
+          "role": "Co-Founder & Chief Analyst",
+          "bio": "Master in Quantitative Economics with experience in statistical analysis and data visualization. Researcher and lecturer at UPN Kinshasa."
+        },
+        "maurice": {
+          "name": "Maurice Nkanka",
+          "role": "Co-Founder & Business Intelligence Analyst",
+          "bio": "Specializes in business analytics and visualization. MBA from UNIKIN with focus on data-driven business strategy."
+        },
+        "johan": {
+          "name": "Johan Mufuta",
+          "role": "Co-Founder & Software and Cloud Engineer",
+          "bio": "BSc in Computer Science with experience in software development and cloud computing. He is also a senior associate at J.P. MORGAN."
+        }
+      }
     },
     "cta": {
       "title": "Ready to Work Together?",

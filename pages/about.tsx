@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import { Users, Target, Award, Globe } from 'lucide-react'
+import Image from 'next/image'
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
+import { ExcellenceIcon, CollaborationIcon, IntegrityIcon, ImpactIcon } from '@/components/animations/ValueIcons'
 
 const AboutPage: React.FC = () => {
   const { t, i18n } = useTranslation('common')
@@ -36,22 +37,22 @@ const AboutPage: React.FC = () => {
   }, [router.asPath, router.events, i18n])
   const values = [
     {
-      icon: <Target className="h-8 w-8 text-primary-600" />,
+      icon: <ExcellenceIcon size={60} />,
       title: t('about.values.excellence.title'),
       description: t('about.values.excellence.description')
     },
     {
-      icon: <Users className="h-8 w-8 text-primary-600" />,
+      icon: <CollaborationIcon size={60} />,
       title: t('about.values.collaboration.title'),
       description: t('about.values.collaboration.description')
     },
     {
-      icon: <Award className="h-8 w-8 text-primary-600" />,
+      icon: <IntegrityIcon size={60} />,
       title: t('about.values.integrity.title'),
       description: t('about.values.integrity.description')
     },
     {
-      icon: <Globe className="h-8 w-8 text-primary-600" />,
+      icon: <ImpactIcon size={60} />,
       title: t('about.values.impact.title'),
       description: t('about.values.impact.description')
     }
@@ -59,27 +60,27 @@ const AboutPage: React.FC = () => {
 
   const team = [
     {
-      name: "Matthieu Ndumbi",
-      role: "Founder & Data Scientist",
-      bio: "M.Eng in Electrical & Computer Engineering with experience in data science and machine learning. Former Postgraduate Researcher at Centre Borelli ENS Paris-Saclay.",
-      image: "/team/matt.jpg"
+      name: t('about.team.members.matthieu.name'),
+      role: t('about.team.members.matthieu.role'),
+      bio: t('about.team.members.matthieu.bio'),
+      image: "/images/matt.jpg"
     },
     {
-      name: "Jacques Bakole",
-      role: "Co-Founder & Chief Analyst",
-      bio: "Master in Quantitative Economics with experience statistical analysis and data visualization. Reseacher and lecturer at UPN Kinshasa.",
+      name: t('about.team.members.jacques.name'),
+      role: t('about.team.members.jacques.role'),
+      bio: t('about.team.members.jacques.bio'),
       image: "/team/jacques.jpg"
     },
     {
-      name: "Maurice Nkanka",
-      role: "Business Intelligence Analyst",
-      bio: "Specializes in business analytics and visualization. MBA from UNIKIN with focus on data-driven business strategy.",
+      name: t('about.team.members.maurice.name'),
+      role: t('about.team.members.maurice.role'),
+      bio: t('about.team.members.maurice.bio'),
       image: "/team/maurice.jpg"
     },
     {
-      name: "Johan Mufuta",
-      role: "Software and Cloud Engineer",
-      bio: "BSc in Computer Science with experience in software development and cloud computing. He also a senior associate at J.P MORGAN",
+      name: t('about.team.members.johan.name'),
+      role: t('about.team.members.johan.role'),
+      bio: t('about.team.members.johan.bio'),
       image: "/team/johan.jpg"
     }
   ]
@@ -140,8 +141,10 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div key={index} className="card text-center">
-                <div className="flex justify-center mb-4">
-                  {value.icon}
+                <div className="flex justify-center items-center mb-6">
+                  <div className="w-24 h-24 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-xl flex items-center justify-center shadow-inner">
+                    {value.icon}
+                  </div>
                 </div>
                 <h3 className="text-xl font-semibold text-neutral-900 mb-3">
                   {value.title}
@@ -170,10 +173,21 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <div key={index} className="card text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+                <div className="relative w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden bg-gradient-to-br from-primary-400 to-secondary-400 flex items-center justify-center">
+                  {member.image ? (
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={96}
+                      height={96}
+                      className="object-cover"
+                      style={{ width: '100%', height: '100%', objectPosition: 'center 15%' }}
+                    />
+                  ) : (
+                    <span className="text-white text-2xl font-bold">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-xl font-semibold text-neutral-900 mb-2">
                   {member.name}

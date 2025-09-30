@@ -152,16 +152,8 @@ const ServicesPage: React.FC = () => {
                 {/* Visual card - appears first on mobile, positioned by grid order on desktop */}
                 <div className={`order-1 lg:order-none ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
                   <div className="bg-gradient-to-br from-primary-100 to-secondary-100 p-8 rounded-2xl h-96 flex flex-col items-center justify-center relative overflow-hidden">
-                    {/* Background pattern */}
-                    <div className="absolute inset-0 opacity-10">
-                      <ImagePlaceholder 
-                        type={service.visualType}
-                        className="w-full h-full"
-                        alt={service.title}
-                      />
-                    </div>
-                    <div className="relative z-10 text-center w-full flex flex-col items-center">
-                      <div className="mb-4 transform hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                    <div className="text-center w-full flex flex-col items-center">
+                      <div className="mb-6 transform hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                         {service.animatedIcon}
                       </div>
                       <h3 className="text-2xl font-bold text-neutral-900 px-4">
@@ -173,18 +165,13 @@ const ServicesPage: React.FC = () => {
 
                 {/* Text content - appears second on mobile, positioned by grid order on desktop */}
                 <div className={`order-2 lg:order-none ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div className="flex flex-col sm:flex-row sm:items-center mb-4">
-                    <div className="mb-3 sm:mb-0">
-                      {service.icon}
-                    </div>
-                    <div className="sm:ml-4">
-                      <h2 className="text-3xl font-bold text-neutral-900">
-                        {service.title}
-                      </h2>
-                      <p className="text-lg text-primary-600">
-                        {service.subtitle}
-                      </p>
-                    </div>
+                  <div className="mb-4">
+                    <h2 className="text-3xl font-bold text-neutral-900">
+                      {service.title}
+                    </h2>
+                    <p className="text-lg text-primary-600">
+                      {service.subtitle}
+                    </p>
                   </div>
                   
                   <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
@@ -228,10 +215,6 @@ const ServicesPage: React.FC = () => {
                     </ul>
                   </div>
 
-                  <Link href="/contact" className="btn-primary inline-flex items-center">
-                    {t('services.getStarted')}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
                 </div>
               </div>
             ))}
