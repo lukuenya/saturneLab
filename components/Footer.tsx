@@ -132,13 +132,13 @@ const Footer: React.FC = () => {
                   href="mailto:contact@saturnelab.cd"
                   className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200"
                 >
-                  contact@saturnelab.cd
+                  contact@saturnelab.com
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary-400 flex-shrink-0" />
                 <span className="text-sm text-neutral-400">
-                  +243 XXX XXX XXX
+                  +243 820 220 521
                 </span>
               </div>
             </div>

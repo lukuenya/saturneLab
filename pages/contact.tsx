@@ -278,9 +278,9 @@ const ContactPage: React.FC = () => {
                     }`}
                   >
                     <option value="">Select a subject</option>
-                    <option value="consultation">Data Science Consultation</option>
+                    <option value="consultation">Data Consultation</option>
                     <option value="training">Training & Workshops</option>
-                    <option value="partnership">Academic Partnership</option>
+                    <option value="partnership">Public/Private Partnership</option>
                     <option value="project">Custom Project</option>
                     <option value="other">Other</option>
                   </select>
