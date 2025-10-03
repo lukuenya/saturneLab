@@ -116,12 +116,12 @@
         },
         "maurice": {
           "name": "Maurice Nkanka",
-          "role": "Co-Founder & Business Intelligence Analyst",
+          "role": "Business Intelligence Analyst",
           "bio": "Specializes in business analytics and visualization. MBA from UNIKIN with focus on data-driven business strategy."
         },
         "johan": {
           "name": "Johan Mufuta",
-          "role": "Co-Founder & Software and Cloud Engineer",
+          "role": "Software and Cloud Engineer",
           "bio": "BSc in Computer Science with experience in software development and cloud computing. He is also a senior associate at J.P. MORGAN."
         }
       }
@@ -184,7 +184,7 @@
     "optimization": {
       "title": "Optimization & Recommendations",
       "subtitle": "Data-driven plans that translate insight into real results.",
-      "description": "Empower your team with data science skills through comprehensive training programs, workshops, and academic partnerships. We build internal capabilities to ensure long-term success and independence.",
+      "description": "We analyze multiple scenarios and provide clear, actionable recommendations to optimize your operations and resource allocation. Our strategic roadmaps help you prioritize initiatives and maximize ROI through data-driven decision frameworks.",
       "features": [
         "Scenario analysis and what-if simulations",
         "Priority ranking for resource allocation",
@@ -205,7 +205,7 @@
     "capacityBuilding": {
       "title": "Capacity Building",
       "subtitle": "Empower your team with hands-on training and academic support.",
-      "description": "Stay informed with our 'Nous Lire' blog featuring the latest insights in data science, case studies, and best practices. We also organize community events and knowledge-sharing sessions.",
+      "description": "Build lasting data science capabilities within your organization through comprehensive training programs, workshops, and academic partnerships. We empower your team with practical skills and knowledge to ensure long-term success and independence in data-driven decision-making.",
       "features": [
         "Workshops on Python, R, SQL, Power BI, and more",
         "Thesis coaching, research-method consulting, and peer-review guidance",

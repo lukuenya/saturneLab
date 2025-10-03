@@ -115,12 +115,12 @@
         },
         "maurice": {
           "name": "Maurice Nkanka",
-          "role": "Co-Fondateur & Analyste Business Intelligence",
+          "role": "Analyste Business Intelligence",
           "bio": "Spécialisé en analyse d'affaires et visualisation. MBA de l'UNIKIN avec focus sur la stratégie d'affaires basée sur les données."
         },
         "johan": {
           "name": "Johan Mufuta",
-          "role": "Co-Fondateur & Ingénieur Logiciel et Cloud",
+          "role": "Ingénieur Logiciel et Cloud",
           "bio": "BSc en Informatique avec expérience en développement logiciel et cloud computing. Il est également associé senior chez J.P. MORGAN."
         }
       }
@@ -183,7 +183,7 @@
     "optimization": {
       "title": "Optimisation et recommandations",
       "subtitle": "Plans basés sur les données qui traduisent les insights en résultats réels.",
-      "description": "Renforcez votre équipe avec des compétences en science des données grâce à des programmes de formation complets, des ateliers et des partenariats académiques. Nous développons les capacités internes pour assurer le succès et l'indépendance à long terme.",
+      "description": "Nous analysons plusieurs scénarios et fournissons des recommandations claires et actionnables pour optimiser vos opérations et l'allocation de vos ressources. Nos feuilles de route stratégiques vous aident à prioriser les initiatives et maximiser le ROI grâce à des cadres de décision basés sur les données.",
       "features": [
         "Analyse de scénarios et simulations 'what-if'",
         "Classement des priorités pour l'allocation des ressources",
@@ -204,7 +204,7 @@
     "capacityBuilding": {
       "title": "Renforcement des capacités",
       "subtitle": "Renforcez votre équipe avec une formation pratique et un soutien académique.",
-      "description": "Restez informé avec notre blog 'Nous Lire' présentant les derniers insights en science des données, études de cas et meilleures pratiques. Nous organisons également des événements communautaires et des sessions de partage de connaissances.",
+      "description": "Développez des capacités durables en science des données au sein de votre organisation grâce à des programmes de formation complets, des ateliers et des partenariats académiques. Nous renforçons votre équipe avec des compétences et connaissances pratiques pour assurer le succès à long terme et l'indépendance dans la prise de décision basée sur les données.",
       "features": [
         "Ateliers sur Python, R, SQL, Power BI, et plus",
         "Coaching de thèse, conseil en méthodes de recherche et guidance de révision par les pairs",

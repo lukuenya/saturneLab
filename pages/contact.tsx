@@ -124,7 +124,7 @@ const ContactPage: React.FC = () => {
     {
       icon: <Phone className="h-6 w-6 text-primary-600" />,
       title: t('contact.info.phone.title'),
-      content: "+243 XXX XXX XXX",
+      content: "+243 830 220 521",
       description: t('contact.info.phone.description')
     },
     {
