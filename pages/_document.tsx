@@ -19,6 +19,22 @@ export default function Document(props: DocumentProps) {
         <link rel="shortcut icon" href="/favicon.png" />
         <meta name="theme-color" content="#3B82F6" />
         
+        {/* Google Analytics */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-HE24F893YD`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HE24F893YD');
+            `,
+          }}
+        />
+        
         {/* DNS Prefetch for performance */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
