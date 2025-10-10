@@ -1,6 +1,6 @@
 # Saturne Lab Website
 
-A modern, responsive, multilingual website for Saturne Lab - a data science consultancy based in the Democratic Republic of Congo. Built with Next.js 15, TypeScript, and Tailwind CSS.
+A modern, responsive, multilingual website for Saturne Lab - empowering digital transformation through data analytics, software development, and economic intelligence in the Democratic Republic of Congo. Built with Next.js 15, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
@@ -251,10 +251,10 @@ This project is proprietary to Saturne Lab. All rights reserved.
 
 For technical support or questions about the website:
 
-- **Email**: contact@saturnelab.com
-- **Phone**: +243 XXX XXX XXX
+- **Email**: contact@saturnelab.cd
+- **Phone**: +243 820 220 521
 - **Location**: Kinshasa, DRC
 
 ---
 
-**Saturne Lab** - Transforming organizations through data science in the Democratic Republic of Congo.
+**Saturne Lab** - Empowering digital transformation through data analytics, software development, and economic intelligence in the Democratic Republic of Congo.

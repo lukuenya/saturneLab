@@ -12,3 +12,6 @@ Crawl-delay: 1
 
 # Disallow admin or API routes if any
 Disallow: /api/
+
+# Allow images
+Allow: /images/

@@ -4,19 +4,24 @@ import Head from 'next/head'
 interface OrganizationSchemaProps {
   locale?: string
 }
-
 export const OrganizationSchema: React.FC<OrganizationSchemaProps> = ({ locale = 'fr' }) => {
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Saturne Lab",
-    "legalName": "Saturne Lab",
+    "legalName": "Saturne Lab SARL",
     "url": "https://www.saturne-lab.com",
-    "logo": "https://www.saturne-lab.com/images/saturne_lab_logo.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.saturne-lab.com/images/saturne_lab_logo.png",
+      "width": "512",
+      "height": "512"
+    },
+    "image": "https://www.saturne-lab.com/images/saturne_lab_logo.png",
     "description": locale === 'en' 
-      ? "Empowering businesses and academia in DRC with data collection, strategic insights, capacity building, and knowledge sharing."
-      : "Autonomiser les entreprises et le monde académique en RDC avec la collecte de données, des insights stratégiques, le renforcement des capacités et le partage des connaissances.",
-    "foundingDate": "2024",
+      ? "Empowering digital transformation through data analytics, software development, and economic intelligence"
+      : "Favoriser la transformation numérique grâce à l'analyse de données, au développement logiciel et à l'intelligence économique",
+    "foundingDate": "2025",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "CD",
@@ -39,7 +44,7 @@ export const OrganizationSchema: React.FC<OrganizationSchemaProps> = ({ locale =
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "email": "contact@saturne-lab.com",
+      "email": "contact@saturnelab.com",
       "availableLanguage": ["French", "English"]
     }
   }
@@ -63,8 +68,8 @@ export const ServiceSchema: React.FC<ServiceSchemaProps> = ({ locale = 'fr' }) =
     ? [
         {
           "@type": "Service",
-          "name": "Data Collection & Management",
-          "description": "Professional data collection services tailored for the DRC market, including surveys, field data collection, and data quality assurance.",
+          "name": "Data Collection & Processing",
+          "description": "Professional data collection and processing services including surveys, field data collection, and automated data pipelines.",
           "provider": {
             "@type": "Organization",
             "name": "Saturne Lab"
@@ -77,8 +82,8 @@ export const ServiceSchema: React.FC<ServiceSchemaProps> = ({ locale = 'fr' }) =
         },
         {
           "@type": "Service",
-          "name": "Strategic Insights & Analytics",
-          "description": "Transform your data into actionable insights with advanced analytics, business intelligence, and data visualization services.",
+          "name": "Analytics, Forecasting & Optimization",
+          "description": "Advanced analytics, predictive modeling, and optimization services to transform data into actionable insights.",
           "provider": {
             "@type": "Organization",
             "name": "Saturne Lab"
@@ -91,8 +96,8 @@ export const ServiceSchema: React.FC<ServiceSchemaProps> = ({ locale = 'fr' }) =
         },
         {
           "@type": "Service",
-          "name": "Consulting & Strategy",
-          "description": "Data-driven consulting services to help organizations make informed decisions and develop effective strategies.",
+          "name": "Economic & Strategic Intelligence Consulting",
+          "description": "Strategic consulting services providing economic intelligence and data-driven recommendations for decision makers.",
           "provider": {
             "@type": "Organization",
             "name": "Saturne Lab"
@@ -105,8 +110,22 @@ export const ServiceSchema: React.FC<ServiceSchemaProps> = ({ locale = 'fr' }) =
         },
         {
           "@type": "Service",
-          "name": "Capacity Building & Training",
-          "description": "Comprehensive training programs in data science, analytics, and research methodologies for teams and organizations.",
+          "name": "Digital & Software Solutions",
+          "description": "Custom software development including management systems, web applications, and digital platforms for various sectors.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Saturne Lab"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Democratic Republic of Congo"
+          },
+          "serviceType": "Software Development"
+        },
+        {
+          "@type": "Service",
+          "name": "Training & Capacity Building",
+          "description": "Comprehensive training programs in data science, software development, and digital transformation methodologies.",
           "provider": {
             "@type": "Organization",
             "name": "Saturne Lab"
@@ -121,8 +140,8 @@ export const ServiceSchema: React.FC<ServiceSchemaProps> = ({ locale = 'fr' }) =
     : [
         {
           "@type": "Service",
-          "name": "Collecte et Gestion de Données",
-          "description": "Services professionnels de collecte de données adaptés au marché de la RDC, incluant des enquêtes, collecte de données sur le terrain et assurance qualité des données.",
+          "name": "Collecte et Traitement de Données",
+          "description": "Services professionnels de collecte et traitement de données incluant enquêtes, collecte sur le terrain et pipelines de données automatisés.",
           "provider": {
             "@type": "Organization",
             "name": "Saturne Lab"
@@ -135,8 +154,8 @@ export const ServiceSchema: React.FC<ServiceSchemaProps> = ({ locale = 'fr' }) =
         },
         {
           "@type": "Service",
-          "name": "Insights Stratégiques & Analytique",
-          "description": "Transformez vos données en insights actionnables avec des services d'analytique avancée, intelligence d'affaires et visualisation de données.",
+          "name": "Analyse, Prévision et Optimisation",
+          "description": "Services d'analytique avancée, modélisation prédictive et optimisation pour transformer les données en insights actionnables.",
           "provider": {
             "@type": "Organization",
             "name": "Saturne Lab"
@@ -149,8 +168,8 @@ export const ServiceSchema: React.FC<ServiceSchemaProps> = ({ locale = 'fr' }) =
         },
         {
           "@type": "Service",
-          "name": "Conseil & Stratégie",
-          "description": "Services de conseil basés sur les données pour aider les organisations à prendre des décisions éclairées et développer des stratégies efficaces.",
+          "name": "Conseil en Intelligence Économique et Stratégique",
+          "description": "Services de conseil stratégique fournissant intelligence économique et recommandations basées sur les données pour les décideurs.",
           "provider": {
             "@type": "Organization",
             "name": "Saturne Lab"
@@ -163,8 +182,22 @@ export const ServiceSchema: React.FC<ServiceSchemaProps> = ({ locale = 'fr' }) =
         },
         {
           "@type": "Service",
-          "name": "Renforcement des Capacités & Formation",
-          "description": "Programmes de formation complets en science des données, analytique et méthodologies de recherche pour les équipes et organisations.",
+          "name": "Solutions Numériques et Logicielles",
+          "description": "Développement logiciel personnalisé incluant systèmes de gestion, applications web et plateformes numériques pour divers secteurs.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Saturne Lab"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "République Démocratique du Congo"
+          },
+          "serviceType": "Développement Logiciel"
+        },
+        {
+          "@type": "Service",
+          "name": "Formation et Renforcement des Capacités",
+          "description": "Programmes de formation complets en science des données, développement logiciel et méthodologies de transformation numérique.",
           "provider": {
             "@type": "Organization",
             "name": "Saturne Lab"

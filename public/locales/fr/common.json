@@ -11,7 +11,7 @@
     "address": "Kinshasa, République Démocratique du Congo",
     "followUs": "Suivez-nous",
     "companyName": "SATURNE LAB",
-    "companyDescription": "Favoriser la transformation numérique en Afrique grâce à l'analyse de données, au développement logiciel, à l'intelligence économique et au renforcement des capacités. Basé en République Démocratique du Congo.",
+    "companyDescription": "Favoriser la transformation numérique en Afrique grâce à l'analyse de données, au développement logiciel et à l'intelligence économique",
     "twitterLabel": "Twitter",
     "linkedinLabel": "LinkedIn",
     "githubLabel": "GitHub",
@@ -20,6 +20,8 @@
     "termsOfService": "Conditions d'utilisation"
   },
   "home": {
+    "title": "Saturne Lab - Transformation Numérique en RDC",
+    "description": "Favoriser la transformation numérique grâce à l'analyse de données, au développement logiciel et à l'intelligence économique",
     "hero": {
       "title": "Construire l'Intelligence de l'Afrique",
       "subtitle": "Par les Données",
