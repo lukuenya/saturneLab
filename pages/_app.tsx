@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import { MDXProvider } from '@mdx-js/react'
 import { appWithTranslation } from 'next-i18next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 import '@/styles/globals.css'
 
 const inter = Inter({ 
@@ -33,11 +34,14 @@ const components = {
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <MDXProvider components={components}>
-        <Component {...pageProps} />
-      </MDXProvider>
-    </div>
+    <>
+      <GoogleAnalytics />
+      <div className={`${inter.variable} ${jetbrainsMono.variable}`}>
+        <MDXProvider components={components}>
+          <Component {...pageProps} />
+        </MDXProvider>
+      </div>
+    </>
   )
 }
 

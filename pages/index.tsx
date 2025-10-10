@@ -12,6 +12,7 @@ import { HeroBackground } from '@/components/animations/HeroBackground'
 import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 import { getAllPosts, BlogPost } from '@/lib/blog'
 import ImagePlaceholder from '@/components/ImagePlaceholders'
+import { OrganizationSchema, WebsiteSchema, ServiceSchema } from '@/components/StructuredData'
 
 interface HomePageProps {
   recentPosts: BlogPost[]
@@ -62,7 +63,16 @@ const HomePage: React.FC<HomePageProps> = ({ recentPosts = [] }) => {
   ]
 
   return (
-    <Layout>
+    <Layout
+      title={t('home.title')}
+      description={t('home.description')}
+      keywords="data analytics DRC, Congo data science, business intelligence Congo, data collection DRC, strategic insights Africa, capacity building Congo, research DRC, consulting Kinshasa, analytics RDC, science des données Congo"
+    >
+      {/* Structured Data for SEO */}
+      <OrganizationSchema locale={currentLocale} />
+      <WebsiteSchema locale={currentLocale} />
+      <ServiceSchema locale={currentLocale} />
+      
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 lg:py-32">
         <HeroBackground />

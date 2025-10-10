@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage - French (default) -->
+  <url>
+    <loc>https://www.saturne-lab.com/fr</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr" />
+  </url>
+  
+  <!-- Homepage - English -->
+  <url>
+    <loc>https://www.saturne-lab.com/en</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr" />
+  </url>
+  
+  <!-- Services Page - French -->
+  <url>
+    <loc>https://www.saturne-lab.com/fr/services</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr/services" />
+  </url>
+  
+  <!-- Services Page - English -->
+  <url>
+    <loc>https://www.saturne-lab.com/en/services</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr/services" />
+  </url>
+  
+  <!-- About Page - French -->
+  <url>
+    <loc>https://www.saturne-lab.com/fr/about</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr/about" />
+  </url>
+  
+  <!-- About Page - English -->
+  <url>
+    <loc>https://www.saturne-lab.com/en/about</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr/about" />
+  </url>
+  
+  <!-- Contact Page - French -->
+  <url>
+    <loc>https://www.saturne-lab.com/fr/contact</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr/contact" />
+  </url>
+  
+  <!-- Contact Page - English -->
+  <url>
+    <loc>https://www.saturne-lab.com/en/contact</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr/contact" />
+  </url>
+  
+  <!-- Blog Index - French -->
+  <url>
+    <loc>https://www.saturne-lab.com/fr/blog</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr/blog" />
+  </url>
+  
+  <!-- Blog Index - English -->
+  <url>
+    <loc>https://www.saturne-lab.com/en/blog</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.saturne-lab.com/fr/blog" />
+  </url>
+  
+  <!-- Blog Posts - French -->
+  <url>
+    <loc>https://www.saturne-lab.com/fr/blog/data-science-drc</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/blog/data-science-drc" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/blog/data-science-drc" />
+  </url>
+  
+  <url>
+    <loc>https://www.saturne-lab.com/fr/blog/machine-learning-business</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/blog/machine-learning-business" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/blog/machine-learning-business" />
+  </url>
+  
+  <!-- Blog Posts - English -->
+  <url>
+    <loc>https://www.saturne-lab.com/en/blog/data-science-drc</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/blog/data-science-drc" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/blog/data-science-drc" />
+  </url>
+  
+  <url>
+    <loc>https://www.saturne-lab.com/en/blog/machine-learning-business</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.saturne-lab.com/fr/blog/machine-learning-business" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.saturne-lab.com/en/blog/machine-learning-business" />
+  </url>
+  
+</urlset>
