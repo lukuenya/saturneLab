@@ -139,6 +139,9 @@ LINKEDIN_CONTENT_STRATEGY.md
 SOCIAL_MEDIA_CACHE_CLEAR.md
 TRANSLATION_FIX_NOTES.md
 
+# Translation files
+TRANSLATION_FIX_NOTES.md
+
 # Backup and temporary files
 *.backup
 *.bak
