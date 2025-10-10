@@ -124,7 +124,7 @@ const ContactPage: React.FC = () => {
     {
       icon: <Phone className="h-6 w-6 text-primary-600" />,
       title: t('contact.info.phone.title'),
-      content: "+243 830 220 521",
+      content: "+243 820 220 521",
       description: t('contact.info.phone.description')
     },
     {
@@ -277,12 +277,13 @@ const ContactPage: React.FC = () => {
                       errors.subject ? 'border-red-500' : 'border-neutral-300'
                     }`}
                   >
-                    <option value="">Select a subject</option>
-                    <option value="consultation">Data Consultation</option>
-                    <option value="training">Training & Workshops</option>
-                    <option value="partnership">Public/Private Partnership</option>
-                    <option value="project">Custom Project</option>
-                    <option value="other">Other</option>
+                    <option value="">{t('contact.form.subjectOptions.placeholder')}</option>
+                    <option value="consultation">{t('contact.form.subjectOptions.consultation')}</option>
+                    <option value="training">{t('contact.form.subjectOptions.training')}</option>
+                    <option value="software">{t('contact.form.subjectOptions.software')}</option>
+                    <option value="partnership">{t('contact.form.subjectOptions.partnership')}</option>
+                    <option value="project">{t('contact.form.subjectOptions.project')}</option>
+                    <option value="other">{t('contact.form.subjectOptions.other')}</option>
                   </select>
                   {errors.subject && (
                     <p className="mt-1 text-sm text-red-600">{errors.subject}</p>

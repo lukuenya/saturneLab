@@ -115,3 +115,7 @@ temp/
 *.njsproj
 *.sln
 *.sw?
+
+
+# Company statutes
+company_status.md

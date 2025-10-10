@@ -58,6 +58,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
             {t('blog.hero.title')}
           </h1>
           <p className="text-xl text-neutral-600 leading-relaxed">
+            {t('blog.hero.subtitle')}
           </p>
         </div>
       </section>
@@ -68,6 +69,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             {/* Search Bar */}
             <div className="flex-1 relative">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-neutral-400" />
               <input
                 type="text"
                 placeholder={t('blog.search.placeholder')}

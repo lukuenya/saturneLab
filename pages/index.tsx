@@ -1,18 +1,23 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import { ArrowRight, Database, TrendingUp, Users, BookOpen, CheckCircle, Target } from 'lucide-react'
+import { ArrowRight, CheckCircle, TrendingUp, Users, Database, BarChart3, Calendar, Clock, User, Building2, Briefcase, Globe } from 'lucide-react'
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
-import HeroBackground from '@/components/animations/HeroBackground'
-import { FloatingDataElements } from '@/components/animations/FloatingElements'
 import { DataAnalyticsIcon, NetworkIcon, AIIcon, DatabaseIcon } from '@/components/animations/DataIcons'
-import ImagePlaceholder from '@/components/ImagePlaceholders'
+import { FloatingDataElements } from '@/components/animations/FloatingElements'
+import { HeroBackground } from '@/components/animations/HeroBackground'
 import { useClientSideLocale } from '@/hooks/useClientSideLocale'
+import { getAllPosts, BlogPost } from '@/lib/blog'
+import ImagePlaceholder from '@/components/ImagePlaceholders'
 
-const HomePage: React.FC = () => {
+interface HomePageProps {
+  recentPosts: BlogPost[]
+}
+
+const HomePage: React.FC<HomePageProps> = ({ recentPosts = [] }) => {
   const { t } = useTranslation('common')
   const router = useRouter()
   
@@ -31,21 +36,21 @@ const HomePage: React.FC = () => {
     },
     {
       icon: <DataAnalyticsIcon className="mx-auto" size={48} />,
-      title: t('services.strategicInsights.title'),
-      description: t('services.strategicInsights.subtitle'),
-      features: [t('services.strategicInsights.features.0'), t('services.strategicInsights.features.1'), t('services.strategicInsights.features.2')]
+      title: t('services.analytics.title'),
+      description: t('services.analytics.subtitle'),
+      features: [t('services.analytics.features.0'), t('services.analytics.features.1'), t('services.analytics.features.2')]
     },
     {
       icon: <AIIcon className="mx-auto" size={48} />,
-      title: t('services.optimization.title'),
-      description: t('services.optimization.subtitle'),
-      features: [t('services.optimization.features.0'), t('services.optimization.features.1'), t('services.optimization.features.2')]
+      title: t('services.consulting.title'),
+      description: t('services.consulting.subtitle'),
+      features: [t('services.consulting.features.0'), t('services.consulting.features.1'), t('services.consulting.features.2')]
     },
     {
       icon: <NetworkIcon className="mx-auto" size={48} />,
-      title: t('services.capacityBuilding.title'),
-      description: t('services.capacityBuilding.subtitle'),
-      features: [t('services.capacityBuilding.features.0'), t('services.capacityBuilding.features.1'), t('services.capacityBuilding.features.2')]
+      title: t('services.training.title'),
+      description: t('services.training.subtitle'),
+      features: [t('services.training.features.0'), t('services.training.features.1'), t('services.training.features.2')]
     }
   ]
 
@@ -68,8 +73,11 @@ const HomePage: React.FC = () => {
               <span className="text-neutral-900">{t('home.hero.title')}</span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">{t('home.hero.subtitle')}</span>
             </h1>
-            <p className="text-xl text-neutral-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-neutral-600 mb-4 max-w-3xl mx-auto leading-relaxed">
               {t('home.hero.description')}
+            </p>
+            <p className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600 mb-8 max-w-2xl mx-auto">
+              {t('home.hero.mission')}
             </p>
             <div className="flex justify-center">
               <a href={`${localePrefix}/services`} className="btn-primary">
@@ -151,6 +159,128 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Partners / Sectors We Serve Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+              {t('home.partners.title')}
+            </h2>
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto mb-8">
+              {t('home.partners.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Government */}
+            <div className="card group hover:shadow-xl transition-all duration-300">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Building2 className="h-8 w-8 text-primary-600" />
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-neutral-900 mb-3 text-center">
+                {t('home.partners.government.title')}
+              </h3>
+              <p className="text-neutral-600 text-center text-sm">
+                {t('home.partners.government.description')}
+              </p>
+            </div>
+
+            {/* Private Sector */}
+            <div className="card group hover:shadow-xl transition-all duration-300">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Briefcase className="h-8 w-8 text-secondary-600" />
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-neutral-900 mb-3 text-center">
+                {t('home.partners.private.title')}
+              </h3>
+              <p className="text-neutral-600 text-center text-sm">
+                {t('home.partners.private.description')}
+              </p>
+            </div>
+
+            {/* International Organizations */}
+            <div className="card group hover:shadow-xl transition-all duration-300">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-secondary-200 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Globe className="h-8 w-8 text-primary-600" />
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-neutral-900 mb-3 text-center">
+                {t('home.partners.international.title')}
+              </h3>
+              <p className="text-neutral-600 text-center text-sm">
+                {t('home.partners.international.description')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Blog Posts Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+              {t('home.blog.title')}
+            </h2>
+            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+              {t('home.blog.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {recentPosts.slice(0, 3).map((post) => (
+              <Link key={post.slug} href={`${localePrefix}/blog/${post.slug}`}>
+                <div className="card group cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg mb-4 flex items-center justify-center">
+                    <span className="text-primary-600 text-6xl font-bold opacity-20">
+                      {post.title.charAt(0)}
+                    </span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center text-sm text-neutral-500 space-x-2">
+                      <Calendar className="h-4 w-4" />
+                      <span>{new Date(post.date).toLocaleDateString()}</span>
+                    </div>
+                    <span className="inline-block px-3 py-1 text-xs font-medium bg-primary-100 text-primary-700 rounded-full">
+                      {post.category}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-xl font-semibold text-neutral-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                    {post.title}
+                  </h3>
+                  <p className="text-neutral-600 mb-4 leading-relaxed line-clamp-3">
+                    {post.description}
+                  </p>
+                  
+                  <div className="flex items-center text-sm text-neutral-500 mb-4 space-x-4">
+                    <div className="flex items-center">
+                      <User className="h-4 w-4 mr-1" />
+                      {post.author}
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="h-4 w-4 mr-1" />
+                      {post.readTime}
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a href={`${localePrefix}/blog`} className="btn-primary">
+              {t('home.blog.viewAll')}
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600 relative overflow-hidden">
@@ -198,11 +328,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, resolve
 
   try {
     const translations = await serverSideTranslations(locale, ['common'])
+    const recentPosts = getAllPosts().slice(0, 3) // Get the 3 most recent posts
     console.log('Home page - Translations loaded successfully for locale:', locale)
     
     return {
       props: {
         ...translations,
+        recentPosts,
       },
     }
   } catch (error) {
@@ -212,6 +344,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, resolve
     return {
       props: {
         ...fallbackTranslations,
+        recentPosts: [],
       },
     }
   }

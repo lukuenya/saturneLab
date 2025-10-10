@@ -94,8 +94,22 @@ const AboutPage: React.FC = () => {
               <h2 className="text-3xl font-bold text-neutral-900 mb-6">
                 {t('about.story.mission')}
               </h2>
-              <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
+              <p className="text-xl font-semibold text-primary-600 mb-4 leading-relaxed">
+                {t('about.mission.title')}
+              </p>
+              <p className="text-lg text-neutral-600 mb-4 leading-relaxed">
                 {t('about.mission.description')}
+              </p>
+              <p className="text-base text-neutral-600 leading-relaxed">
+                {currentLocale === 'en' ? (
+                  <>
+                    We operate at the intersection of <strong className="font-semibold text-neutral-900">data science</strong>, <strong className="font-semibold text-neutral-900">digital transformation</strong>, and <strong className="font-semibold text-neutral-900">economic intelligence</strong>, supporting decision-makers to plan, act, and innovate with confidence.
+                  </>
+                ) : (
+                  <>
+                    Nous opérons à l&apos;intersection de la <strong className="font-semibold text-neutral-900">science des données</strong>, de la <strong className="font-semibold text-neutral-900">transformation digitale</strong> et de l&apos;<strong className="font-semibold text-neutral-900">intelligence économique</strong>, soutenant les décideurs pour planifier, agir et innover avec confiance.
+                  </>
+                )}
               </p>
             </div>
             <div className="bg-gradient-to-br from-primary-100 to-secondary-100 p-8 rounded-2xl">

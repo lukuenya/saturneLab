@@ -11,7 +11,7 @@
     "address": "Kinshasa, République Démocratique du Congo",
     "followUs": "Suivez-nous",
     "companyName": "SATURNE LAB",
-    "companyDescription": "Favoriser une croissance basée sur les données en Afrique, particulièrement en République Démocratique du Congo grâce à des analyses innovantes, des insights stratégiques et au renforcement des capacités.",
+    "companyDescription": "Favoriser la transformation numérique en Afrique grâce à l'analyse de données, au développement logiciel, à l'intelligence économique et au renforcement des capacités. Basé en République Démocratique du Congo.",
     "twitterLabel": "Twitter",
     "linkedinLabel": "LinkedIn",
     "githubLabel": "GitHub",
@@ -21,9 +21,10 @@
   },
   "home": {
     "hero": {
-      "title": "Favoriser une croissance",
-      "subtitle": "basée sur les données en RDC",
-      "description": "De la collecte aux insights - des solutions sur mesure pour les services gouvernementaux, les entreprises et le milieu académique. Nous transformons les données brutes en avantages stratégiques qui favorisent une croissance durable.",
+      "title": "Construire l'Intelligence de l'Afrique",
+      "subtitle": "Par les Données",
+      "description": "Nous transformons les informations brutes en intelligence économique pour les institutions publiques et les entreprises à travers l'Afrique.",
+      "mission": "Donner aux décideurs clarté, prévoyance et perspectives locales.",
       "getStarted": "Commencer",
       "learnMore": "En savoir plus"
     },
@@ -32,27 +33,32 @@
       "projects": "Projets réalisés",
       "clients": "Clients satisfaits",
       "dataPoints": "Points de données analysés",
-      "insights": "Insights générés"
+      "insights": "Années d'expertise"
     },
     "services": {
-      "title": "Nos services",
-      "subtitle": "Solutions de données adaptées aux défis locaux",
-      "exploreAll": "Explorer tous nos services",
-      "dataCollection": {
-        "title": "Collecte de données",
-        "description": "Méthodologies robustes pour collecter des données fiables dans des environnements difficiles"
+      "title": "Notre Expertise",
+      "subtitle": "Solutions de données complètes adaptées à vos besoins",
+      "exploreAll": "Explorer tous les services"
+    },
+    "blog": {
+      "title": "Dernières Perspectives",
+      "subtitle": "Points de vue d'experts sur la transformation numérique, la science des données et le développement logiciel",
+      "viewAll": "Voir tous les articles"
+    },
+    "partners": {
+      "title": "Secteurs que nous servons",
+      "subtitle": "Nous collaborons avec diverses organisations pour stimuler la transformation numérique et la prise de décision basée sur les données en Afrique.",
+      "government": {
+        "title": "Ministères et Agences Gouvernementales",
+        "description": "Infrastructure, économie, transport, éducation, santé, environnement, et plus."
       },
-      "dataAnalysis": {
-        "title": "Analyse stratégique",
-        "description": "Transformez les données brutes en insights actionnables pour une prise de décision éclairée"
+      "private": {
+        "title": "Entreprises Privées",
+        "description": "Commerce, logistique, finance, énergie, fabrication, télécommunications, et plus."
       },
-      "capacityBuilding": {
-        "title": "Renforcement des capacités",
-        "description": "Formation et mentorat pour développer l'expertise locale en science des données"
-      },
-      "knowledgeSharing": {
-        "title": "Partage de connaissances",
-        "description": "Diffusion des meilleures pratiques et des leçons apprises pour un impact collectif"
+      "international": {
+        "title": "ONG et Institutions Internationales",
+        "description": "Développement, recherche, innovation, aide humanitaire, et renforcement des capacités."
       }
     },
     "cta": {
@@ -67,17 +73,19 @@
     "description": "Découvrez Saturne Lab, experts en science des données dédiés au développement de la République Démocratique du Congo. Notre mission, vision et équipe.",
     "hero": {
       "title": "À propos de Saturne Lab",
-      "subtitle": "Experts en science des données dédiés au développement de la RDC"
+      "subtitle": "Autonomiser les institutions et les entreprises grâce à l'intelligence des données"
     },
     "story": {
       "title": "Notre Histoire",
       "whyWeStarted": "Pourquoi Nous Avons Commencé",
-      "whyWeStartedDescription": "Fondé en 2019, Saturne Lab est né de la reconnaissance que le vaste potentiel de la RDC pourrait être libéré grâce à une meilleure utilisation des données. Nos fondateurs, des scientifiques de données et chercheurs expérimentés, ont vu une opportunité d'apporter des capacités d'analyse de classe mondiale aux organisations locales tout en développant des capacités durables en science des données dans le pays.",
+      "whyWeStartedDescription": "Saturne Lab a été créé pour répondre au besoin croissant de collecte de données fiable, d'analyse et d'intelligence économique à travers l'Afrique. Régie par les réglementations OHADA et enregistrée en République Démocratique du Congo, nous combinons rigueur juridique et excellence technique. Nos fondateurs, des scientifiques de données et chercheurs expérimentés, ont reconnu que le vaste potentiel de l'Afrique pourrait être libéré grâce à une meilleure utilisation des données — en développant des capacités d'analyse de classe mondiale tout en développant une expertise locale durable.",
       "mission": "Notre Mission",
       "vision": "Notre Vision"
     },
     "mission": {
-      "description": "Nous comblons le fossé entre les défis complexes des données et les solutions pratiques, rendant l'analyse de pointe accessible aux entreprises de toutes tailles et aux institutions académiques de la région."
+      "title": "Chez Saturne Lab, nous croyons que des données fiables sont le fondement du progrès.",
+      "description": "Notre mission est de donner aux entreprises et institutions publiques à travers l'Afrique des analyses fiables, une technologie moderne et une expertise locale — transformant les informations brutes en avantage stratégique.",
+      "vision": "Nous opérons à l'intersection de la science des données, de la transformation digitale et de l'intelligence économique, soutenant les décideurs pour planifier, agir et innover avec confiance."
     },
     "values": {
       "title": "Nos Valeurs",
@@ -139,18 +147,19 @@
       "subtitle": "Solutions de données complètes adaptées aux défis locaux"
     },
     "dataCollection": {
-      "title": "Collecte de données",
-      "subtitle": "Pipelines sécurisés de bout en bout pour rassembler exactement les données dont vous avez besoin.",
-      "description": "Nous mettons en œuvre des méthodologies robustes de collecte de données qui garantissent la précision, la conformité et la sécurité. Notre équipe conçoit des flux de travail personnalisés adaptés à vos besoins spécifiques, qu'il s'agisse de collecter des données clients, d'études de marché ou de métriques opérationnelles.",
+      "title": "Collecte et traitement de données",
+      "subtitle": "",
+      "description": "Nous concevons et exécutons des systèmes de collecte de données adaptés aux réalités africaines. Que ce soit par des enquêtes de terrain, des plateformes numériques ou des capteurs automatisés, nous garantissons que chaque point de données collecté est fiable, structuré et exploitable.",
       "features": [
-        "Nous concevons des enquêtes personnalisées, explorons des sources publiques et intégrons les systèmes clients",
-        "Contrôles qualité automatisés et garde-fous de conformité",
-        "Infrastructure évolutive pour tout projet de taille"
+        "Enquêtes de terrain et gestion des enquêteurs",
+        "Intégration de données administratives et opérationnelles",
+        "Pipelines de données numériques (API, IoT, applications mobiles)",
+        "Nettoyage, validation et architectures de stockage de données"
       ],
       "benefits": [
-        "Sources de données fiables",
-        "Assurance qualité automatisée",
-        "Solutions évolutives"
+        "Données fiables et structurées",
+        "Méthodologies adaptées à l'Afrique",
+        "Pipelines de données de bout en bout"
       ],
       "process": [
         "Analyse des exigences",
@@ -159,19 +168,20 @@
         "Validation qualité"
       ]
     },
-    "strategicInsights": {
-      "title": "Insights stratégiques",
-      "subtitle": "Analyses actionnables et modèles prédictifs pour garder une longueur d'avance.",
-      "description": "Transformez vos données brutes en insights actionnables grâce à des analyses avancées, des modèles d'apprentissage automatique et des algorithmes prédictifs. Nous vous aidons à comprendre les tendances, prévoir les résultats et optimiser les processus métier.",
+    "analytics": {
+      "title": "Analyse, prévision et optimisation",
+      "subtitle": "",
+      "description": "Nos analystes transforment les données brutes en prévoyance. En utilisant des statistiques avancées, l'IA et la modélisation économétrique, nous aidons les organisations à prévoir les tendances, à allouer les ressources efficacement et à mesurer l'impact.",
       "features": [
-        "Tableaux de bord descriptifs et suivi des KPI",
-        "Prévisions d'apprentissage automatique adaptées à votre secteur",
-        "Algorithmes d'optimisation pour maximiser le ROI"
+        "Modélisation prédictive et économétrique",
+        "Prévisions par apprentissage automatique",
+        "Simulation de scénarios et évaluation de politiques",
+        "Optimisation des performances et des ressources"
       ],
       "benefits": [
-        "Prise de décision basée sur les données",
-        "Capacités prédictives",
-        "Optimisation du ROI"
+        "Prévisions basées sur les données",
+        "Allocation optimisée des ressources",
+        "Impact mesurable"
       ],
       "process": [
         "Exploration des données",
@@ -180,39 +190,63 @@
         "Déploiement et surveillance"
       ]
     },
-    "optimization": {
-      "title": "Optimisation et recommandations",
-      "subtitle": "Plans basés sur les données qui traduisent les insights en résultats réels.",
-      "description": "Nous analysons plusieurs scénarios et fournissons des recommandations claires et actionnables pour optimiser vos opérations et l'allocation de vos ressources. Nos feuilles de route stratégiques vous aident à prioriser les initiatives et maximiser le ROI grâce à des cadres de décision basés sur les données.",
+    "consulting": {
+      "title": "Conseil en intelligence économique et stratégique",
+      "subtitle": "",
+      "description": "Nous traduisons les insights en action. Saturne Lab soutient les dirigeants et les décideurs politiques avec des recommandations stratégiques fondées sur des preuves de données — permettant des décisions plus intelligentes et un impact à long terme.",
       "features": [
-        "Analyse de scénarios et simulations 'what-if'",
-        "Classement des priorités pour l'allocation des ressources",
-        "Rapports clairs, sans jargon avec des feuilles de route étape par étape"
+        "Intelligence de marché et sectorielle",
+        "Évaluation d'impact des politiques publiques",
+        "Tableaux de bord de stratégie d'entreprise",
+        "Analyse des risques et des performances"
       ],
       "benefits": [
-        "Recommandations actionnables",
-        "Optimisation des ressources",
-        "Plans de mise en œuvre clairs"
+        "Décisions fondées sur des preuves",
+        "Clarté stratégique",
+        "Impact à long terme"
       ],
       "process": [
         "Analyse de l'état actuel",
-        "Modélisation de scénarios",
-        "Développement de recommandations",
-        "Feuille de route de mise en œuvre"
+        "Collecte d'intelligence",
+        "Recommandations stratégiques",
+        "Soutien à la mise en œuvre"
       ]
     },
-    "capacityBuilding": {
-      "title": "Renforcement des capacités",
-      "subtitle": "Renforcez votre équipe avec une formation pratique et un soutien académique.",
-      "description": "Développez des capacités durables en science des données au sein de votre organisation grâce à des programmes de formation complets, des ateliers et des partenariats académiques. Nous renforçons votre équipe avec des compétences et connaissances pratiques pour assurer le succès à long terme et l'indépendance dans la prise de décision basée sur les données.",
+    "digitalSolutions": {
+      "title": "Solutions numériques et logicielles",
+      "subtitle": "",
+      "description": "Nous construisons des solutions numériques complètes adaptées à vos besoins spécifiques. Notre équipe d'ingénierie développe des applications logicielles personnalisées, des systèmes de gestion et des plateformes numériques pour les entreprises, ministères et institutions de divers secteurs.",
       "features": [
-        "Ateliers sur Python, R, SQL, Power BI, et plus",
-        "Coaching de thèse, conseil en méthodes de recherche et guidance de révision par les pairs",
-        "Programmes internes personnalisés pour intégrer une culture de littératie des données"
+        "Systèmes de gestion personnalisés (Hôpital, E-learning, RH, etc.)",
+        "Applications web et mobiles pour divers secteurs",
+        "Systèmes de surveillance et de suivi (Forêt, Environnement, etc.)",
+        "Bases de données sécurisées, infrastructure cloud et intégrations API"
+      ],
+      "benefits": [
+        "Solutions numériques personnalisées",
+        "Infrastructure sécurisée et évolutive",
+        "Intégrations transparentes"
+      ],
+      "process": [
+        "Collecte des exigences",
+        "Conception du système",
+        "Développement et tests",
+        "Déploiement et maintenance"
+      ]
+    },
+    "training": {
+      "title": "Formation et renforcement des capacités",
+      "subtitle": "",
+      "description": "Nous renforçons les capacités institutionnelles par des ateliers pratiques et le développement de compétences techniques. Notre objectif est de donner aux équipes locales les moyens de comprendre, gérer et exploiter leurs propres actifs de données.",
+      "features": [
+        "Analyse et visualisation de données (Python, R, Power BI)",
+        "Bases de l'apprentissage automatique et de l'IA",
+        "SIG et systèmes de données spatiales",
+        "Gestion de la transformation numérique"
       ],
       "benefits": [
         "Capacités d'équipe améliorées",
-        "Soutien académique",
+        "Transfert de compétences pratiques",
         "Culture de littératie des données"
       ],
       "process": [
@@ -223,70 +257,63 @@
       ]
     },
     "additional": {
-      "title": "Services additionnels",
-      "subtitle": "Solutions spécialisées pour des besoins spécifiques",
-      "dataVisualization": {
-        "title": "Visualisation de données",
-        "description": "Créez des histoires visuelles convaincantes à partir de vos données avec des tableaux de bord et rapports interactifs."
-      },
-      "dataGovernance": {
-        "title": "Gouvernance des données",
-        "description": "Implémentez des mesures de sécurité robustes pour protéger les données sensibles et assurer la conformité."
-      },
-      "processAutomation": {
-        "title": "Automatisation des processus",
-        "description": "Automatisez les tâches de données répétitives pour améliorer l'efficacité et réduire les erreurs humaines."
-      }
+      "title": "Partenariats de recherche et soutien académique",
+      "subtitle": "",
+      "description": "Bien que notre mission principale se concentre sur les entreprises et les institutions, nous fournissons également un soutien analytique aux chercheurs, étudiants et universités.",
+      "features": [
+        "Analyse de données pour thèses et mémoires",
+        "Coaching méthodologique et statistique",
+        "Projets de recherche collaboratifs"
+      ]
     },
     "process": {
       "title": "Notre processus",
       "subtitle": "Une approche structurée pour des résultats optimaux",
       "discovery": {
         "title": "Découverte",
-        "description": "Nous comprenons vos défis, objectifs et paysage de données"
+        "description": "Nous comprenons vos défis, objectifs et exigences techniques"
       },
       "strategy": {
-        "title": "Stratégie",
-        "description": "Nous développons une approche sur mesure et une feuille de route de mise en œuvre"
+        "title": "Conception et stratégie",
+        "description": "Nous développons une architecture de solution sur mesure et une feuille de route de mise en œuvre"
       },
       "implementation": {
-        "title": "Mise en œuvre",
-        "description": "Nous exécutons la solution avec des mises à jour régulières sur les progrès"
+        "title": "Développement et déploiement",
+        "description": "Nous construisons et déployons la solution avec des mises à jour régulières et des tests"
       },
       "optimization": {
-        "title": "Optimisation",
-        "description": "Nous affinons et optimisons pour un impact et un ROI maximum"
+        "title": "Support et optimisation",
+        "description": "Nous fournissons un support continu et une amélioration continue pour un impact maximum"
       }
     },
     "keyBenefits": "Avantages clés :",
     "processSteps": "Étapes du processus :",
     "getStarted": "Commencer",
     "cta": {
-      "title": "Prêt à transformer vos données en insights?",
-      "subtitle": "Discutons de la façon dont nous pouvons vous aider à atteindre vos objectifs",
+      "title": "Prêt à transformer votre vision en réalité?",
+      "subtitle": "Discutons de la façon dont nous pouvons construire la solution parfaite pour votre organisation",
       "contact": "Contactez-nous",
       "about": "À propos"
     }
   },
   "blog": {
     "title": "Blog - Saturne Lab",
-    "description": "Insights, tendances et meilleures pratiques en science des données par les experts de Saturne Lab en République Démocratique du Congo.",
+    "description": "Insights, tendances et meilleures pratiques en transformation numérique, science des données et développement logiciel par les experts de Saturne Lab.",
     "hero": {
-      "title": "Insights en Science des Données",
-      "subtitle": "Insights, tendances et meilleures pratiques en science des données"
+      "title": "Insights en Innovation Numérique",
+      "subtitle": "Perspectives d'experts sur la science des données, le développement logiciel et la transformation numérique en Afrique"
     },
     "search": {
-      "placeholder": "Rechercher des articles..."
+      "placeholder": "Rechercher des articles...",
+      "noResults": "Aucun article trouvé",
+      "tryDifferent": "Essayez d'ajuster vos termes de recherche ou parcourez toutes les catégories.",
+      "clearFilters": "Effacer les filtres"
     },
     "categories": {
       "all": "Toutes les catégories"
     },
     "results": {
       "showing": "Affichage de {{count}} articles"
-    },
-    "noResults": {
-      "title": "Aucun article trouvé",
-      "message": "Essayez d'ajuster vos termes de recherche ou parcourez toutes les catégories."
     },
     "readMore": "Lire plus",
     "recentPosts": "Articles récents",
@@ -297,7 +324,7 @@
     },
     "newsletter": {
       "title": "Restez informé",
-      "subtitle": "Recevez les derniers insights et mises à jour de nos experts en science des données",
+      "subtitle": "Recevez les dernières informations sur la transformation numérique, le développement logiciel et la science des données",
       "placeholder": "Votre adresse e-mail",
       "button": "S'abonner",
       "privacy": "Nous respectons votre vie privée. Désabonnez-vous à tout moment.",
@@ -321,13 +348,22 @@
       "company": "Entreprise/Organisation",
       "companyPlaceholder": "Votre entreprise ou organisation (optionnel)",
       "subject": "Sujet",
-      "subjectPlaceholder": "De quoi s'agit votre message?",
+      "subjectPlaceholder": "De quoi parle votre message?",
+      "subjectOptions": {
+        "placeholder": "Sélectionnez un sujet",
+        "consultation": "Consultation en données et analytique",
+        "training": "Formation et ateliers",
+        "software": "Développement logiciel",
+        "partnership": "Opportunité de partenariat",
+        "project": "Projet personnalisé",
+        "other": "Autre"
+      },
       "message": "Message",
       "messagePlaceholder": "Parlez-nous de votre projet ou comment nous pouvons vous aider...",
       "submit": "Envoyer le message",
       "sending": "Envoi en cours...",
       "successMessage": "Merci! Votre message a été envoyé avec succès. Nous vous répondrons bientôt.",
-      "errorMessage": "Désolé, une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+      "errorMessage": "Désolé, une erreur s'est produite. Veuillez réessayer.",
       "errors": {
         "nameRequired": "Le nom est requis",
         "emailRequired": "L'email est requis",
@@ -340,16 +376,16 @@
     "info": {
       "email": {
         "title": "Envoyez-nous un email",
-        "description": "Envoyez-nous un email et nous vous répondrons dans les 24 heures"
+        "description": "Envoyez-nous un email et nous répondrons dans les 24 heures"
       },
       "phone": {
         "title": "Appelez-nous",
-        "description": "Du lundi au vendredi, de 9h à 18h (CAT)"
+        "description": "Lundi au vendredi, 9h à 18h (CAT)"
       },
       "visit": {
         "title": "Visitez-nous",
         "location": "Kinshasa, RDC",
-        "description": "Planifiez une réunion à notre bureau"
+        "description": "Planifiez une réunion dans nos bureaux"
       }
     },
     "help": {
@@ -364,23 +400,19 @@
         "Support et consultation continus"
       ],
       "responseTimeTitle": "Délai de réponse",
-      "responseTimeText": "Nous répondons généralement à toutes les demandes dans les 24 heures. Pour les questions urgentes, veuillez nous appeler directement au +243 XXX XXX XXX."
+      "responseTimeText": "Nous répondons généralement à toutes les demandes dans les 24 heures. Pour les questions urgentes, veuillez nous appeler directement au +243 820 220 521."
     },
     "services": [
-      "Collecte et analyse de données",
-      "Modélisation prédictive",
-      "Business Intelligence",
-      "Implémentation de Machine Learning",
-      "Visualisation de données",
-      "Formation et ateliers",
-      "Partenariats académiques",
-      "Solutions d'analytique personnalisées"
+      "Collecte et traitement de données",
+      "Analyse, prévision et optimisation",
+      "Conseil en intelligence économique et stratégique",
+      "Solutions numériques et logicielles",
+      "Formation et renforcement des capacités",
+      "Partenariats de recherche et soutien académique"
     ]
   },
-
   "newsletter": {
     "emailPlaceholder": "Votre adresse email",
-    "subscribe": "S'abonner",
     "subscribing": "Abonnement en cours...",
     "success": "Merci pour votre abonnement!",
     "privacyNote": "Abonnez-vous pour recevoir des mises à jour sur les nouveaux articles de blog et événements. Nous respectons votre vie privée.",

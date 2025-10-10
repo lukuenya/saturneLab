@@ -56,14 +56,14 @@ const Footer: React.FC = () => {
               <a
                 href="#"
                 className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
-                aria-label="LinkedIn"
+                aria-label={t('footer.linkedinLabel')}
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href="#"
                 className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
-                aria-label="GitHub"
+                aria-label={t('footer.githubLabel')}
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -105,13 +105,16 @@ const Footer: React.FC = () => {
                 <span className="text-sm text-neutral-400">{t('services.dataCollection.title')}</span>
               </li>
               <li>
-                <span className="text-sm text-neutral-400">{t('services.strategicInsights.title')}</span>
+                <span className="text-sm text-neutral-400">{t('services.analytics.title')}</span>
               </li>
               <li>
-                <span className="text-sm text-neutral-400">{t('services.capacityBuilding.title')}</span>
+                <span className="text-sm text-neutral-400">{t('services.consulting.title')}</span>
               </li>
               <li>
-                <span className="text-sm text-neutral-400">{t('services.optimization.title')}</span>
+                <span className="text-sm text-neutral-400">{t('services.digitalSolutions.title')}</span>
+              </li>
+              <li>
+                <span className="text-sm text-neutral-400">{t('services.training.title')}</span>
               </li>
             </ul>
           </div>
@@ -132,7 +135,7 @@ const Footer: React.FC = () => {
                   href="mailto:contact@saturnelab.cd"
                   className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200"
                 >
-                  contact@saturnelab.com
+                  contact@saturnelab.cd
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -153,10 +156,10 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href={`/${currentLocale}/privacy`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
-                Privacy Policy
+                {t('footer.privacyPolicy')}
               </a>
               <a href={`/${currentLocale}/terms`} className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200">
-                Terms of Service
+                {t('footer.termsOfService')}
               </a>
             </div>
           </div>

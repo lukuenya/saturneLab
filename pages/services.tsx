@@ -36,54 +36,55 @@ const ServicesPage: React.FC = () => {
       icon: <DataAnalyticsIcon size={32} />,
       animatedIcon: <DataAnalyticsIcon size={96} />,
       visualType: 'analytics' as const,
-      title: t('services.strategicInsights.title'),
-      subtitle: t('services.strategicInsights.subtitle'),
-      description: t('services.strategicInsights.description'),
-      features: (t('services.strategicInsights.features', { returnObjects: true }) as string[]) || [],
-      benefits: (t('services.strategicInsights.benefits', { returnObjects: true }) as string[]) || [],
-      process: (t('services.strategicInsights.process', { returnObjects: true }) as string[]) || []
+      title: t('services.analytics.title'),
+      subtitle: t('services.analytics.subtitle'),
+      description: t('services.analytics.description'),
+      features: (t('services.analytics.features', { returnObjects: true }) as string[]) || [],
+      benefits: (t('services.analytics.benefits', { returnObjects: true }) as string[]) || [],
+      process: (t('services.analytics.process', { returnObjects: true }) as string[]) || []
     },
     {
-      icon: <AIIcon size={32} />,
-      animatedIcon: <AIIcon size={96} />,
+      icon: <Target className="h-8 w-8" />,
+      animatedIcon: <Target className="h-24 w-24" />,
       visualType: 'analytics' as const,
-      title: t('services.optimization.title'),
-      subtitle: t('services.optimization.subtitle'),
-      description: t('services.optimization.description'),
-      features: (t('services.optimization.features', { returnObjects: true }) as string[]) || [],
-      benefits: (t('services.optimization.benefits', { returnObjects: true }) as string[]) || [],
-      process: (t('services.optimization.process', { returnObjects: true }) as string[]) || []
+      title: t('services.consulting.title'),
+      subtitle: t('services.consulting.subtitle'),
+      description: t('services.consulting.description'),
+      features: (t('services.consulting.features', { returnObjects: true }) as string[]) || [],
+      benefits: (t('services.consulting.benefits', { returnObjects: true }) as string[]) || [],
+      process: (t('services.consulting.process', { returnObjects: true }) as string[]) || []
+    },
+    {
+      icon: <Zap className="h-8 w-8" />,
+      animatedIcon: <Zap className="h-24 w-24" />,
+      visualType: 'data-center' as const,
+      title: t('services.digitalSolutions.title'),
+      subtitle: t('services.digitalSolutions.subtitle'),
+      description: t('services.digitalSolutions.description'),
+      features: (t('services.digitalSolutions.features', { returnObjects: true }) as string[]) || [],
+      benefits: (t('services.digitalSolutions.benefits', { returnObjects: true }) as string[]) || [],
+      process: (t('services.digitalSolutions.process', { returnObjects: true }) as string[]) || []
     },
     {
       icon: <NetworkIcon size={32} />,
       animatedIcon: <NetworkIcon size={96} />,
       visualType: 'team' as const,
-      title: t('services.capacityBuilding.title'),
-      subtitle: t('services.capacityBuilding.subtitle'),
-      description: t('services.capacityBuilding.description'),
-      features: (t('services.capacityBuilding.features', { returnObjects: true }) as string[]) || [],
-      benefits: (t('services.capacityBuilding.benefits', { returnObjects: true }) as string[]) || [],
-      process: (t('services.capacityBuilding.process', { returnObjects: true }) as string[]) || []
+      title: t('services.training.title'),
+      subtitle: t('services.training.subtitle'),
+      description: t('services.training.description'),
+      features: (t('services.training.features', { returnObjects: true }) as string[]) || [],
+      benefits: (t('services.training.benefits', { returnObjects: true }) as string[]) || [],
+      process: (t('services.training.process', { returnObjects: true }) as string[]) || []
     }
   ]
 
-  const additionalServices = [
-    {
-      icon: <BarChart3 className="h-12 w-12 text-primary-600" />,
-      title: t('services.additional.dataVisualization.title'),
-      description: t('services.additional.dataVisualization.description')
-    },
-    {
-      icon: <Shield className="h-12 w-12 text-primary-600" />,
-      title: t('services.additional.dataGovernance.title'),
-      description: t('services.additional.dataGovernance.description')
-    },
-    {
-      icon: <Zap className="h-12 w-12 text-primary-600" />,
-      title: t('services.additional.processAutomation.title'),
-      description: t('services.additional.processAutomation.description')
-    }
-  ]
+  const additionalService = {
+    icon: <BookOpen className="h-12 w-12 text-primary-600" />,
+    title: t('services.additional.title'),
+    subtitle: t('services.additional.subtitle'),
+    description: t('services.additional.description'),
+    features: (t('services.additional.features', { returnObjects: true }) as string[]) || []
+  }
 
   const processSteps = [
     {
@@ -207,30 +208,30 @@ const ServicesPage: React.FC = () => {
 
       {/* Additional Services */}
       <section className="py-20 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-              {t('services.additional.title')}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="card text-center">
+            <div className="flex justify-center mb-6">
+              {additionalService.icon}
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-3">
+              {additionalService.title}
             </h2>
-            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-              {t('services.additional.subtitle')}
+            <p className="text-lg text-primary-600 mb-4">
+              {additionalService.subtitle}
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {additionalServices.map((service, index) => (
-              <div key={index} className="card text-center group hover:scale-105 transition-all duration-300 hover:shadow-2xl">
-                <div className="flex justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+            <p className="text-neutral-600 mb-6 max-w-2xl mx-auto">
+              {additionalService.description}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+              {additionalService.features.map((feature, index) => (
+                <div key={index} className="flex items-center justify-center">
+                  <CheckCircle className="h-5 w-5 text-primary-500 mr-2 flex-shrink-0" />
+                  <span className="text-neutral-600 text-sm">
+                    {feature}
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-neutral-600">
-                  {service.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
