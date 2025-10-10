@@ -127,8 +127,9 @@ company-status.md
 
 # SEO and documentation files (optional - keep locally for reference)
 # Uncomment if you don't want to push these to GitHub
-# SEO_*.md
-# START_HERE.md
+SEO_*.md
+START_HERE.md
+
 
 # OG Image Generator (HTML tool - not needed in production)
 og-image-generator.html
