@@ -42,6 +42,30 @@ export default function Document(props: DocumentProps) {
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Organization Structured Data for Google Search */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Saturne Lab",
+              "url": "https://www.saturne-lab.com",
+              "logo": "https://www.saturne-lab.com/images/saturne_lab_logo.png",
+              "description": "Building Africa's Intelligence Through Data. We transform raw information into economic intelligence for public institutions and businesses across Africa.",
+              "sameAs": [
+                "https://www.linkedin.com/company/saturne-lab",
+                "https://twitter.com/saturnelab"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Customer Service",
+                "email": "contact@saturne-lab.com"
+              }
+            })
+          }}
+        />
       </Head>
       <body>
         <Main />
