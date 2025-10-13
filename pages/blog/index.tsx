@@ -7,6 +7,7 @@ import { Search, Calendar, User, Tag, Clock, Mail } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useRouter } from 'next/router'
 import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
 interface BlogIndexProps {
@@ -16,11 +17,16 @@ interface BlogIndexProps {
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
   const { t } = useTranslation('common')
+  const router = useRouter()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
 
   // Handle client-side locale changes when navigating with browser back/forward
   useClientSideLocale()
+  
+  // Get current locale from URL
+  const currentLocale = router.asPath.startsWith('/en') ? 'en' : 'fr'
+  const localePrefix = currentLocale === 'en' ? '/en' : '/fr'
 
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
@@ -100,7 +106,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.length > 0 ? (
               filteredPosts.map((post) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                <a key={post.slug} href={`${localePrefix}/blog/${post.slug}`}>
                   <div className="card group cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-2xl">
                     <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg mb-4 flex items-center justify-center">
                       <span className="text-primary-600 text-6xl font-bold opacity-20">
@@ -140,7 +146,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
                       ))}
                     </div>
                   </div>
-                </Link>
+                </a>
               ))
             ) : (
               <div className="col-span-full">
