@@ -53,7 +53,7 @@ const AboutPage: React.FC = () => {
       name: t('about.team.members.jacques.name'),
       role: t('about.team.members.jacques.role'),
       bio: t('about.team.members.jacques.bio'),
-      image: "/team/jacques.jpg"
+      image: "/images/jacques.jpg"
     },
     {
       name: t('about.team.members.maurice.name'),
