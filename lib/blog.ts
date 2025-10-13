@@ -15,6 +15,8 @@ export interface BlogPost {
   readTime: string
   content: string
   excerpt: string
+  image?: string
+  imageCredit?: string
 }
 
 export function getAllPosts(): BlogPost[] {
@@ -46,6 +48,8 @@ export function getAllPosts(): BlogPost[] {
         readTime: data.readTime || '5 min read',
         content,
         excerpt: data.description || excerpt,
+        image: data.image || null,
+        imageCredit: data.imageCredit || null,
       } as BlogPost
     })
 
@@ -72,6 +76,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
       readTime: data.readTime || '5 min read',
       content,
       excerpt: data.description || excerpt,
+      image: data.image || null,
+      imageCredit: data.imageCredit || null,
     } as BlogPost
   } catch (error) {
     return null

@@ -43,20 +43,20 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
   }
 
   const components = {
-    h1: (props: any) => <h1 className="text-3xl font-bold mb-6 text-neutral-900 dark:text-white" {...props} />,
-    h2: (props: any) => <h2 className="text-2xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100 mt-8" {...props} />,
-    h3: (props: any) => <h3 className="text-xl font-medium mb-3 text-neutral-700 dark:text-neutral-200 mt-6" {...props} />,
-    p: (props: any) => <p className="mb-4 text-neutral-600 dark:text-neutral-300 leading-relaxed" {...props} />,
-    a: (props: any) => <a className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 underline" {...props} />,
-    ul: (props: any) => <ul className="list-disc list-inside mb-4 text-neutral-600 dark:text-neutral-300 space-y-1" {...props} />,
-    ol: (props: any) => <ol className="list-decimal list-inside mb-4 text-neutral-600 dark:text-neutral-300 space-y-1" {...props} />,
+    h1: (props: any) => <h1 className="text-3xl font-bold mb-6 text-neutral-900" {...props} />,
+    h2: (props: any) => <h2 className="text-2xl font-semibold mb-4 text-neutral-800 mt-8" {...props} />,
+    h3: (props: any) => <h3 className="text-xl font-medium mb-3 text-neutral-700 mt-6" {...props} />,
+    p: (props: any) => <p className="mb-4 text-neutral-600 leading-relaxed" {...props} />,
+    a: (props: any) => <a className="text-primary-600 hover:text-primary-700 underline" {...props} />,
+    ul: (props: any) => <ul className="list-disc list-inside mb-4 text-neutral-600 space-y-1" {...props} />,
+    ol: (props: any) => <ol className="list-decimal list-inside mb-4 text-neutral-600 space-y-1" {...props} />,
     li: (props: any) => <li className="mb-1" {...props} />,
     blockquote: (props: any) => (
-      <blockquote className="border-l-4 border-primary-500 pl-6 py-2 italic text-neutral-600 dark:text-neutral-300 mb-4 bg-primary-50 dark:bg-primary-900/20 rounded-r-lg" {...props} />
+      <blockquote className="border-l-4 border-primary-500 pl-6 py-2 italic text-neutral-600 mb-4 bg-primary-50 rounded-r-lg" {...props} />
     ),
-    code: (props: any) => <code className="bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded text-sm font-mono text-primary-600 dark:text-primary-400" {...props} />,
+    code: (props: any) => <code className="bg-neutral-100 px-2 py-1 rounded text-sm font-mono text-primary-600" {...props} />,
     pre: (props: any) => (
-      <pre className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg overflow-x-auto mb-4 border border-neutral-200 dark:border-neutral-700" {...props} />
+      <pre className="bg-neutral-100 p-4 rounded-lg overflow-x-auto mb-4 border border-neutral-200" {...props} />
     ),
     img: (props: any) => {
       // Use Next.js Image component with proper width/height and alt
@@ -81,11 +81,11 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
       description={post.description}
     >
       {/* Back Navigation */}
-      <div className="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-700">
+      <div className="bg-white border-b border-neutral-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <a 
             href={`${localePrefix}/blog`}
-            className="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200"
+            className="inline-flex items-center text-primary-600 hover:text-primary-700 transition-colors duration-200"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             {t('blog.post.backToBlog')}
@@ -94,24 +94,24 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
       </div>
 
       {/* Article Header */}
-      <article className="py-12 bg-white dark:bg-neutral-900">
+      <article className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="mb-8">
             <div className="mb-4">
-              <span className="inline-block px-3 py-1 text-sm font-medium bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full">
+              <span className="inline-block px-3 py-1 text-sm font-medium bg-primary-100 text-primary-700 rounded-full">
                 {post.category}
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4 leading-tight">
               {post.title}
             </h1>
             
-            <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-6 leading-relaxed">
+            <p className="text-xl text-neutral-600 mb-6 leading-relaxed">
               {post.description}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-500 dark:text-neutral-400">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-500">
               <div className="flex items-center">
                 <User className="h-4 w-4 mr-2" />
                 {post.author}
@@ -133,7 +133,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded"
+                      className="px-2 py-1 text-xs bg-neutral-100 text-neutral-600 rounded"
                     >
                       {tag}
                     </span>
@@ -143,19 +143,40 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
             )}
           </header>
 
+          {/* Featured Image */}
+          {post.image && (
+            <div className="mb-8">
+              <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 896px"
+                  priority
+                />
+              </div>
+              {post.imageCredit && (
+                <p className="text-xs text-neutral-500 italic mt-2 text-right">
+                  {post.imageCredit}
+                </p>
+              )}
+            </div>
+          )}
+
           {/* Article Content */}
-          <div className="prose prose-lg prose-neutral dark:prose-invert max-w-none">
+          <div className="prose prose-lg prose-neutral max-w-none">
             <MDXRemote {...mdxSource} components={components} />
           </div>
 
           {/* Article Footer */}
-          <footer className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-700">
+          <footer className="mt-12 pt-8 border-t border-neutral-200">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
               <div className="mb-4 md:mb-0">
-                <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-2">
                   {t('blog.post.aboutAuthor')}
                 </h3>
-                <p className="text-neutral-600 dark:text-neutral-300">
+                <p className="text-neutral-600">
                   {t('blog.post.authorBio', { author: post.author })}
                 </p>
               </div>
@@ -164,7 +185,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
                   href="https://www.linkedin.com/in/saturnelab/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                  className="inline-flex items-center text-neutral-600 hover:text-primary-600 transition-colors duration-200"
                 >
                   {/* Wrap icon in a client-side only component */}
                   <span className="inline-flex mr-2">
@@ -176,7 +197,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
                   href="https://twitter.com/saturnelab"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                  className="inline-flex items-center text-neutral-600 hover:text-primary-600 transition-colors duration-200"
                 >
                   <span className="inline-flex mr-2">
                     <Twitter className="h-4 w-4" />
@@ -187,7 +208,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, mdxSource }) => {
                   href="https://github.com/saturnelab"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                  className="inline-flex items-center text-neutral-600 hover:text-primary-600 transition-colors duration-200"
                 >
                   <span className="inline-flex mr-2">
                     <Github className="h-4 w-4" />

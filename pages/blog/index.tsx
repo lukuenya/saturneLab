@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
+import Image from 'next/image'
 import { GetServerSideProps } from 'next'
 import { getAllPosts, getAllCategories, BlogPost } from '@/lib/blog'
 import { Search, Calendar, User, Tag, Clock, Mail } from 'lucide-react'
@@ -108,10 +109,20 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
               filteredPosts.map((post) => (
                 <a key={post.slug} href={`${localePrefix}/blog/${post.slug}`}>
                   <div className="card group cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-2xl">
-                    <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg mb-4 flex items-center justify-center">
-                      <span className="text-primary-600 text-6xl font-bold opacity-20">
-                        {post.title.charAt(0)}
-                      </span>
+                    <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                      {post.image ? (
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <span className="text-primary-600 text-6xl font-bold opacity-20">
+                          {post.title.charAt(0)}
+                        </span>
+                      )}
                     </div>
                     
                     <div className="flex items-center justify-between mb-3">
