@@ -110,8 +110,8 @@
       }
     },
     "team": {
-      "title": "Notre équipe",
-      "subtitle": "Professionnels expérimentés passionnés par la science des données et engagés pour le développement de la RDC",
+      "title": "Nos fondateurs",
+      "subtitle": "Les visionnaires derrière Saturne Lab, soutenus par une équipe de professionnels expérimentés en science des données",
       "members": {
         "matthieu": {
           "name": "Matthieu Ndumbi",
@@ -122,16 +122,6 @@
           "name": "Mevis-Jacques Bakole",
           "role": "Co-Fondateur & Analyste en Chef",
           "bio": "Master en Finances et Économie mathématique avec expertise en ingénierie financière et analyse de données à grande échelle. A supervisé des projets nationaux de recensement et d'analyse pour l'ONIP, l'INS et la Banque mondiale."
-        },
-        "maurice": {
-          "name": "Maurice Nkanka",
-          "role": "Analyste Business Intelligence",
-          "bio": "Spécialisé en analyse d'affaires et visualisation. MBA de l'UNIKIN avec focus sur la stratégie d'affaires basée sur les données."
-        },
-        "johan": {
-          "name": "Johan Mufuta",
-          "role": "Ingénieur Logiciel et Cloud",
-          "bio": "BSc en Informatique avec expérience en développement logiciel et cloud computing. Il est également associé senior chez J.P. MORGAN."
         }
       }
     },

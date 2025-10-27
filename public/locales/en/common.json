@@ -111,8 +111,8 @@
       }
     },
     "team": {
-      "title": "Meet Our Team",
-      "subtitle": "Experienced professionals passionate about data science and committed to DRC's development",
+      "title": "Our Founders",
+      "subtitle": "The visionaries behind Saturne Lab, supported by a team of experienced data science professionals",
       "members": {
         "matthieu": {
           "name": "Matthieu Ndumbi",
@@ -123,16 +123,6 @@
           "name": "Mevis-Jacques Bakole",
           "role": "Co-Founder & Chief Analyst",
           "bio": "Master's in Finance and Mathematical Economics with expertise in financial engineering and large-scale data analysis. Supervised national census and analytical projects for ONIP, INS, and the World Bank."
-        },
-        "maurice": {
-          "name": "Maurice Nkanka",
-          "role": "Business Intelligence Analyst",
-          "bio": "Specializes in business analytics and visualization. MBA from UNIKIN with focus on data-driven business strategy."
-        },
-        "johan": {
-          "name": "Johan Mufuta",
-          "role": "Software and Cloud Engineer",
-          "bio": "BSc in Computer Science with experience in software development and cloud computing. He is also a senior associate at J.P. MORGAN."
         }
       }
     },

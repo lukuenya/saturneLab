@@ -54,18 +54,6 @@ const AboutPage: React.FC = () => {
       role: t('about.team.members.jacques.role'),
       bio: t('about.team.members.jacques.bio'),
       image: "/images/jacques.jpg"
-    },
-    {
-      name: t('about.team.members.maurice.name'),
-      role: t('about.team.members.maurice.role'),
-      bio: t('about.team.members.maurice.bio'),
-      image: "/team/maurice.jpg"
-    },
-    {
-      name: t('about.team.members.johan.name'),
-      role: t('about.team.members.johan.role'),
-      bio: t('about.team.members.johan.bio'),
-      image: "/team/johan.jpg"
     }
   ]
 
@@ -168,7 +156,7 @@ const AboutPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {team.map((member, index) => (
               <div key={index} className="card text-center">
                 <div className="relative w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden bg-gradient-to-br from-primary-400 to-secondary-400 flex items-center justify-center">
