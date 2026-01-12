@@ -7,9 +7,9 @@ const i18nConfig = {
 }
 
 /**
- * Next.js 15 Middleware for handling internationalization
+ * Next.js 16 Proxy for handling internationalization
  */
-export function middleware(request) {
+export function proxy(request) {
   const { pathname } = request.nextUrl
   
   // Skip files with extensions, Next.js internals, or API routes
