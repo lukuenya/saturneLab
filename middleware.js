@@ -7,9 +7,10 @@ const i18nConfig = {
 }
 
 /**
- * Next.js 16 Proxy for handling internationalization
+ * Next.js Middleware for handling internationalization
+ * Note: proxy.js convention has issues on Vercel, using middleware.js for now
  */
-export function proxy(request) {
+export function middleware(request) {
   const { pathname } = request.nextUrl
   
   // Skip files with extensions, Next.js internals, or API routes
