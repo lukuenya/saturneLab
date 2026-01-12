@@ -404,7 +404,6 @@
     ]
   },
   "newsletter": {
-    "subscribe": "S'abonner",
     "emailPlaceholder": "Votre adresse email",
     "subscribing": "Abonnement en cours...",
     "success": "Merci pour votre abonnement!",

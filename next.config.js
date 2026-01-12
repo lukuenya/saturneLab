@@ -8,10 +8,8 @@ const withMDX = require('@next/mdx')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configuration for Next.js 16
+  // Configuration for Next.js 15
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  // Enable Turbopack (default in Next.js 16)
-  turbopack: {},
   images: {
     remotePatterns: [
       {
