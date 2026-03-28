@@ -74,8 +74,8 @@ export default async function handler(
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
     
     const msg = {
-      to: 'contact@saturnelab.com',
-      from: 'noreply@saturnelab.com',
+      to: 'contact@saturne-lab.com',
+      from: 'noreply@saturne-lab.com',
       subject: `Contact Form: ${subject}`,
       html: `
         <h2>New Contact Form Submission</h2>

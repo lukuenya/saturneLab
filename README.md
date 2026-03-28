@@ -251,7 +251,7 @@ This project is proprietary to Saturne Lab. All rights reserved.
 
 For technical support or questions about the website:
 
-- **Email**: contact@saturnelab.cd
+- **Email**: contact@saturne-lab.cd
 - **Phone**: +243 820 220 521
 - **Location**: Kinshasa, DRC
 

@@ -44,7 +44,7 @@ export const OrganizationSchema: React.FC<OrganizationSchemaProps> = ({ locale =
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "email": "contact@saturnelab.com",
+      "email": "contact@saturne-lab.com",
       "availableLanguage": ["French", "English"]
     }
   }

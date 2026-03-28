@@ -132,7 +132,7 @@ const Footer: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary-400 flex-shrink-0" />
                 <a
-                  href="mailto:contact@saturnelab.com"
+                  href="mailto:contact@saturne-lab.com"
                   className="text-sm text-neutral-400 hover:text-primary-400 transition-colors duration-200"
                 >
                   contact@saturnelab.com
