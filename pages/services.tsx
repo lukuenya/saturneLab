@@ -3,8 +3,8 @@ import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { Database, TrendingUp, Users, BookOpen, ArrowRight, CheckCircle, BarChart3, Shield, Zap, Target } from 'lucide-react'
 import { GetServerSideProps } from 'next'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from '@/lib/i18n'
+import { loadTranslations } from '@/lib/server-translations'
 import { useRouter } from 'next/router'
 import { DataAnalyticsIcon, NetworkIcon, AIIcon, DatabaseIcon } from '@/components/animations/DataIcons'
 import { FloatingDataElements } from '@/components/animations/FloatingElements'
@@ -304,7 +304,6 @@ const ServicesPage: React.FC = () => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  // Get locale from middleware headers or URL path
   const headerLocale = req.headers['x-locale']
   const locale = (Array.isArray(headerLocale) ? headerLocale[0] : headerLocale) || 
                  (req.url?.startsWith('/fr') ? 'fr' : 
@@ -312,7 +311,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
+      translations: loadTranslations(locale, ['common']),
+      locale,
     },
   }
 }

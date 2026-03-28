@@ -3,8 +3,8 @@ import Layout from '@/components/Layout'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GetServerSideProps } from 'next'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from '@/lib/i18n'
+import { loadTranslations } from '@/lib/server-translations'
 import { useRouter } from 'next/router'
 import { ExcellenceIcon, CollaborationIcon, IntegrityIcon, ImpactIcon } from '@/components/animations/ValueIcons'
 import { useClientSideLocale } from '@/hooks/useClientSideLocale'
@@ -171,7 +171,7 @@ const AboutPage: React.FC = () => {
                     />
                   ) : (
                     <span className="text-white text-2xl font-bold">
-                      {member.name.split(' ').map(n => n[0]).join('')}
+                      {member.name.split(' ').map((n: string) => n[0]).join('')}
                     </span>
                   )}
                 </div>
@@ -209,14 +209,14 @@ const AboutPage: React.FC = () => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl }) => {
-  // Get locale from middleware headers or URL path
   const localeFromHeader = req.headers['x-locale'] as string
   const localeFromPath = resolvedUrl.startsWith('/en') ? 'en' : 'fr'
   const locale = localeFromHeader || localeFromPath
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
+      translations: loadTranslations(locale, ['common']),
+      locale,
     },
   }
 }

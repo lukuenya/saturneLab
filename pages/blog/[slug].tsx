@@ -8,8 +8,8 @@ import Link from 'next/link'
 import { getAllPosts, getPostBySlug, BlogPost } from '@/lib/blog'
 import { Calendar, User, Clock, Tag, ArrowLeft } from 'lucide-react'
 import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from '@/lib/i18n'
+import { loadTranslations } from '@/lib/server-translations'
 import { useRouter } from 'next/router'
 import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
@@ -253,7 +253,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params, req, reso
     props: {
       post,
       mdxSource,
-      ...(await serverSideTranslations(locale, ['common'])),
+      translations: loadTranslations(locale, ['common']),
+      locale,
     },
   }
 }

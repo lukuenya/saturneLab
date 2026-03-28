@@ -4,8 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, CheckCircle, TrendingUp, Users, Database, BarChart3, Calendar, Clock, User, Building2, Briefcase, Globe } from 'lucide-react'
 import { GetServerSideProps } from 'next'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from '@/lib/i18n'
+import { loadTranslations } from '@/lib/server-translations'
 import { useRouter } from 'next/router'
 import { DataAnalyticsIcon, NetworkIcon, AIIcon, DatabaseIcon } from '@/components/animations/DataIcons'
 import { FloatingDataElements } from '@/components/animations/FloatingElements'
@@ -347,27 +347,15 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, resolve
 
   console.log('Home page - Locale detection:', { localeFromHeader, localeFromPath, resolvedUrl, locale })
 
-  try {
-    const translations = await serverSideTranslations(locale, ['common'])
-    const recentPosts = getAllPosts().slice(0, 3) // Get the 3 most recent posts
-    console.log('Home page - Translations loaded successfully for locale:', locale)
-    
-    return {
-      props: {
-        ...translations,
-        recentPosts,
-      },
-    }
-  } catch (error) {
-    console.error('Home page - Error loading translations:', error)
-    // Fallback to French if there's an error
-    const fallbackTranslations = await serverSideTranslations('fr', ['common'])
-    return {
-      props: {
-        ...fallbackTranslations,
-        recentPosts: [],
-      },
-    }
+  const translations = loadTranslations(locale, ['common'])
+  const recentPosts = getAllPosts().slice(0, 3)
+
+  return {
+    props: {
+      translations,
+      locale,
+      recentPosts,
+    },
   }
 }
 

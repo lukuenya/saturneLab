@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import Layout from '@/components/Layout'
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { GetServerSideProps } from 'next'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from '@/lib/i18n'
+import { loadTranslations } from '@/lib/server-translations'
 import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
 interface FormData {
@@ -380,7 +380,6 @@ const ContactPage: React.FC = () => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  // Get locale from middleware headers or URL path
   const headerLocale = req.headers['x-locale']
   const locale = (Array.isArray(headerLocale) ? headerLocale[0] : headerLocale) || 
                  (req.url?.startsWith('/fr') ? 'fr' : 
@@ -388,7 +387,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
+      translations: loadTranslations(locale, ['common']),
+      locale,
     },
   }
 }

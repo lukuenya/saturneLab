@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mail, MapPin, Phone, Github, Twitter, Linkedin } from 'lucide-react'
 import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from '@/lib/i18n'
 import { useRouter } from 'next/router'
 
 // Dynamically import Image component with SSR disabled to prevent hydration errors

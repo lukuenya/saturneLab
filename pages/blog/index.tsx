@@ -6,8 +6,8 @@ import { GetServerSideProps } from 'next'
 import { getAllPosts, getAllCategories, BlogPost } from '@/lib/blog'
 import { Search, Calendar, User, Tag, Clock, Mail } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from '@/lib/i18n'
+import { loadTranslations } from '@/lib/server-translations'
 import { useRouter } from 'next/router'
 import { useClientSideLocale } from '@/hooks/useClientSideLocale'
 
@@ -227,7 +227,6 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts, categories }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl }) => {
-  // Get locale from middleware headers or URL path
   const localeFromHeader = req.headers['x-locale'] as string
   const localeFromPath = resolvedUrl.startsWith('/en') ? 'en' : 'fr'
   const locale = localeFromHeader || localeFromPath
@@ -239,7 +238,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, resolvedUrl 
     props: {
       posts,
       categories,
-      ...(await serverSideTranslations(locale, ['common'])),
+      translations: loadTranslations(locale, ['common']),
+      locale,
     },
   }
 }

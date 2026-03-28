@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app'
 import { MDXProvider } from '@mdx-js/react'
-import { appWithTranslation } from 'next-i18next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import { I18nProvider } from '@/lib/i18n'
 import '@/styles/globals.css'
 
 const inter = Inter({ 
@@ -33,16 +33,20 @@ const components = {
 }
 
 function App({ Component, pageProps }: AppProps) {
+  const { translations = {}, locale = 'fr', ...restProps } = pageProps
+
   return (
     <>
       <GoogleAnalytics />
       <div className={`${inter.variable} ${jetbrainsMono.variable}`}>
-        <MDXProvider components={components}>
-          <Component {...pageProps} />
-        </MDXProvider>
+        <I18nProvider translations={translations} locale={locale}>
+          <MDXProvider components={components}>
+            <Component {...restProps} />
+          </MDXProvider>
+        </I18nProvider>
       </div>
     </>
   )
 }
 
-export default appWithTranslation(App)
+export default App

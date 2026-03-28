@@ -1,10 +1,9 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import { DocumentProps } from 'next/document'
-import { i18n } from '../next-i18next.config'
 
 export default function Document(props: DocumentProps) {
-  // Get locale from request object or props
-  const currentLocale = props.__NEXT_DATA__?.locale || i18n.defaultLocale
+  // Get locale from request object or props, default to French
+  const currentLocale = props.__NEXT_DATA__?.locale || 'fr'
   
   return (
     <Html lang={currentLocale}>

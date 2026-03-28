@@ -1,65 +1,33 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
 
 /**
- * Production-safe hook for handling client-side locale changes
- * Fixes issues with browser back/forward navigation in Vercel production
+ * Hook for handling client-side locale detection from URL.
+ * With our custom I18nProvider, locale is already synced via _app.tsx props,
+ * so this hook now just handles browser back/forward by forcing a reload
+ * when the locale in the URL changes (to get fresh translations from SSR).
  */
 export const useClientSideLocale = () => {
   const router = useRouter()
-  const { i18n } = useTranslation()
-  const [isChangingLocale, setIsChangingLocale] = useState(false)
 
   useEffect(() => {
-    // Safety check: only run if router is ready
-    if (!router.isReady) {
-      return
-    }
+    if (!router.isReady) return
 
-    const detectAndSetLocale = async () => {
-      try {
-        const pathname = router.asPath
-        const localeFromPath = pathname.startsWith('/en') ? 'en' : 'fr'
-        
-        // Only change locale if it's different from current and i18n is initialized
-        if (i18n.language !== localeFromPath && i18n.isInitialized) {
-          console.log('Client-side locale change detected:', { 
-            from: i18n.language, 
-            to: localeFromPath, 
-            pathname 
-          })
-          
-          setIsChangingLocale(true)
-          
-          try {
-            await i18n.changeLanguage(localeFromPath)
-            // Wait a bit for translations to load
-            await new Promise(resolve => setTimeout(resolve, 150))
-          } catch (error) {
-            console.error('Error changing language:', error)
-          } finally {
-            setIsChangingLocale(false)
-          }
-        }
-      } catch (error) {
-        console.error('Error detecting locale:', error)
-        setIsChangingLocale(false)
+    const handleRouteChange = (url: string) => {
+      const newLocale = url.startsWith('/en') ? 'en' : 'fr'
+      const currentLocale = router.asPath.startsWith('/en') ? 'en' : 'fr'
+      
+      // If locale changed during client-side navigation, force reload to get SSR translations
+      if (newLocale !== currentLocale) {
+        window.location.href = url
       }
     }
 
-    // Detect locale on component mount
-    detectAndSetLocale()
-
-    // Listen for route changes
-    router.events.on('routeChangeComplete', detectAndSetLocale)
-    
+    router.events.on('routeChangeStart', handleRouteChange)
     return () => {
-      router.events.off('routeChangeComplete', detectAndSetLocale)
+      router.events.off('routeChangeStart', handleRouteChange)
     }
-  }, [router.isReady, router.asPath, router.events, i18n])
+  }, [router.isReady, router.asPath, router.events])
 
-  // Return whether translations are ready to use
-  // Start with true (assume SSR loaded translations), only false when actively changing
-  return { ready: !isChangingLocale }
+  return { ready: true }
 }
