@@ -60,13 +60,13 @@ const Footer: React.FC = () => {
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="text-neutral-400 hover:text-primary-400 transition-colors duration-200"
                 aria-label={t('footer.githubLabel')}
               >
                 <Github className="h-5 w-5" />
-              </a>
+              </a> */}
             </div>
           </div>
 
