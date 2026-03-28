@@ -239,7 +239,15 @@ export const getServerSideProps: GetServerSideProps = async ({ params, req, reso
     }
   }
 
-  const mdxSource = await serialize(post.content)
+  const mdxSource = await serialize(post.content, {
+    mdxOptions: {
+      development: false
+    },
+    // Explicitly set these to false to allow JS expressions if needed
+    // This matches v5 behavior
+    blockJS: false,
+    blockDangerousJS: false
+  })
 
   return {
     props: {
