@@ -118,7 +118,7 @@ const ContactPage: React.FC = () => {
     {
       icon: <Mail className="h-6 w-6 text-primary-600" />,
       title: t('contact.info.email.title'),
-      content: "contact@saturnelab.com",
+      content: "contact@saturne-lab.com",
       description: t('contact.info.email.description')
     },
     {
