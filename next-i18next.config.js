@@ -7,6 +7,11 @@ module.exports = {
     localeDetection: false,
   },
   defaultNS: 'common',
-  localePath: path.resolve('./public/locales'),
+  // Use absolute path that works both locally and on Vercel
+  localePath: typeof window === 'undefined' 
+    ? path.resolve(process.cwd(), './public/locales')
+    : '/locales',
   reloadOnPrerender: process.env.NODE_ENV === 'development',
+  // Disable SSR locale detection since we use custom middleware
+  serializeConfig: false,
 }
